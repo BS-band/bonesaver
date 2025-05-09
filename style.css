@@ -1,6 +1,6 @@
 /* Globální proměnné a základní reset */
 :root {
-    --primary-color: #E63946; /* Výrazná červená/oranžová */
+    --primary-color: #6384f0; /* Výrazná červená/oranžová */
     --secondary-color: #F1FAEE; /* Velmi světlá, téměř bílá */
     --accent-color: #A8DADC; /* Světlá modrozelená */
     --dark-color: #1D3557; /* Tmavě modrá */
@@ -131,11 +131,11 @@ p {
     color: #fff;
 }
 
-.btn-accent {
+.btn.btn-accent {
     background-color: var(--accent-color);
     color: var(--dark-color);
 }
-.btn-accent:hover {
+.btn.btn-accent:hover {
     background-color: #86c9ca;
     color: var(--dark-color);
 }
@@ -170,8 +170,8 @@ p {
 
 .nav-logo {
     font-family: var(--font-primary);
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 600;
     color: var(--primary-color);
 }
 
@@ -383,25 +383,28 @@ p {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
-.testimonial-item p {
+
+/* ZMĚNA ZDE: Upraven selektor pro text v referencích */
+section.testimonials .testimonial-item p {
     font-style: italic;
     margin-bottom: 1rem;
     flex-grow: 1;
-    color: #444;
+    color: var(--text-color);
 }
 .testimonial-item footer {
-    margin-top: 1rem;
-    text-align: right;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 .testimonial-item cite {
-    font-weight: 600;
-    color: var(--dark-color);
+    font-weight: 400;
+    color: var(--color);
     font-style: normal;
 }
 
 /* CTA sekce */
 .cta-contact h2 { margin-bottom: 0.5rem; }
-.cta-contact p { font-size: 1.1rem; margin-bottom: 2rem; }
+.cta-contact p { font-size: 0.5
+    rem; margin-bottom: 2rem; }
 
 /* Patička */
 footer {
@@ -485,78 +488,46 @@ footer {
 /* Stránka "O nás" */
 .about-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr; /* ***** ZMĚNA: Text dostane více prostoru ***** */
-    gap: 50px; /* Větší mezera */
-    align-items: flex-start; /* Nebo center, podle toho jak chceme zarovnat vertikálně */
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: flex-start;
     margin-bottom: 3rem;
 }
 .about-text {
-    /* Text je první, aby na mobilu byl nahoře, pokud změníme pořadí v gridu */
 }
-.about-image-large img { /* ***** ZMĚNA: Třída z HTML ***** */
+.about-image-large img {
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    width: 100%; /* Obrázek se přizpůsobí sloupci */
+    width: 100%;
 }
 
 .member-heading {
     margin-top: 3rem;
     margin-bottom: 2.5rem;
 }
-.members-grid-wrapper { /* ***** PŘIDÁNO: Wrapper pro centrování ***** */
+.members-grid-wrapper {
     display: flex;
     justify-content: center;
 }
 .members-grid {
     display: grid;
-    /* ***** ZMĚNA: Dynamické přizpůsobení počtu sloupců ***** */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
     text-align: center;
-    width: 100%; /* Grid zabere šířku wrapperu */
-    max-width: calc(200px * 3 + 25px * 2); /* Maximální šířka pro 3 sloupce */
+    width: 100%;
+    max-width: calc(200px * 3 + 25px * 2);
 }
-/* Pro 5 členů chceme 3 nahoře, 2 dole centrovaně. Toto je složitější jen s auto-fit.
-   Jednodušší je nastavit pevný počet sloupců pro větší obrazovky a media queries.
-   Nebo použít flexbox pro poslední řádek.
-   Pro tento příklad ponecháme auto-fit a spolehneme se, že pro 5 prvků
-   se to zalomí na 3 a 2, pokud max-width je správně.
-   Pokud potřebujeme přesné 3-2, museli bychom použít media query a explicitní grid-template-columns.
-   Alternativně: */
-@media (min-width: 769px) { /* Pro desktop a větší tablety */
+
+@media (min-width: 769px) {
     .members-grid {
-        grid-template-columns: repeat(3, 1fr); /* Maximálně 3 sloupce */
+        grid-template-columns: repeat(3, 1fr);
     }
-    /* Pokud máme 5 prvků a 3 sloupce, 4. a 5. prvek budou na druhém řádku.
-       Pro jejich centrování, pokud jsou jen dva: */
-    .member-card:nth-last-child(2):first-child, /* Pokud jsou jen 2 prvky celkem */
-    .member-card:nth-last-child(2):nth-child(odd) { /* Pokud je lichý počet prvků a 2. od konce je na lichém místě (tj. začátek řádku) */
-        /* Pro 5 prvků (pátý je lichý od konce) */
-        /* grid-column: span 1; (standard) */
-    }
-     /* Pokud chceme dva poslední centrované, je lepší použít flexbox na wrapper .members-grid */
-    .members-grid-wrapper {
-        /* Ne, toto je pro grid */
-    }
-    /* Nejlepší řešení pro 3-2 by bylo přímé stylování posledních prvků,
-       nebo menší úprava HTML a použití flexboxu pro poslední řádek.
-       Pro jednoduchost ponecháme Grid a spolehneme se na přirozené zalomení.
-       Pokud je .members-grid-wrapper flex kontejner:
-       .members-grid { display: flex; flex-wrap: wrap; justify-content: center; }
-       .member-card { flex: 0 0 calc(33.333% - 20px); /* Pro 3 v řadě, s gapem */ }
-       Toto je komplexnější změna, zůstaneme u Gridu.
-    */
 }
-/* Specific styling for 5 items to achieve 3 then 2 centered. This is a bit tricky with pure auto-fit grid.
-   A common approach:
-   - Set a max-width on the grid itself to encourage 3 columns.
-   - For the last row (if it has fewer items), it might not center automatically.
-   A simpler way if the number of members is fixed or small:
-*/
-.members-grid { /* Default for smaller screens (up to 2 columns) */
-    max-width: calc(200px * 2 + 25px); /* Max 2 columns default */
+
+.members-grid {
+    max-width: calc(200px * 2 + 25px);
 }
-@media (min-width: 650px) { /* For 3 columns */
+@media (min-width: 650px) {
     .members-grid {
         max-width: calc(200px * 3 + 25px * 2);
     }
@@ -671,16 +642,16 @@ footer {
     .hero { min-height: 400px; height: auto; padding: 5rem 0; }
 
 
-    .about-grid { /* Na menších obrazovkách obrázek nad textem */
+    .about-grid {
         grid-template-columns: 1fr;
     }
-    .about-image-large { /* Obrázek bude první v DOMu nebo ho přesunout pomocí order */
-        order: -1; /* Pokud je .about-text první v HTML */
+    .about-image-large {
+        order: -1;
         margin-bottom: 2rem;
-        text-align: center; /* Pro případ, že by img neměl display block */
+        text-align: center;
     }
     .about-image-large img {
-        max-width: 500px; /* Omezení maximální šířky na tabletech */
+        max-width: 500px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -711,10 +682,10 @@ footer {
         padding: 0;
         box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         border-top: 1px solid #eee;
-        z-index: 999; 
+        z-index: 999;
     }
-    .nav-menu.active { display: flex; } 
-    
+    .nav-menu.active { display: flex; }
+
     .nav-list {
         flex-direction: column;
         width: 100%;
@@ -731,25 +702,25 @@ footer {
         border-bottom: none;
     }
 
+    /* ZMĚNY ZDE pro mobilní navigaci */
     .nav-link {
         padding: 1rem 1.5rem;
         display: block;
         width: 100%;
         height: auto;
-        background-color: #ffffff !important; /* ***** ZMĚNA: Vynucené bílé pozadí i pro aktivní ***** */
-        color: var(--dark-color); 
-        border-bottom: none;
+        background-color: #ffffff; /* Odstraněno !important */
+        color: var(--dark-color);
     }
-    .nav-link:hover { /* Pouze hover mění barvu textu a jemné pozadí */
+    .nav-link:hover:not(.btn-primary) { /* Hover pro běžné odkazy (ne tlačítko Kontakt) */
         color: var(--primary-color);
-        background-color: rgba(230, 57, 70, 0.08) !important;
+        background-color: #f8f8f8; /* Světle šedé pozadí pro hover */
     }
-    .nav-link.active { /* Aktivní odkaz má pouze jinou barvu textu, pozadí zůstává bílé */
+    .nav-link.active:not(.btn-primary) { /* Aktivní pro běžné odkazy (ne tlačítko Kontakt) */
         color: var(--primary-color) !important;
-        font-weight: 700; /* Mírné zvýraznění */
-        /* background-color: #ffffff !important; (již nastaveno výše) */
+        font-weight: 700;
+        background-color: #eeeeee !important; /* Světle šedé neprůhledné pozadí pro aktivní položku */
     }
-    
+
     .nav-link.btn {
         margin: 0;
         display: block;
@@ -757,18 +728,19 @@ footer {
         border-radius: 0;
         padding: 1rem 1.5rem !important;
     }
-    .nav-link.btn.btn-primary {
+    .nav-link.btn.btn-primary { /* Styly pro tlačítko Kontakt */
         background-color: var(--primary-color) !important;
         color: #fff !important;
     }
     .nav-link.btn.btn-primary:hover,
-    .nav-link.btn.btn-primary.active { /* Tlačítko kontakt má i při active červené pozadí */
+    .nav-link.btn.btn-primary.active { /* Aktivní a hover stav pro tlačítko Kontakt */
         background-color: #c22e3a !important;
         color: #fff !important;
     }
+    /* Konec změn pro mobilní navigaci */
 
-    .members-grid { /* Pro mobil (1 sloupec) */
-        max-width: 300px; /* Nebo jiná vhodná šířka pro jeden sloupec */
+    .members-grid {
+        max-width: 300px;
         grid-template-columns: 1fr;
     }
 
