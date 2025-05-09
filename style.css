@@ -279,7 +279,7 @@ p {
 /* Hero sekce */
 .hero {
     background-image: url('img/hero-background.JPG');
-    background-size: contain;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #101010;
