@@ -1,0 +1,213 @@
+﻿Diagnose log at 2026-02-11T17:04:16Z
+
+AppPath: C:\Program Files\Git\clangarm64\bin\git-credential-manager.exe
+InstallDir: C:\Program Files\Git\clangarm64\bin\
+Version: 2.6.1+786ab03440ddc82e807a97c0e540f5247e44cec6
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Windows
+OSVersion: 10.0 (build 26200)
+Reading environment variables... OK
+ Variables:
+HOMEPATH=\Users\mbecicka
+DriverData=C:\Windows\System32\Drivers\DriverData
+COMPUTERNAME=MBESURFLAP7
+GIT_TRACE2_PARENT_SID=2d60bca9-e3c5-4b80-8e28-9917d8fa69e5
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+OneDrive=C:\Users\mbecicka\OneDrive - ARTEX informační systémy spol. s r.o
+SESSIONNAME=Console
+ProgramFiles(Arm)=C:\Program Files (Arm)
+TMP=C:\Users\mbecicka\AppData\Local\Temp
+LC_CTYPE=C.UTF-8
+USERDOMAIN_ROAMINGPROFILE=ARTEX
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+VSCODE_IPC_HOOK=\\.\pipe\0c01317b-1.104.0-main-sock
+EFC_12136_2397410445=1
+ANTIGRAVITY_EDITOR_APP_ROOT=c:\Users\mbecicka\AppData\Local\Programs\Antigravity\resources\app
+GIT_EXEC_PATH=C:/Program Files/Git/clangarm64/libexec/git-core
+TEMP=C:\Users\mbecicka\AppData\Local\Temp
+LOCALAPPDATA=C:\Users\mbecicka\AppData\Local
+MSYSTEM=CLANGARM64
+TERM=xterm-256color
+PROCESSOR_IDENTIFIER=ARMv8 (64-bit) Family 8 Model 1 Revision 201, Qualcomm Technologies Inc
+GOPATH=C:\Users\mbecicka\go
+ProgramData=C:\ProgramData
+windir=C:\Windows
+USERDNSDOMAIN=artex.local
+USERDOMAIN=ARTEX
+EFC_12136_1592913036=1
+PROCESSOR_REVISION=0201
+Path=C:/Program Files/Git/clangarm64/libexec/git-core;C:\Program Files\Git\clangarm64/bin;C:\Program Files\Git\usr\bin;C:\Users\mbecicka\bin;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.4.0_arm64__8wekyb3d8bbwe;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Go\bin;C:\Users\mbecicka\AppData\Local\Programs\Python\Python311-arm64\Scripts\;C:\Users\mbecicka\AppData\Local\Programs\Python\Python311-arm64\;C:\Users\mbecicka\AppData\Local\Microsoft\WindowsApps;C:\Users\mbecicka\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mbecicka\AppData\Local\GitHubDesktop\bin;C:\Users\mbecicka\AppData\Roaming\npm;C:\Users\mbecicka\AppData\Local\Programs\Antigravity\bin;C:\Users\mbecicka\go\bin
+EFC_12136_2283032206=1
+PROCESSOR_LEVEL=1
+NUMBER_OF_PROCESSORS=12
+TMPDIR=C:\Users\mbecicka\AppData\Local\Temp
+ProgramFiles(x86)=C:\Program Files (x86)
+PUBLIC=C:\Users\Public
+VSCODE_NLS_CONFIG={"userLocale":"en-us","osLocale":"cs","resolvedLanguage":"en","defaultMessagesFile":"C:\\Users\\mbecicka\\AppData\\Local\\Programs\\Antigravity\\resources\\app\\out\\nls.messages.json","locale":"en-us","availableLanguages":{}}
+FPS_BROWSER_USER_PROFILE_STRING=Default
+CommonProgramFiles=C:\Program Files (x86)\Common Files
+VSCODE_ESM_ENTRYPOINT=vs/workbench/api/node/extensionHostProcess
+CHROME_CRASHPAD_PIPE_NAME=\\.\pipe\crashpad_29708_OHKHSIOEURVJPJBN
+PLINK_PROTOCOL=ssh
+COLORTERM=truecolor
+ProgramFiles=C:\Program Files (x86)
+CommonProgramFiles(Arm)=C:\Program Files (Arm)\Common Files
+VSCODE_L10N_BUNDLE_LOCATION=
+VSCODE_CODE_CACHE_PATH=C:\Users\mbecicka\AppData\Roaming\Antigravity\CachedData\7a8657542180fb8440c8dcc20d83285fe11360ed
+EFC_12136_2775293581=1
+ProgramW6432=C:\Program Files
+ORIGINAL_XDG_CURRENT_DESKTOP=undefined
+HOME=C:\Users\mbecicka
+VSCODE_HANDLES_UNCAUGHT_ERRORS=true
+SystemRoot=C:\Windows
+CommonProgramW6432=C:\Program Files\Common Files
+LOGONSERVER=\\MBESURFLAP7
+VSCODE_CWD=C:\Users\mbecicka\AppData\Local\Programs\Antigravity
+EFC_12136_3789132940=1
+NO_PROXY=*.azureedge.net
+APPDATA=C:\Users\mbecicka\AppData\Roaming
+HOMEDRIVE=C:
+VSCODE_PID=29708
+OneDriveCommercial=C:\Users\mbecicka\OneDrive - ARTEX informační systémy spol. s r.o
+EFC_12136_1262719628=1
+PSModulePath=C:\Users\mbecicka\OneDrive - ARTEX informační systémy spol. s r.o\Documents\PowerShell\Modules;C:\Program Files\PowerShell\Modules;c:\program files\windowsapps\microsoft.powershell_7.5.4.0_arm64__8wekyb3d8bbwe\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+ELECTRON_RUN_AS_NODE=1
+USERNAME=mbecicka
+PROCESSOR_ARCHITEW6432=ARM64
+FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer
+PROCESSOR_ARCHITECTURE=x86
+USERPROFILE=C:\Users\mbecicka
+OS=Windows_NT
+ComSpec=C:\Windows\system32\cmd.exe
+SystemDrive=C:
+VSCODE_CRASH_REPORTER_PROCESS_TYPE=extensionHost
+OneDriveConsumer=C:\Users\mbecicka\OneDrive
+ALLUSERSPROFILE=C:\ProgramData
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is 'C:\Users\mbecicka\AppData\Local\Temp\'...
+Checking basic file I/O...
+Writing to temporary file 'C:\Users\mbecicka\AppData\Local\Temp\66ed44cfbd2b640233135dae'... OK
+Reading from temporary file 'C:\Users\mbecicka\AppData\Local\Temp\66ed44cfbd2b640233135dae'... OK
+Deleting temporary file 'C:\Users\mbecicka\AppData\Local\Temp\66ed44cfbd2b640233135dae'... OK
+Testing IFileSystem instance...
+UserHomePath: C:\Users\mbecicka
+UserDataDirectoryPath: C:\Users\mbecicka\.gcm
+GetCurrentDirectory(): C:\Users\mbecicka\OneDrive - ARTEX informační systémy spol. s r.o\Documents\GitHub\bonesaver
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com...Sending HEAD request to https://example.com... OK
+ OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:58922/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.49.0.windows.1'
+Locating current repository...Git repository at 'C:/Users/mbecicka/OneDrive - ARTEX informa─Źn├ş syst├ęmy spol. s r.o/Documents/GitHub/bonesaver/.git'
+ OK
+Listing all Git configuration... OK
+Git configuration:
+file:C:/Program Files/Git/etc/gitconfig	diff.astextplain.textconv=astextplain
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.required=true
+file:C:/Program Files/Git/etc/gitconfig	http.sslbackend=schannel
+file:C:/Program Files/Git/etc/gitconfig	core.autocrlf=true
+file:C:/Program Files/Git/etc/gitconfig	core.fscache=true
+file:C:/Program Files/Git/etc/gitconfig	core.symlinks=false
+file:C:/Program Files/Git/etc/gitconfig	pull.rebase=false
+file:C:/Program Files/Git/etc/gitconfig	credential.helper=manager
+file:C:/Program Files/Git/etc/gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:C:/Program Files/Git/etc/gitconfig	init.defaultbranch=master
+file:C:/Users/mbecicka/.gitconfig	filter.lfs.required=true
+file:C:/Users/mbecicka/.gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Users/mbecicka/.gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Users/mbecicka/.gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Users/mbecicka/.gitconfig	user.name=BS-band
+file:C:/Users/mbecicka/.gitconfig	user.email=bonesavermusic@gmail.com
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=false
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	core.symlinks=false
+file:.git/config	core.ignorecase=true
+file:.git/config	lfs.repositoryformatversion=0
+file:.git/config	remote.origin.url=https://github.com/BS-band/bonesaver.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config	branch.main.remote=origin
+file:.git/config	branch.main.merge=refs/heads/main
+file:.git/config	branch.main.vscode-merge-base=origin/main
+file:.git/config	branch.main.vscode-merge-base=origin/main
+file:.git/config	branch.main.vscode-merge-base=origin/main
+file:.git/config	branch.main.gk-last-accessed=2026-02-11T16:59:08.574Z
+file:.git/config	branch.main.gk-last-modified=2026-02-11T16:59:08.574Z
+file:.git/config	branch.main.gk-merge-base=origin/main
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Flow type is: Auto
+Gathering MSAL token cache data... OK
+CacheDirectory: C:\Users\mbecicka\AppData\Local\.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: C:\Users\mbecicka\AppData\Local\.IdentityService\msal.cache
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: True
+Exception: None
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint... OK
+
