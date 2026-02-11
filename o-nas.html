@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O kapele BoneSaver | Hudební skupina Pardubice</title>
-    <meta name="description" content="Poznejte kapelu BoneSaver z Pardubic. Parta nadšených muzikantů hrající rock, pop a taneční hity. Členové kapely a náš přístup k hudbě.">
+    <meta name="description"
+        content="Poznejte kapelu BoneSaver z Pardubic. Parta nadšených muzikantů hrající rock, pop a taneční hity. Členové kapely a náš přístup k hudbě.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="O kapele BoneSaver | Hudební skupina Pardubice">
+    <meta property="og:description"
+        content="Poznejte kapelu BoneSaver z Pardubic. Parta nadšených muzikantů hrající rock, pop a taneční hity.">
+    <meta property="og:image" content="https://www.bonesaver.cz/img/band-photo-2.JPG">
+    <meta property="og:url" content="https://www.bonesaver.cz/o-nas.html">
+    <meta property="og:type" content="website">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.bonesaver.cz/o-nas.html">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "BoneSaver",
+      "url": "https://www.bonesaver.cz",
+      "logo": "https://www.bonesaver.cz/img/logo.png",
+      "sameAs": [
+        "https://facebook.com/bonesaver",
+        "https://www.instagram.com/bonesaver.cz",
+        "https://www.youtube.com/@bonesaver2347"
+      ],
+      "genre": ["Rock", "Pop"],
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pardubice",
+          "addressCountry": "CZ"
+        }
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/favicon.png" type="image/png">
 </head>
+
 <body>
     <header class="navbar">
         <div class="container">
@@ -27,6 +66,11 @@
                     <li class="nav-item"><a href="repertoar.html" class="nav-link">Repertoár</a></li>
                     <li class="nav-item"><a href="ukazky.html" class="nav-link">Ukázky</a></li>
                     <li class="nav-item"><a href="kontakt.html" class="nav-link btn btn-primary">Kontakt</a></li>
+                    <li class="nav-item theme-switch-item">
+                        <button id="theme-switcher" class="theme-switcher-btn" aria-label="Přepnout tmavý/světlý režim">
+                            <span class="theme-icon-placeholder"></span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -44,13 +88,22 @@
                 <div class="about-grid">
                     <div class="about-text">
                         <h2>Naše vášeň pro hudbu</h2>
-                        <p>Jsme parta nadšených muzikantů z Pardubic, které spojuje láska k dobré hudbě a touha bavit lidi. BoneSaver vznikl s cílem přinášet na pódia energická vystoupení plná známých hitů, které si každý rád poslechne a zazpívá.</p>
-                        <p>Náš repertoár je široký – od nesmrtelných rockových klasik přes populární popové melodie až po taneční pecky, které nenechají nikoho sedět. Hrajeme 100% naživo a vždy s maximálním nasazením. Kromě kytar, bicích a kláves máme i saxofon, který dodá naší muzice punc originality.</p>
+                        <p>Jsme parta nadšených muzikantů z Pardubic, které spojuje láska k dobré hudbě a touha bavit
+                            lidi. BoneSaver vznikl s cílem přinášet na pódia energická vystoupení plná známých hitů,
+                            které si každý rád poslechne a zazpívá.</p>
+                        <p>Náš repertoár je široký – od nesmrtelných rockových klasik přes populární popové melodie až
+                            po taneční pecky, které nenechají nikoho sedět. Hrajeme 100% naživo a vždy s maximálním
+                            nasazením. Kromě kytar, bicích a kláves máme i saxofon, který dodá naší muzice punc
+                            originality.</p>
                         <h3>Co hrajeme?</h3>
-                        <p>Zaměřujeme se na cover verze známých českých i zahraničních interpretů. Na našem playlistu najdete písně od kapel jako Kabát, Harlej, Tři sestry, Hudba Praha, AC/DC, Kiss, ale i modernější interprety jako Rybičky 48, Walda Gang, Chinaski, Kryštof, Lady GaGa a mnoho dalších. Pro plesy a společenské události máme připravené i standardní taneční skladby (polka, valčík, waltz, tango...).</p>
+                        <p>Zaměřujeme se na cover verze známých českých i zahraničních interpretů. Na našem playlistu
+                            najdete písně od kapel jako Kabát, Harlej, Tři sestry, Hudba Praha, AC/DC, Kiss, ale i
+                            modernější interprety jako Rybičky 48, Walda Gang, Chinaski, Kryštof, Lady GaGa a mnoho
+                            dalších. Pro plesy a společenské události máme připravené i standardní taneční skladby
+                            (polka, valčík, waltz, tango...).</p>
                     </div>
                     <div class="about-image-large"> <!-- Změna třídy pro větší obrázek -->
-                        <img src="img/band-photo-2.JPG" alt="Kapela BoneSaver v akci na pódiu">
+                        <img loading="lazy" src="img/band-photo-2.JPG" alt="Kapela BoneSaver v akci na pódiu">
                     </div>
                 </div>
 
@@ -58,27 +111,27 @@
                 <div class="members-grid-wrapper"> <!-- Přidán wrapper pro lepší centrování -->
                     <div class="members-grid">
                         <div class="member-card">
-                            <img src="img/member-MBE.JPG" alt="Mirek Bečička">
+                            <img loading="lazy" src="img/member-MBE.JPG" alt="Mirek Bečička">
                             <h4>Mirek Bečička</h4>
                             <p>Kytara, Saxofon, Klávesy, Zpěv</p>
                         </div>
                         <div class="member-card">
-                            <img src="img/member-ALH.JPG" alt="Adéla Lhotová">
+                            <img loading="lazy" src="img/member-ALH.JPG" alt="Adéla Lhotová">
                             <h4>Adéla Lhotová</h4>
                             <p>Klávesy, Zpěv</p>
                         </div>
                         <div class="member-card">
-                            <img src="img/member-DSST.JPG" alt="David Syrovec">
+                            <img loading="lazy" src="img/member-DSST.JPG" alt="David Syrovec">
                             <h4>David Syrovec</h4>
                             <p>Basová kytara</p>
                         </div>
                         <div class="member-card">
-                             <img src="img/member-DSML.JPG" alt="David Pasta Syrovec"> 
-                            <h4>David "Pasta" Syrovec</h4> 
+                            <img loading="lazy" src="img/member-DSML.JPG" alt="David Pasta Syrovec">
+                            <h4>David "Pasta" Syrovec</h4>
                             <p>Kytara</p>
                         </div>
                         <div class="member-card">
-                            <img src="img/member-PAD.JPG" alt="Petr Adam">
+                            <img loading="lazy" src="img/member-PAD.JPG" alt="Petr Adam">
                             <h4>Petr "Dolfi" Adam</h4>
                             <p>Bicí, Zpěv</p>
                         </div>
@@ -94,14 +147,19 @@
                 <div class="footer-contact">
                     <h4>Kontaktujte nás</h4>
                     <p>Ing. Miroslav Bečička</p>
-                    <p><img src="img/icon-phone.svg" alt="" class="contact-icon"> <a href="tel:+420734393711">+420 734 393 711</a></p>
-                    <p><img src="img/icon-email.svg" alt="" class="contact-icon"> <a href="mailto:bonesavermusic@gmail.com">bonesavermusic@gmail.com</a></p>
+                    <p><img loading="lazy" src="img/icon-phone.svg" alt="" class="contact-icon"> <a
+                            href="tel:+420734393711">+420 734 393 711</a></p>
+                    <p><img loading="lazy" src="img/icon-email.svg" alt="" class="contact-icon"> <a
+                            href="mailto:bonesavermusic@gmail.com">bonesavermusic@gmail.com</a></p>
                 </div>
                 <div class="footer-social">
                     <h4>Sledujte nás</h4>
-                    <a href="https://facebook.com/bonesaver" target="_blank" aria-label="Facebook"><img src="img/icon-facebook.svg" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/bonesaver.cz" target="_blank" aria-label="Instagram"><img src="img/icon-instagram.svg" alt="Instagram"></a>
-                    <a href="https://www.youtube.com/@bonesaver2347" target="_blank" aria-label="YouTube"><img src="img/icon-youtube.svg" alt="YouTube"></a>
+                    <a href="https://facebook.com/bonesaver" target="_blank" aria-label="Facebook"><img loading="lazy"
+                            src="img/icon-facebook.svg" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/bonesaver.cz" target="_blank" aria-label="Instagram"><img
+                            loading="lazy" src="img/icon-instagram.svg" alt="Instagram"></a>
+                    <a href="https://www.youtube.com/@bonesaver2347" target="_blank" aria-label="YouTube"><img
+                            loading="lazy" src="img/icon-youtube.svg" alt="YouTube"></a>
                 </div>
             </div>
             <div class="copyright">
@@ -110,6 +168,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script loading="lazy" src="script.js"></script>
 </body>
+
 </html>

@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repertoár - BoneSaver | Seznam písní a žánrů</title>
-    <meta name="description" content="Prohlédněte si repertoár kapely BoneSaver. Hrajeme české i zahraniční rockové a popové hity, taneční hudbu pro plesy a oslavy. Možnost stažení PDF.">
+    <meta name="description"
+        content="Prohlédněte si repertoár kapely BoneSaver. Hrajeme české i zahraniční rockové a popové hity, taneční hudbu pro plesy a oslavy. Možnost stažení PDF.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Repertoár - BoneSaver | Seznam písní a žánrů">
+    <meta property="og:description"
+        content="Prohlédněte si repertoár kapely BoneSaver. Hrajeme české i zahraniční rockové a popové hity.">
+    <meta property="og:image" content="https://www.bonesaver.cz/img/logo.png">
+    <meta property="og:url" content="https://www.bonesaver.cz/repertoar.html">
+    <meta property="og:type" content="website">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.bonesaver.cz/repertoar.html">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "BoneSaver",
+      "url": "https://www.bonesaver.cz",
+      "logo": "https://www.bonesaver.cz/img/logo.png",
+      "sameAs": [
+        "https://facebook.com/bonesaver",
+        "https://www.instagram.com/bonesaver.cz",
+        "https://www.youtube.com/@bonesaver2347"
+      ],
+      "genre": ["Rock", "Pop"],
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pardubice",
+          "addressCountry": "CZ"
+        }
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/favicon.png" type="image/png">
 </head>
+
 <body>
     <header class="navbar">
         <div class="container">
@@ -27,6 +66,11 @@
                     <li class="nav-item"><a href="repertoar.html" class="nav-link">Repertoár</a></li>
                     <li class="nav-item"><a href="ukazky.html" class="nav-link">Ukázky</a></li>
                     <li class="nav-item"><a href="kontakt.html" class="nav-link btn btn-primary">Kontakt</a></li>
+                    <li class="nav-item theme-switch-item">
+                        <button id="theme-switcher" class="theme-switcher-btn" aria-label="Přepnout tmavý/světlý režim">
+                            <span class="theme-icon-placeholder"></span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -42,8 +86,10 @@
 
         <section class="repertoire-section section-padding">
             <div class="container">
-                <p>Náš repertoár neustále rozšiřujeme a přizpůsobujeme typu akce. Hrajeme české i zahraniční rockové a popové hity od 60. let po současnost, stejně jako standardní taneční hudbu pro plesy a společenské události.</p>
-                
+                <p>Náš repertoár neustále rozšiřujeme a přizpůsobujeme typu akce. Hrajeme české i zahraniční rockové a
+                    popové hity od 60. let po současnost, stejně jako standardní taneční hudbu pro plesy a společenské
+                    události.</p>
+
                 <h3 class="text-center">Ukázka interpretů z našeho playlistu:</h3>
                 <ul class="interpret-list">
                     <li>Kabát</li>
@@ -63,9 +109,12 @@
                     <li>...a mnoho dalších!</li>
                 </ul>
 
-                <p class="text-center" style="margin-top: 2rem;">Pro kompletní aktuální seznam skladeb a možnost domluvy specifických písní na vaši akci nás neváhejte kontaktovat nebo si stáhněte náš orientační repertoár:</p>
+                <p class="text-center" style="margin-top: 2rem;">Pro kompletní aktuální seznam skladeb a možnost domluvy
+                    specifických písní na vaši akci nás neváhejte kontaktovat nebo si stáhněte náš orientační repertoár:
+                </p>
                 <div class="text-center" style="margin-top: 1rem;">
-                    <a href="assets/bonesaver-repertoar.pdf" target="_blank" class="btn btn-primary">Stáhnout repertoár (PDF)</a>
+                    <a href="assets/bonesaver-repertoar.pdf" target="_blank" class="btn btn-primary">Stáhnout repertoár
+                        (PDF)</a>
                 </div>
             </div>
         </section>
@@ -77,14 +126,19 @@
                 <div class="footer-contact">
                     <h4>Kontaktujte nás</h4>
                     <p>Ing. Miroslav Bečička</p>
-                    <p><img src="img/icon-phone.svg" alt="" class="contact-icon"> <a href="tel:+420734393711">+420 734 393 711</a></p>
-                    <p><img src="img/icon-email.svg" alt="" class="contact-icon"> <a href="mailto:bonesavermusic@gmail.com">bonesavermusic@gmail.com</a></p>
+                    <p><img src="img/icon-phone.svg" alt="" class="contact-icon"> <a href="tel:+420734393711">+420 734
+                            393 711</a></p>
+                    <p><img src="img/icon-email.svg" alt="" class="contact-icon"> <a
+                            href="mailto:bonesavermusic@gmail.com">bonesavermusic@gmail.com</a></p>
                 </div>
                 <div class="footer-social">
                     <h4>Sledujte nás</h4>
-                    <a href="https://facebook.com/bonesaver" target="_blank" aria-label="Facebook"><img src="img/icon-facebook.svg" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/bonesaver.cz" target="_blank" aria-label="Instagram"><img src="img/icon-instagram.svg" alt="Instagram"></a>
-                    <a href="https://www.youtube.com/@bonesaver2347" target="_blank" aria-label="YouTube"><img src="img/icon-youtube.svg" alt="YouTube"></a>
+                    <a href="https://facebook.com/bonesaver" target="_blank" aria-label="Facebook"><img
+                            src="img/icon-facebook.svg" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/bonesaver.cz" target="_blank" aria-label="Instagram"><img
+                            src="img/icon-instagram.svg" alt="Instagram"></a>
+                    <a href="https://www.youtube.com/@bonesaver2347" target="_blank" aria-label="YouTube"><img
+                            src="img/icon-youtube.svg" alt="YouTube"></a>
                 </div>
             </div>
             <div class="copyright">
@@ -95,4 +149,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

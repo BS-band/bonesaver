@@ -1,18 +1,60 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoneSaver - Živá hudba kapela Pardubice | Svatby, plesy, oslavy, zábavy (Východní čechy)</title>
-    <meta name="description" content="Energická kapela BoneSaver z Pardubic. Hrajeme rock, pop a taneční hity pro vaši svatbu, ples, firemní večírek nebo oslavu. Profesionální vystoupení a skvělý zvuk.">
-    <meta name="keywords" content="kapela pardubice, kapela na svatbu, kapela na ples, hudba na zábavu, živá hudba, bonesaver, bone saver, Bečička, Becicka, cover band, hudební skupina, východní čechy, hradec králové, pardubicko, rock, pop, saxofon, sax">
+    <title>BoneSaver - Živá hudba kapela Pardubice | Svatby, plesy, oslavy, zábavy (Východní čechy a okolí)</title>
+    <meta name="description"
+        content="Energická kapela BoneSaver z Pardubic. Hrajeme rock, pop a taneční hity pro vaši svatbu, ples, firemní večírek nebo oslavu. Profesionální vystoupení a skvělý zvuk.">
+    <meta name="keywords"
+        content="kapela pardubice, kapela na svatbu, kapela na ples, hudba na zábavu, živá hudba, bonesaver, bone saver, Bečička, Becicka, cover band, hudební skupina, východní čechy, hradec králové, pardubicko, rock, pop, saxofon, sax">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="BoneSaver - Živá hudba kapela Pardubice">
+    <meta property="og:description"
+        content="Energická kapela BoneSaver z Pardubic. Hrajeme rock, pop a taneční hity pro vaši svatbu, ples, firemní večírek nebo oslavu.">
+    <meta property="og:image" content="https://www.bonesaver.cz/img/band-photo-1.JPG">
+    <meta property="og:url" content="https://www.bonesaver.cz/">
+    <meta property="og:type" content="website">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.bonesaver.cz/">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "BoneSaver",
+      "url": "https://www.bonesaver.cz",
+      "logo": "https://www.bonesaver.cz/img/logo.png",
+      "sameAs": [
+        "https://facebook.com/bonesaver",
+        "https://www.instagram.com/bonesaver.cz",
+        "https://www.youtube.com/@bonesaver2347"
+      ],
+      "genre": ["Rock", "Pop"],
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pardubice",
+          "addressCountry": "CZ"
+        }
+      }
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/favicon.png" type="image/png"> <!-- Vytvořte si soubor favicon.png -->
 </head>
+
 <body>
     <header class="navbar">
         <div class="container">
@@ -27,6 +69,11 @@
                     <li class="nav-item"><a href="repertoar.html" class="nav-link">Repertoár</a></li>
                     <li class="nav-item"><a href="ukazky.html" class="nav-link">Ukázky</a></li>
                     <li class="nav-item"><a href="kontakt.html" class="nav-link btn btn-primary">Kontakt</a></li>
+                    <li class="nav-item theme-switch-item">
+                        <button id="theme-switcher" class="theme-switcher-btn" aria-label="Přepnout tmavý/světlý režim">
+                            <span class="theme-icon-placeholder"></span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -47,41 +94,48 @@
                 <h2 class="text-center">Kdo jsme?</h2>
                 <div class="about-short-content">
                     <img src="img/band-photo-1.JPG" alt="Kapela BoneSaver na vystoupení" class="about-short-img">
-                    <div class="about-short-text">
-                        <p>Jsme <strong>BoneSaver</strong>, energická kapela z <strong>Pardubic</strong>, která dodá vaší akci tu správnou šťávu. Hrajeme známé rockové, popové a taneční pecky, které roztančí všechny generace. Ať už plánujete <strong>svatbu, ples, firemní večírek nebo narozeninovou oslavu</strong>, jsme tu pro vás s profesionálním vystoupením a skvělým zvukem.</p>
+                    <div loading="lazy" class="about-short-text">
+                        <p>Jsme <strong>BoneSaver</strong>, energická kapela z <strong>Pardubic</strong>, která dodá
+                            vaší akci tu správnou šťávu. Hrajeme známé rockové, popové a taneční pecky, které roztančí
+                            všechny generace. Ať už plánujete <strong>svatbu, ples, firemní večírek nebo narozeninovou
+                                oslavu</strong>, jsme tu pro vás s profesionálním vystoupením a skvělým zvukem.</p>
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
-                    <a href="o-nas.html" class="btn btn-secondary">Více o nás</a>
+                    <a href="o-nas.html" loading="lazy" class="btn btn-secondary">Více o nás</a>
                 </div>
             </div>
         </section>
 
-        <section class="featured-video section-padding bg-light">
-            <div class="container">
-                <h2 class="text-center">Poslechněte si nás</h2>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/_o0jpleViPc" title="BoneSaver - Ukázka produkce (promo video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <section loading="lazy" class="featured-video section-padding bg-light">
+            <div loading="lazy" class="container">
+                <h2 loading="lazy" class="text-center">Poslechněte si nás</h2>
+                <div loading="lazy" class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/_o0jpleViPc"
+                        title="BoneSaver - Ukázka produkce (promo video)" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
-                    <a href="ukazky.html" class="btn btn-secondary">Další ukázky</a>
+                    <a href="ukazky.html" loading="lazy" class="btn btn-secondary">Další ukázky</a>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials section-padding">
-            <div class="container">
-                <h2 class="text-center">Co o nás říkají</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial-item">
-                        <p>"BoneSaver byli naprosto skvělí na naší svatbě! Všichni se bavili a tančili až do rána. Díky!"</p>
+        <section loading="lazy" class="testimonials section-padding">
+            <div loading="lazy" class="container">
+                <h2 loading="lazy" class="text-center">Co o nás říkají</h2>
+                <div loading="lazy" class="testimonial-grid">
+                    <div loading="lazy" class="testimonial-item">
+                        <p>"BoneSaver byli naprosto skvělí na naší svatbě! Všichni se bavili a tančili až do rána.
+                            Díky!"</p>
                         <footer><cite>- Novomanželé z Chrudimy</cite></footer>
                     </div>
-                    <div class="testimonial-item">
+                    <div loading="lazy" class="testimonial-item">
                         <p>"Profesionální přístup, skvělá hudba a energie. Ples se díky nim opravdu vydařil."</p>
                         <footer><cite>- Starostka obce Smidary</cite></footer>
                     </div>
-                    <div class="testimonial-item">
+                    <div loading="lazy" class="testimonial-item">
                         <p>"Na firemním večírku vytvořili úžasnou atmosféru. Skvělá zpěvačka. Doporučujeme!"</p>
                         <footer><cite>- Manažerka, Firma Contipro</cite></footer>
                     </div>
@@ -89,32 +143,37 @@
             </div>
         </section>
 
-        <section class="cta-contact section-padding bg-dark">
-            <div class="container text-center">
+        <section loading="lazy" class="cta-contact section-padding bg-dark">
+            <div loading="lazy" class="container text-center">
                 <h2>Máte zájem o naše vystoupení?</h2>
                 <p>Napište nám nebo zavolejte a domluvíme se na detailech. Těšíme se na vás!</p>
-                <a href="kontakt.html" class="btn btn-lg btn-accent">Kontaktovat BoneSaver</a>
+                <a href="kontakt.html" loading="lazy" class="btn btn-lg btn-accent">Kontaktovat BoneSaver</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-contact">
+        <div loading="lazy" class="container">
+            <div loading="lazy" class="footer-content">
+                <div loading="lazy" class="footer-contact">
                     <h4>Kontaktujte nás</h4>
                     <p>Ing. Miroslav Bečička</p>
-                    <p><img src="img/icon-phone.svg" alt="" class="contact-icon"> <a href="tel:+420734393711">+420 734 393 711</a></p>
-                    <p><img src="img/icon-email.svg" alt="" class="contact-icon"> <a href="mailto:bonesavermusic@gmail.com">bonesavermusic@gmail.com</a></p>
+                    <p><img src="img/icon-phone.svg" alt="" loading="lazy" class="contact-icon"> <a
+                            href="tel:+420734393711">+420 734 393 711</a></p>
+                    <p><img src="img/icon-email.svg" alt="" loading="lazy" class="contact-icon"> <a
+                            href="mailto:bonesavermusic@gmail.com">bonesavermusic@gmail.com</a></p>
                 </div>
-                <div class="footer-social">
+                <div loading="lazy" class="footer-social">
                     <h4>Sledujte nás</h4>
-                    <a href="https://facebook.com/bonesaver" target="_blank" aria-label="Facebook"><img src="img/icon-facebook.svg" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/bonesaver.cz" target="_blank" aria-label="Instagram"><img src="img/icon-instagram.svg" alt="Instagram"></a>
-                    <a href="https://www.youtube.com/@bonesaver2347" target="_blank" aria-label="YouTube"><img src="img/icon-youtube.svg" alt="YouTube"></a>
+                    <a href="https://facebook.com/bonesaver" target="_blank" aria-label="Facebook"><img
+                            src="img/icon-facebook.svg" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/bonesaver.cz" target="_blank" aria-label="Instagram"><img
+                            src="img/icon-instagram.svg" alt="Instagram"></a>
+                    <a href="https://www.youtube.com/@bonesaver2347" target="_blank" aria-label="YouTube"><img
+                            src="img/icon-youtube.svg" alt="YouTube"></a>
                 </div>
             </div>
-            <div class="copyright">
+            <div loading="lazy" class="copyright">
                 <p>© <span id="currentYear"></span> BoneSaver. Všechna práva vyhrazena.</p>
             </div>
         </div>
@@ -122,4 +181,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
