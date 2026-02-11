@@ -1,63 +1,81 @@
 /* Globální proměnné a základní reset */
 :root {
-    /* Světlý režim - výchozí */
-    --bg-color: #fff;
-    --text-color-primary: #333;
-    --text-color-secondary: #555;
-    --navbar-bg: #fff;
-    --navbar-text: #1D3557;
-    --card-bg: #f4f4f4;
-    --border-color: #e0e0e0;
-    --primary-accent: #6384f0;
-    --secondary-accent: #A8DADC;
-    --hero-text-color: #fff;
-    --hero-subtext-color: #F1FAEE;
-    --footer-bg: #1D3557;
-    --footer-text: #F1FAEE;
-    --footer-heading-color: #A8DADC;
+    /* Modern Light Scheme (Slate & Blue) */
+    --bg-color: #F8FAFC;
+    /* Slate 50 */
+    --text-color-primary: #0F172A;
+    /* Slate 900 */
+    --text-color-secondary: #475569;
+    /* Slate 600 */
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --navbar-text: #0F172A;
+    --card-bg: #FFFFFF;
+    --border-color: #E2E8F0;
+    /* Slate 200 */
+    --primary-accent: #2563EB;
+    /* Blue 600 - Vibrant */
+    --secondary-accent: #0EA5E9;
+    /* Sky 500 */
+    --hero-text-color: #FFFFFF;
+    --hero-subtext-color: #F1F5F9;
+    --footer-bg: #0F172A;
+    /* Slate 900 */
+    --footer-text: #F1F5F9;
+    /* Slate 100 */
+    --footer-heading-color: #38BDF8;
+    /* Sky 400 */
     --btn-primary-bg: var(--primary-accent);
-    --btn-primary-text: #fff;
-    --btn-secondary-bg: #1D3557;
-    --btn-secondary-text: #fff;
+    --btn-primary-text: #FFFFFF;
+    --btn-secondary-bg: #0F172A;
+    --btn-secondary-text: #FFFFFF;
     --btn-accent-bg: var(--secondary-accent);
-    --btn-accent-text: #1D3557;
-    --section-dark-bg: #1D3557;
-    --section-dark-text: #F1FAEE;
-    --section-light-bg: #f4f4f4;
-    --mobile-menu-active-link-bg-light: #eeeeee;
-    --mobile-menu-link-hover-bg-light: #f8f8f8;
+    --btn-accent-text: #0F172A;
+    --section-dark-bg: #0F172A;
+    --section-dark-text: #F1F5F9;
+    --section-light-bg: #F8FAFC;
+    --mobile-menu-active-link-bg-light: #F1F5F9;
+    --mobile-menu-link-hover-bg-light: #F8FAFC;
 
 
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Roboto', sans-serif;
     --navbar-height: 70px;
 
-    --icon-sun-color: #1D3557;
-    --icon-moon-color: #1D3557;
+    --icon-sun-color: #0F172A;
+    --icon-moon-color: #0F172A;
     --icon-sun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor' width='24px' height='24px'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM12 15c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3C/svg%3E");
     --icon-moon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor' width='24px' height='24px'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z'/%3E%3C/svg%3E");
 }
 
 body.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color-primary: #e0e0e0;
-    --text-color-secondary: #b0b0b0;
-    --navbar-bg: #222222;
-    --navbar-text: #e0e0e0;
-    --card-bg: #2c2c2c;
-    --border-color: #444444;
-    --hero-subtext-color: #e0e0e0;
-    --footer-bg: #222222;
-    --footer-text: #b0b0b0;
-    --btn-secondary-bg: #2c2c2c;
-    --btn-secondary-text: #e0e0e0;
-    --section-dark-bg: #2c2c2c;
-    --section-dark-text: #e0e0e0;
-    --section-light-bg: #2c2c2c;
-    --icon-sun-color: #e0e0e0;
-    --icon-moon-color: #e0e0e0;
-    --mobile-menu-active-link-bg-dark: #383838;
-    --mobile-menu-link-hover-bg-dark: #333333;
+    /* Modern Dark Scheme (Midnight) */
+    --bg-color: #0F172A;
+    /* Slate 900 */
+    --text-color-primary: #F1F5F9;
+    /* Slate 100 */
+    --text-color-secondary: #94A3B8;
+    /* Slate 400 */
+    --navbar-bg: rgba(15, 23, 42, 0.95);
+    --navbar-text: #F1F5F9;
+    --card-bg: #1E293B;
+    /* Slate 800 */
+    --border-color: #334155;
+    /* Slate 700 */
+    --hero-subtext-color: #F1F5F9;
+    --footer-bg: #0F172A;
+    --footer-text: #94A3B8;
+    --btn-secondary-bg: #1E293B;
+    --btn-secondary-text: #F1F5F9;
+    --section-dark-bg: #1E293B;
+    /* Slate 800 for contrast sections */
+    --section-dark-text: #F1F5F9;
+    --section-light-bg: #1E293B;
+    --icon-sun-color: #F1F5F9;
+    --icon-moon-color: #F1F5F9;
+    --mobile-menu-active-link-bg-dark: #1E293B;
+    --mobile-menu-link-hover-bg-dark: #334155;
+    --primary-accent: #3B82F6;
+    /* Blue 500 - Lighter for dark mode */
 }
 
 * {
@@ -87,10 +105,26 @@ img {
 }
 
 .footer-contact p img.contact-icon,
-.contact-info p img.contact-icon,
-.footer-social img,
-.contact-social-icons img {
+.footer-social img {
     filter: brightness(0) invert(1);
+}
+
+.contact-info p img.contact-icon,
+.contact-social-icons img {
+    filter: brightness(0);
+}
+
+body.dark-mode .contact-info p img.contact-icon,
+body.dark-mode .contact-social-icons img {
+    filter: brightness(0) invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+
+    body:not(.light-mode-explicit) .contact-info p img.contact-icon,
+    body:not(.light-mode-explicit) .contact-social-icons img {
+        filter: brightness(0) invert(1);
+    }
 }
 
 .footer-contact p img.contact-icon {
