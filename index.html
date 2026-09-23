@@ -218,15 +218,16 @@
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                             </div>
                             <span style="font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan-light); text-transform: uppercase; letter-spacing: 0.08em;">Žánrová pestrost</span>
-                            <h3>Od Kabátů, AC/DC a Chinaski až po Lady Gaga a Waltz</h3>
+                            <h3>Od Kabátů, Harleje a AC/DC po Chinaski, Lucii a plesové valčíky</h3>
                             <p style="margin-top: 0.5rem;">
-                                Náš playlist obsahuje přes 100 hitů napříč dekádami od 60. let až po současnost. Umíme rozjet divokou rockovou nálož, elegantní plesový blok s valčíky a polkami i moderní pop pro mladší generaci.
+                                Náš playlist obsahuje 174 skladeb: poctivé rockové nálože (Kabát, Harlej, AC/DC, Deep Purple, Metallica, Škwor, Traktor, Tři sestry), české poprockové hity (Chinaski, Lucie, Olympic, Rybičky 48, Divokej Bill), legendární ploužáky, klasické tance na plesy (valčík, waltz, polka, tango) i 16 vlastních skladeb kapely BoneSaver.
                             </p>
                             <div class="bento-pill-tags">
                                 <span>🎸 Český & Světový rock</span>
                                 <span>🎷 Saxofonové melodie</span>
-                                <span>💃 Společenské tance na ples</span>
-                                <span>⚡ Party hity na svatby</span>
+                                <span>💃 Plesové valčíky & polky</span>
+                                <span>🕯️ Legendární ploužáky</span>
+                                <span>🔥 Autorská tvorba BoneSaver</span>
                             </div>
                         </div>
                     </div>
@@ -371,10 +372,11 @@
                     <div class="repertoire-controls">
                         <div class="filter-pills" id="homeRepertoireFilters">
                             <button class="filter-btn active" data-genre="all">Všechny žánry</button>
-                            <button class="filter-btn" data-genre="rock-cz">🇨🇿 Český Rock</button>
-                            <button class="filter-btn" data-genre="rock-world">⚡ Světový Rock</button>
-                            <button class="filter-btn" data-genre="pop-dance">✨ Pop & Dance</button>
-                            <button class="filter-btn" data-genre="ballroom">💃 Plesové standardy</button>
+                            <button class="filter-btn" data-genre="rock">🎸 Rock & Metal</button>
+                            <button class="filter-btn" data-genre="poprock">✨ Pop & Poprock</button>
+                            <button class="filter-btn" data-genre="slow">🕯️ Ploužáky</button>
+                            <button class="filter-btn" data-genre="ballroom">💃 Plesové tance</button>
+                            <button class="filter-btn" data-genre="bonesaver">🔥 BoneSaver</button>
                         </div>
 
                         <div class="search-box-wrapper">
@@ -384,81 +386,237 @@
                     </div>
                 </div>
 
-                <!-- Repertoire Dynamic Cards -->
+                <!-- Repertoire Dynamic Cards (Reálné skladby z PDF) -->
                 <div class="repertoire-cards-grid" id="homeRepertoireGrid">
                     
-                    <div class="song-card" data-genre="rock-cz">
+                    <!-- Rock -->
+                    <div class="song-card" data-genre="rock">
                         <div>
-                            <div class="song-title">Pohoda, Malá dáma, Burlaci, Šaman</div>
+                            <div class="song-title">Pohoda, Šaman, Malá dáma, Žízeň</div>
                             <div class="song-artist">Kabát</div>
                         </div>
-                        <span class="genre-tag">Český Rock</span>
+                        <span class="genre-tag">Rock</span>
                     </div>
 
-                    <div class="song-card" data-genre="rock-world">
+                    <div class="song-card" data-genre="rock">
                         <div>
-                            <div class="song-title">Highway to Hell, Back in Black</div>
+                            <div class="song-title">Highway to Hell, T.N.T.</div>
                             <div class="song-artist">AC/DC</div>
                         </div>
-                        <span class="genre-tag">Světový Rock</span>
+                        <span class="genre-tag">Rock</span>
                     </div>
 
-                    <div class="song-card" data-genre="rock-cz">
+                    <div class="song-card" data-genre="rock">
                         <div>
-                            <div class="song-title">Máma táta (Live), Špinavý záda</div>
+                            <div class="song-title">Svařák, Přirození, Strážní andělé</div>
+                            <div class="song-artist">Harlej</div>
+                        </div>
+                        <span class="genre-tag">Rock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="rock">
+                        <div>
+                            <div class="song-title">Máma - táta, Špinavý záda (Na Žofíně)</div>
                             <div class="song-artist">Hudba Praha</div>
                         </div>
-                        <span class="genre-tag">Český Rock</span>
+                        <span class="genre-tag">Rock</span>
                     </div>
 
-                    <div class="song-card" data-genre="rock-cz">
+                    <div class="song-card" data-genre="rock">
                         <div>
-                            <div class="song-title">Svařák, Malotraktorem, Zdivočelí koně</div>
-                            <div class="song-artist">Harlej / Mig 21</div>
+                            <div class="song-title">Smoke on The Water</div>
+                            <div class="song-artist">Deep Purple</div>
                         </div>
-                        <span class="genre-tag">Český Rock</span>
+                        <span class="genre-tag">Rock</span>
                     </div>
 
-                    <div class="song-card" data-genre="pop-dance">
+                    <div class="song-card" data-genre="rock">
                         <div>
-                            <div class="song-title">Zamilovaný/Nešťastná, Léto 95</div>
+                            <div class="song-title">Whisky in the Jar</div>
+                            <div class="song-artist">Metallica</div>
+                        </div>
+                        <span class="genre-tag">Rock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="rock">
+                        <div>
+                            <div class="song-title">The Best</div>
+                            <div class="song-artist">Tina Turner</div>
+                        </div>
+                        <span class="genre-tag">Rock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="rock">
+                        <div>
+                            <div class="song-title">Letokruhy, Kdy dojdou náboje a vzduch</div>
+                            <div class="song-artist">Traktor</div>
+                        </div>
+                        <span class="genre-tag">Rock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="rock">
+                        <div>
+                            <div class="song-title">Zamilovaný/nešťastná, Američan z Poličan</div>
                             <div class="song-artist">Rybičky 48</div>
                         </div>
-                        <span class="genre-tag">Pop & Dance</span>
+                        <span class="genre-tag">Rock</span>
                     </div>
 
-                    <div class="song-card" data-genre="pop-dance">
+                    <!-- Pop & Poprock -->
+                    <div class="song-card" data-genre="poprock">
                         <div>
-                            <div class="song-title">Klára, Tabáček, Šrouby do hlavy</div>
-                            <div class="song-artist">Chinaski / Lucie</div>
+                            <div class="song-title">1970, Punčocháče</div>
+                            <div class="song-artist">Chinaski</div>
                         </div>
-                        <span class="genre-tag">Pop & Dance</span>
+                        <span class="genre-tag">Poprock</span>
                     </div>
 
-                    <div class="song-card" data-genre="rock-world">
+                    <div class="song-card" data-genre="poprock">
                         <div>
-                            <div class="song-title">I Was Made for Lovin' You, Detroit Rock City</div>
-                            <div class="song-artist">Kiss</div>
+                            <div class="song-title">Dej mi víc své lásky, Želva</div>
+                            <div class="song-artist">Olympic</div>
                         </div>
-                        <span class="genre-tag">Světový Rock</span>
+                        <span class="genre-tag">Poprock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="poprock">
+                        <div>
+                            <div class="song-title">Nonstop, Poupata</div>
+                            <div class="song-artist">Michal David</div>
+                        </div>
+                        <span class="genre-tag">Poprock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="poprock">
+                        <div>
+                            <div class="song-title">I cesta může být cíl</div>
+                            <div class="song-artist">Mňága a Žďorp</div>
+                        </div>
+                        <span class="genre-tag">Poprock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="poprock">
+                        <div>
+                            <div class="song-title">Trezor</div>
+                            <div class="song-artist">Karel Gott</div>
+                        </div>
+                        <span class="genre-tag">Poprock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="poprock">
+                        <div>
+                            <div class="song-title">Jednou mi fotr povídá</div>
+                            <div class="song-artist">Ivan Hlas</div>
+                        </div>
+                        <span class="genre-tag">Rock'n'Roll</span>
+                    </div>
+
+                    <!-- Ploužáky -->
+                    <div class="song-card" data-genre="slow">
+                        <div>
+                            <div class="song-title">Nothing Else Matters</div>
+                            <div class="song-artist">Metallica</div>
+                        </div>
+                        <span class="genre-tag">Ploužák</span>
+                    </div>
+
+                    <div class="song-card" data-genre="slow">
+                        <div>
+                            <div class="song-title">Dívka s perlami ve vlasech</div>
+                            <div class="song-artist">Aleš Brichta</div>
+                        </div>
+                        <span class="genre-tag">Ploužák</span>
+                    </div>
+
+                    <div class="song-card" data-genre="slow">
+                        <div>
+                            <div class="song-title">Amerika, Sen, Panic</div>
+                            <div class="song-artist">Lucie</div>
+                        </div>
+                        <span class="genre-tag">Ploužák</span>
+                    </div>
+
+                    <div class="song-card" data-genre="slow">
+                        <div>
+                            <div class="song-title">Síla starejch vín</div>
+                            <div class="song-artist">Škwor</div>
+                        </div>
+                        <span class="genre-tag">Ploužák</span>
+                    </div>
+
+                    <div class="song-card" data-genre="slow">
+                        <div>
+                            <div class="song-title">Shallow</div>
+                            <div class="song-artist">Lady Gaga</div>
+                        </div>
+                        <span class="genre-tag">Ploužák</span>
+                    </div>
+
+                    <div class="song-card" data-genre="slow">
+                        <div>
+                            <div class="song-title">Sluneční hrob</div>
+                            <div class="song-artist">Blue Effect</div>
+                        </div>
+                        <span class="genre-tag">Ploužák</span>
+                    </div>
+
+                    <!-- Plesové tance -->
+                    <div class="song-card" data-genre="ballroom">
+                        <div>
+                            <div class="song-title">Jarošovský pivovar</div>
+                            <div class="song-artist">Argema</div>
+                        </div>
+                        <span class="genre-tag">Valčík</span>
                     </div>
 
                     <div class="song-card" data-genre="ballroom">
                         <div>
-                            <div class="song-title">Valčíky, Polky, Waltz, Tango, Cha-Cha</div>
-                            <div class="song-artist">Společenské plesové standardy</div>
+                            <div class="song-title">Večírek</div>
+                            <div class="song-artist">Tři sestry</div>
                         </div>
-                        <span class="genre-tag">Plesové standardy</span>
+                        <span class="genre-tag">Polka</span>
                     </div>
 
-                    <div class="song-card" data-genre="pop-dance">
+                    <div class="song-card" data-genre="ballroom">
                         <div>
-                            <div class="song-title">Bad Romance, Shallow, Poker Face</div>
-                            <div class="song-artist">Lady Gaga</div>
+                            <div class="song-title">Čekej tiše</div>
+                            <div class="song-artist">Eva Olmerová</div>
                         </div>
-                        <span class="genre-tag">Pop & Dance</span>
+                        <span class="genre-tag">Waltz</span>
                     </div>
 
+                    <div class="song-card" data-genre="ballroom">
+                        <div>
+                            <div class="song-title">Fůra slámy</div>
+                            <div class="song-artist">Karel Vacek</div>
+                        </div>
+                        <span class="genre-tag">Polka</span>
+                    </div>
+
+                    <div class="song-card" data-genre="ballroom">
+                        <div>
+                            <div class="song-title">Pivovarští koně, Sukýnka, Za tů horů</div>
+                            <div class="song-artist">Lidové valčíky a polky</div>
+                        </div>
+                        <span class="genre-tag">Plesové tance</span>
+                    </div>
+
+                    <!-- Vlastní tvorba BoneSaver -->
+                    <div class="song-card" data-genre="bonesaver">
+                        <div>
+                            <div class="song-title">Naše první kapela, Mlhavá rána</div>
+                            <div class="song-artist">BoneSaver (autorská tvorba)</div>
+                        </div>
+                        <span class="genre-tag">BoneSaver</span>
+                    </div>
+
+                    <div class="song-card" data-genre="bonesaver">
+                        <div>
+                            <div class="song-title">Já piju dál, Nedostanu metál za metal</div>
+                            <div class="song-artist">BoneSaver (autorská tvorba)</div>
+                        </div>
+                        <span class="genre-tag">BoneSaver</span>
+                    </div>
                 </div>
 
                 <div class="text-center" style="margin-top: 2rem;">
