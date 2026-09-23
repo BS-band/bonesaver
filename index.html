@@ -4,181 +4,691 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoneSaver - Živá hudba kapela Pardubice | Svatby, plesy, oslavy, zábavy (Východní čechy a okolí)</title>
+    <title>BoneSaver - Živá hudba kapela Pardubice | Svatby, plesy, oslavy, firemní večírky</title>
     <meta name="description"
-        content="Energická kapela BoneSaver z Pardubic. Hrajeme rock, pop a taneční hity pro vaši svatbu, ples, firemní večírek nebo oslavu. Profesionální vystoupení a skvělý zvuk.">
+        content="Energická 5členná živá kapela BoneSaver z Pardubic se saxofonem. Hrajeme rock, pop a taneční pecky pro vaši svatbu, ples, firemní večírek i zábavu. Vlastní špičkový zvuk a světla.">
     <meta name="keywords"
-        content="kapela pardubice, kapela na svatbu, kapela na ples, hudba na zábavu, živá hudba, bonesaver, bone saver, Bečička, Becicka, cover band, hudební skupina, východní čechy, hradec králové, pardubicko, rock, pop, saxofon, sax">
+        content="kapela pardubice, kapela na svatbu, kapela na ples, hudba na zábavu, živá hudba, bonesaver, cover band, hudební skupina pardubice, hradec králové, chrudim, východní čechy, rock, pop, saxofon">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="BoneSaver - Živá hudba kapela Pardubice">
-    <meta property="og:description"
-        content="Energická kapela BoneSaver z Pardubic. Hrajeme rock, pop a taneční hity pro vaši svatbu, ples, firemní večírek nebo oslavu.">
-    <meta property="og:image" content="https://www.bonesaver.cz/img/band-photo-1.JPG">
-    <meta property="og:url" content="https://www.bonesaver.cz/">
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bonesaver.cz/">
+    <meta property="og:title" content="BoneSaver - Živá hudba kapela Pardubice | Svatby, plesy, oslavy">
+    <meta property="og:description"
+        content="Energická kapela BoneSaver s 100% živým zvukem a saxofonem. Roztančíme vaši svatbu, ples i firemní večírek.">
+    <meta property="og:image" content="https://www.bonesaver.cz/img/band-photo-1.JPG">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://www.bonesaver.cz/">
 
-    <!-- Structured Data -->
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/png">
+
+    <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MusicGroup",
       "name": "BoneSaver",
       "url": "https://www.bonesaver.cz",
-      "logo": "https://www.bonesaver.cz/img/logo.png",
+      "logo": "https://www.bonesaver.cz/img/logo.jpg",
+      "image": "https://www.bonesaver.cz/img/band-photo-1.JPG",
+      "description": "Živá kapela z Pardubic hrající rock, pop a taneční hity se saxofonem pro svatby, plesy a firemní večírky.",
       "sameAs": [
         "https://facebook.com/bonesaver",
         "https://www.instagram.com/bonesaver.cz",
         "https://www.youtube.com/@bonesaver2347"
       ],
-      "genre": ["Rock", "Pop"],
+      "genre": ["Rock", "Pop", "Dance", "Ballroom"],
       "location": {
         "@type": "Place",
+        "name": "Pardubice",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Pardubice",
+          "addressRegion": "Pardubický kraj",
           "addressCountry": "CZ"
         }
-      }
+      },
+      "member": [
+        { "@type": "Person", "name": "Miroslav Bečička", "roleName": "Kytara, Saxofon, Klávesy, Zpěv" },
+        { "@type": "Person", "name": "Adéla Lhotová", "roleName": "Klávesy, Zpěv" },
+        { "@type": "Person", "name": "David Syrovec", "roleName": "Baskytara" },
+        { "@type": "Person", "name": "David Pasta Syrovec", "roleName": "Sólová kytara" },
+        { "@type": "Person", "name": "Petr Dolfi Adam", "roleName": "Bicí, Zpěv" }
+      ]
     }
     </script>
+
+    <!-- Google Fonts & Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img/favicon.png" type="image/png"> <!-- Vytvořte si soubor favicon.png -->
 </head>
 
 <body>
+
+    <!-- TOP ANNOUNCEMENT BAR (2026 TREND) -->
+    <div class="top-announcement">
+        <span class="season-badge">Kalendář 2026 / 2027 otevřen</span>
+        <span>Přijímáme rezervace na svatby, maturitní plesy a firemní večírky.</span>
+        <a href="#poptavka" style="color: var(--accent-cyan-light); font-weight: 700; text-decoration: underline;">Ověřit volný termín &rarr;</a>
+    </div>
+
+    <!-- MODERN STICKY NAVBAR -->
     <header class="navbar">
         <div class="container">
-            <a href="index.html" class="nav-logo">BoneSaver</a>
-            <button class="nav-toggle" aria-label="Přepnout navigaci" aria-expanded="false">
-                <span class="hamburger"></span>
-            </button>
+            <div class="nav-brand">
+                <a href="index.html" class="nav-brand" style="text-decoration: none;">
+                    <div class="nav-badge">BS</div>
+                    <div class="nav-logo-text">
+                        <span class="nav-logo">Bone<span>Saver</span></span>
+                        <span class="nav-tagline">Živá kapela Pardubice</span>
+                    </div>
+                </a>
+            </div>
+
             <nav class="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Domů</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link active">Domů</a></li>
                     <li class="nav-item"><a href="o-nas.html" class="nav-link">O nás</a></li>
                     <li class="nav-item"><a href="repertoar.html" class="nav-link">Repertoár</a></li>
                     <li class="nav-item"><a href="ukazky.html" class="nav-link">Ukázky</a></li>
-                    <li class="nav-item"><a href="kontakt.html" class="nav-link btn btn-primary">Kontakt</a></li>
-                    <li class="nav-item theme-switch-item">
-                        <button id="theme-switcher" class="theme-switcher-btn" aria-label="Přepnout tmavý/světlý režim">
-                            <span class="theme-icon-placeholder"></span>
-                        </button>
-                    </li>
+                    <li class="nav-item"><a href="kontakt.html" class="nav-link">Kontakt</a></li>
                 </ul>
+
+                <div class="nav-actions">
+                    <a href="tel:+420734393711" class="nav-phone-link">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        734 393 711
+                    </a>
+                    <a href="#poptavka" class="btn btn-primary" style="padding: 0.55rem 1.2rem; font-size: 0.88rem;">Poptat termín</a>
+                    <button id="theme-switcher" class="theme-switcher-btn" aria-label="Přepnout motiv" title="Přepnout vzhled">
+                        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+                    </button>
+                </div>
             </nav>
+
+            <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <h1>Kapela, která rozproudí vaši akci!</h1>
-                <p>Rock, pop a taneční hity pro zábavy, svatby, plesy a oslavy. Jsme BoneSaver z Pardubic.</p>
-                <a href="kontakt.html" class="btn btn-lg btn-accent">Nezávazně poptat termín</a>
-            </div>
-        </section>
-
-        <section class="about-short section-padding">
+        <!-- HERO SECTION WITH STAGE LIGHTING -->
+        <section class="hero stage-gradient">
             <div class="container">
-                <h2 class="text-center">Kdo jsme?</h2>
-                <div class="about-short-content">
-                    <img src="img/band-photo-1.JPG" alt="Kapela BoneSaver na vystoupení" class="about-short-img">
-                    <div loading="lazy" class="about-short-text">
-                        <p>Jsme <strong>BoneSaver</strong>, energická kapela z <strong>Pardubic</strong>, která dodá
-                            vaší akci tu správnou šťávu. Hrajeme známé rockové, popové a taneční pecky, které roztančí
-                            všechny generace. Ať už plánujete <strong>svatbu, ples, firemní večírek nebo narozeninovou
-                                oslavu</strong>, jsme tu pro vás s profesionálním vystoupením a skvělým zvukem.</p>
+                <div class="hero-grid">
+                    
+                    <div class="hero-content-col">
+                        <div class="badge-tag">
+                            <span>●</span> 100% Živý zvuk • Saxofon v sestavě • Pardubice
+                        </div>
+                        
+                        <h1 class="hero-headline">
+                            Kapela, která promění vaši akci v <span class="text-gradient">nezapomenutelnou show.</span>
+                        </h1>
+
+                        <p class="hero-lead">
+                            Jsme 5členná pardubická parta muzikantů. Hrajeme největší české i světové rockové a popové hity, společenské tance i energické taneční pecky pro svatby, plesy, firemní večírky a městské slavnosti.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a href="#poptavka" class="btn btn-primary btn-lg">
+                                <span>Nezávazně poptat termín</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                            <a href="#ukazky" class="btn btn-secondary btn-lg">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent-cyan);"><path d="M8 5v14l11-7z"/></svg>
+                                Poslechnout ukázky
+                            </a>
+                        </div>
+
+                        <div class="hero-stats-row">
+                            <div class="stat-item">
+                                <div class="stat-value">100+</div>
+                                <div class="stat-label">Úspěšně odehraných akcí po celé ČR</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: var(--accent-cyan-light);">100%</div>
+                                <div class="stat-label">Živá produkce bez half-playbacku</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: var(--accent-amber);">🎷 + 🎸</div>
+                                <div class="stat-label">Saxofon, kytary, klávesy & 3x zpěv</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="o-nas.html" loading="lazy" class="btn btn-secondary">Více o nás</a>
+
+                    <!-- HERO MEDIA & AUDIO CARD -->
+                    <div class="hero-media-wrapper">
+                        <div class="glass-card hero-media-card glow-cyan">
+                            <div class="hero-image-box">
+                                <img src="img/band-photo-1.JPG" alt="Kapela BoneSaver na pódiu" loading="eager" width="600" height="450">
+                                <div class="hero-image-overlay">
+                                    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-cyan-light); font-weight: 700; letter-spacing: 0.1em;">Živé vystoupení</span>
+                                    <h3 style="color: #fff; font-size: 1.15rem; margin: 0.2rem 0;">BoneSaver Live in Action</h3>
+                                    <p style="font-size: 0.8rem; color: #CBD5E1; margin: 0;">BuďFit Fest & Firemní akce</p>
+                                </div>
+                                <a href="https://www.youtube.com/watch?v=_o0jpleViPc" target="_blank" class="hero-play-btn" aria-label="Přehrát promo video na YouTube">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>
+                                </a>
+                            </div>
+
+                            <!-- Interactive Audio Snippet Player (2026 Feature) -->
+                            <div class="hero-audio-bar">
+                                <div class="audio-bar-header">
+                                    <span style="color: #CBD5E1; font-weight: 600;">Ukázka: <strong style="color: #fff;">Rock & Pop Live Medley</strong></span>
+                                    <span style="color: var(--accent-cyan-light); font-family: monospace; font-size: 0.75rem;">100% LIVE</span>
+                                </div>
+                                <div class="audio-progress" id="audioSnippetBar">
+                                    <div class="audio-progress-fill" id="audioSnippetFill"></div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; font-size: 0.78rem;">
+                                    <button id="audioSnippetBtn" class="btn btn-secondary" style="padding: 0.25rem 0.7rem; font-size: 0.75rem; border-radius: 8px;">
+                                        ▶ Přehrát ukázku
+                                    </button>
+                                    <span style="color: var(--text-muted);">Zvuk přímo z pultu</span>
+                                    <a href="repertoar.html" style="color: var(--accent-cyan-light); font-weight: 600;">Celý repertoár &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <section loading="lazy" class="featured-video section-padding bg-light">
-            <div loading="lazy" class="container">
-                <h2 loading="lazy" class="text-center">Poslechněte si nás</h2>
-                <div loading="lazy" class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/_o0jpleViPc"
-                        title="BoneSaver - Ukázka produkce (promo video)" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+        <!-- BENTO GRID SECTION: PROČ BONESAVER (2026 CORE STANDARD) -->
+        <section class="section-padding" id="o-kapele">
+            <div class="container">
+                <div class="text-center" style="max-width: 680px; margin: 0 auto;">
+                    <span class="badge-tag">Vše na jednom místě</span>
+                    <h2>Proč si vybrat kapelu BoneSaver?</h2>
+                    <p>Máme mnohaleté zkušenosti s pořádáním zábav, plesů i svateb. Postaráme se o to, aby vaši hosté zaplnili parket a bavili se až do ranních hodin.</p>
                 </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="ukazky.html" loading="lazy" class="btn btn-secondary">Další ukázky</a>
+
+                <div class="bento-grid">
+                    
+                    <!-- Bento 1: Multižánrový repertoár -->
+                    <div class="glass-card bento-card bento-card-repertoire">
+                        <div>
+                            <div class="bento-icon bento-icon-cyan">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                            </div>
+                            <span style="font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan-light); text-transform: uppercase; letter-spacing: 0.08em;">Žánrová pestrost</span>
+                            <h3>Od Kabátů, AC/DC a Chinaski až po Lady Gaga a Waltz</h3>
+                            <p style="margin-top: 0.5rem;">
+                                Náš playlist obsahuje přes 100 hitů napříč dekádami od 60. let až po současnost. Umíme rozjet divokou rockovou nálož, elegantní plesový blok s valčíky a polkami i moderní pop pro mladší generaci.
+                            </p>
+                            <div class="bento-pill-tags">
+                                <span>🎸 Český & Světový rock</span>
+                                <span>🎷 Saxofonové melodie</span>
+                                <span>💃 Společenské tance na ples</span>
+                                <span>⚡ Party hity na svatby</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento 2: Zvuk & Světla na klíč -->
+                    <div class="glass-card bento-card bento-card-sound">
+                        <div>
+                            <div class="bento-icon bento-icon-amber">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            </div>
+                            <span style="font-size: 0.78rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase; letter-spacing: 0.08em;">Kompletní servis</span>
+                            <h3>Špičkový zvuk & světelný park v ceně</h3>
+                            <p style="margin-top: 0.5rem;">
+                                Disponujeme vlastní profesionální zvukovou i světelnou aparaturou dimenzovanou pro sály, venkovní areály i svatební stodoly. Nemusíte shánět externího zvukaře.
+                            </p>
+                        </div>
+                        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; color: #34D399; font-weight: 600;">
+                            ✓ Žádné skryté poplatky za ozvučení
+                        </div>
+                    </div>
+
+                    <!-- Bento 3: Flexibilní dojezd -->
+                    <div class="glass-card bento-card bento-card-location">
+                        <div>
+                            <div class="bento-icon bento-icon-violet">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <span style="font-size: 0.78rem; font-weight: 700; color: #A78BFA; text-transform: uppercase; letter-spacing: 0.08em;">Působnost</span>
+                            <h3>Pardubice, Hradec Králové i celá ČR</h3>
+                            <p style="margin-top: 0.5rem;">
+                                Domácí základnu máme ve Východních Čechách, ale rádi za vámi přijedeme na akci kamkoliv po republice.
+                            </p>
+                        </div>
+                        <div style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+                            📍 Pardubicko • Královéhradecko • Chrudim • Vysočina • Praha & celá ČR
+                        </div>
+                    </div>
+
+                    <!-- Bento 4: 5 muzikantů kapely -->
+                    <div class="glass-card bento-card bento-card-lineup">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem;">
+                                <div>
+                                    <span style="font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan-light); text-transform: uppercase; letter-spacing: 0.08em;">Sestava kapely</span>
+                                    <h3 style="margin-top: 0.2rem;">5 zkušených muzikantů, 1 skvělá parta</h3>
+                                </div>
+                                <a href="o-nas.html" style="font-size: 0.85rem; color: var(--accent-cyan-light); font-weight: 600;">Více o členech &rarr;</a>
+                            </div>
+
+                            <div class="lineup-grid">
+                                <div class="lineup-member">
+                                    <div class="lineup-photo">
+                                        <img src="img/member-MBE.JPG" alt="Mirek Bečička" loading="lazy" width="64" height="64">
+                                    </div>
+                                    <div class="lineup-name">Mirek</div>
+                                    <div class="lineup-role">Sax, Kytara, Zpěv</div>
+                                </div>
+
+                                <div class="lineup-member">
+                                    <div class="lineup-photo">
+                                        <img src="img/member-ALH.JPG" alt="Adéla Lhotová" loading="lazy" width="64" height="64">
+                                    </div>
+                                    <div class="lineup-name">Adéla</div>
+                                    <div class="lineup-role">Klávesy, Zpěv</div>
+                                </div>
+
+                                <div class="lineup-member">
+                                    <div class="lineup-photo">
+                                        <img src="img/member-DSST.JPG" alt="David Syrovec" loading="lazy" width="64" height="64">
+                                    </div>
+                                    <div class="lineup-name">David</div>
+                                    <div class="lineup-role">Baskytara</div>
+                                </div>
+
+                                <div class="lineup-member">
+                                    <div class="lineup-photo">
+                                        <img src="img/member-DSML.JPG" alt="David Pasta Syrovec" loading="lazy" width="64" height="64">
+                                    </div>
+                                    <div class="lineup-name">Pasta</div>
+                                    <div class="lineup-role">Sólová kytara</div>
+                                </div>
+
+                                <div class="lineup-member">
+                                    <div class="lineup-photo">
+                                        <img src="img/member-PAD.JPG" alt="Petr Dolfi Adam" loading="lazy" width="64" height="64">
+                                    </div>
+                                    <div class="lineup-name">Dolfi</div>
+                                    <div class="lineup-role">Bicí, Zpěv</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <section loading="lazy" class="testimonials section-padding">
-            <div loading="lazy" class="container">
-                <h2 loading="lazy" class="text-center">Co o nás říkají</h2>
-                <div loading="lazy" class="testimonial-grid">
-                    <div loading="lazy" class="testimonial-item">
-                        <p>"BoneSaver byli naprosto skvělí na naší svatbě! Všichni se bavili a tančili až do rána.
-                            Díky!"</p>
-                        <footer><cite>- Novomanželé z Chrudimi</cite></footer>
+        <!-- VIDEO SHOWREEL SECTION -->
+        <section class="section-padding" id="ukazky" style="background: rgba(15, 23, 42, 0.4); border-y: 1px solid rgba(255,255,255,0.06);">
+            <div class="container">
+                <div class="text-center" style="max-width: 650px; margin: 0 auto 3rem;">
+                    <span class="badge-tag">Živý záznam</span>
+                    <h2>Podívejte se a poslechněte, jak nám to šlape</h2>
+                    <p>Ukázky přímo z živých vystoupení. Žádné studiové kouzlení, takhle budeme znít na vaší akci.</p>
+                </div>
+
+                <div style="max-width: 860px; margin: 0 auto;">
+                    <div class="video-wrapper glow-cyan">
+                        <iframe src="https://www.youtube.com/embed/_o0jpleViPc"
+                            title="BoneSaver - Ukázka produkce (promo video)"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            loading="lazy"
+                            allowfullscreen></iframe>
                     </div>
-                    <div loading="lazy" class="testimonial-item">
-                        <p>"Profesionální přístup, skvělá hudba a energie. Ples se díky nim opravdu vydařil."</p>
-                        <footer><cite>- Starostka obce Smidary</cite></footer>
-                    </div>
-                    <div loading="lazy" class="testimonial-item">
-                        <p>"Na firemním večírku vytvořili úžasnou atmosféru. Skvělá zpěvačka. Doporučujeme!"</p>
-                        <footer><cite>- Manažerka, Firma Contipro</cite></footer>
-                    </div>
+                </div>
+
+                <div class="text-center" style="margin-top: 2.5rem;">
+                    <a href="ukazky.html" class="btn btn-secondary">Zobrazit všech 6 video ukázek z akcí &rarr;</a>
                 </div>
             </div>
         </section>
 
-        <section loading="lazy" class="cta-contact section-padding bg-dark">
-            <div loading="lazy" class="container text-center">
-                <h2>Máte zájem o naše vystoupení?</h2>
-                <p>Napište nám nebo zavolejte a domluvíme se na detailech. Těšíme se na vás!</p>
-                <a href="kontakt.html" loading="lazy" class="btn btn-lg btn-accent">Kontaktovat BoneSaver</a>
+        <!-- INTERACTIVE REPERTOIRE PREVIEW (2026 FEATURE) -->
+        <section class="section-padding" id="repertoar">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;">
+                    <div>
+                        <span class="badge-tag">Katalog skladeb</span>
+                        <h2>Co všechno pro vás zahrajeme?</h2>
+                        <p style="margin: 0; max-width: 580px;">Rychlý náhled oblíbených pecek. Můžete filtrovat podle žánru nebo okamžitě vyhledat vašeho interpreta.</p>
+                    </div>
+                    <div>
+                        <a href="assets/bonesaver-repertoar.pdf" target="_blank" class="btn btn-secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Stáhnout kompletní PDF repertoár
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Controls: Filter Pills & Search -->
+                <div class="glass-card" style="padding: 1rem 1.5rem; margin-bottom: 1.5rem;">
+                    <div class="repertoire-controls">
+                        <div class="filter-pills" id="homeRepertoireFilters">
+                            <button class="filter-btn active" data-genre="all">Všechny žánry</button>
+                            <button class="filter-btn" data-genre="rock-cz">🇨🇿 Český Rock</button>
+                            <button class="filter-btn" data-genre="rock-world">⚡ Světový Rock</button>
+                            <button class="filter-btn" data-genre="pop-dance">✨ Pop & Dance</button>
+                            <button class="filter-btn" data-genre="ballroom">💃 Plesové standardy</button>
+                        </div>
+
+                        <div class="search-box-wrapper">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <input type="text" id="homeRepertoireSearch" class="search-input" placeholder="Hledat interpreta či písničku...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repertoire Dynamic Cards -->
+                <div class="repertoire-cards-grid" id="homeRepertoireGrid">
+                    
+                    <div class="song-card" data-genre="rock-cz">
+                        <div>
+                            <div class="song-title">Pohoda, Malá dáma, Burlaci, Šaman</div>
+                            <div class="song-artist">Kabát</div>
+                        </div>
+                        <span class="genre-tag">Český Rock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="rock-world">
+                        <div>
+                            <div class="song-title">Highway to Hell, Back in Black</div>
+                            <div class="song-artist">AC/DC</div>
+                        </div>
+                        <span class="genre-tag">Světový Rock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="rock-cz">
+                        <div>
+                            <div class="song-title">Máma táta (Live), Špinavý záda</div>
+                            <div class="song-artist">Hudba Praha</div>
+                        </div>
+                        <span class="genre-tag">Český Rock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="rock-cz">
+                        <div>
+                            <div class="song-title">Svařák, Malotraktorem, Zdivočelí koně</div>
+                            <div class="song-artist">Harlej / Mig 21</div>
+                        </div>
+                        <span class="genre-tag">Český Rock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="pop-dance">
+                        <div>
+                            <div class="song-title">Zamilovaný/Nešťastná, Léto 95</div>
+                            <div class="song-artist">Rybičky 48</div>
+                        </div>
+                        <span class="genre-tag">Pop & Dance</span>
+                    </div>
+
+                    <div class="song-card" data-genre="pop-dance">
+                        <div>
+                            <div class="song-title">Klára, Tabáček, Šrouby do hlavy</div>
+                            <div class="song-artist">Chinaski / Lucie</div>
+                        </div>
+                        <span class="genre-tag">Pop & Dance</span>
+                    </div>
+
+                    <div class="song-card" data-genre="rock-world">
+                        <div>
+                            <div class="song-title">I Was Made for Lovin' You, Detroit Rock City</div>
+                            <div class="song-artist">Kiss</div>
+                        </div>
+                        <span class="genre-tag">Světový Rock</span>
+                    </div>
+
+                    <div class="song-card" data-genre="ballroom">
+                        <div>
+                            <div class="song-title">Valčíky, Polky, Waltz, Tango, Cha-Cha</div>
+                            <div class="song-artist">Společenské plesové standardy</div>
+                        </div>
+                        <span class="genre-tag">Plesové standardy</span>
+                    </div>
+
+                    <div class="song-card" data-genre="pop-dance">
+                        <div>
+                            <div class="song-title">Bad Romance, Shallow, Poker Face</div>
+                            <div class="song-artist">Lady Gaga</div>
+                        </div>
+                        <span class="genre-tag">Pop & Dance</span>
+                    </div>
+
+                </div>
+
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="repertoar.html" style="color: var(--accent-cyan-light); font-weight: 700; text-decoration: underline;">
+                        Zobrazit podrobný seznam interpretů a písní na míru &rarr;
+                    </a>
+                </div>
             </div>
         </section>
+
+        <!-- SMART BOOKING & INQUIRY WIZARD (2026 CONVERSION CORE) -->
+        <section class="booking-section stage-gradient" id="poptavka">
+            <div class="container">
+                <div class="glass-card booking-card glow-cyan">
+                    <div class="text-center" style="max-width: 600px; margin: 0 auto 2.5rem;">
+                        <span class="badge-tag">Rychle & Nezávazně</span>
+                        <h2>Poptat vystoupení kapely BoneSaver</h2>
+                        <p style="margin: 0;">Zadejte základní informace o vaší plánované akci. Obratem vám potvrdíme dostupnost termínu a pošleme přesnou cenovou kalkulaci.</p>
+                    </div>
+
+                    <form id="inquiryForm" class="inquiry-form">
+                        
+                        <!-- 1. Krok: Typ akce -->
+                        <div class="form-group">
+                            <label class="form-label">1. O jaký typ akce se jedná?</label>
+                            <div class="event-type-grid">
+                                <label class="event-type-card">
+                                    <input type="radio" name="event_type" value="Svatba" checked>
+                                    <div class="event-type-box">
+                                        <span class="icon">💍</span>
+                                        <span>Svatba</span>
+                                    </div>
+                                </label>
+                                <label class="event-type-card">
+                                    <input type="radio" name="event_type" value="Ples / Maturák">
+                                    <div class="event-type-box">
+                                        <span class="icon">🎭</span>
+                                        <span>Ples / Maturák</span>
+                                    </div>
+                                </label>
+                                <label class="event-type-card">
+                                    <input type="radio" name="event_type" value="Firemní večírek">
+                                    <div class="event-type-box">
+                                        <span class="icon">🏢</span>
+                                        <span>Firemní akce</span>
+                                    </div>
+                                </label>
+                                <label class="event-type-card">
+                                    <input type="radio" name="event_type" value="Oslava / Zábava">
+                                    <div class="event-type-box">
+                                        <span class="icon">🎉</span>
+                                        <span>Zábava / Oslava</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 2. Krok: Datum a Místo -->
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label" for="formDate">2. Předpokládané datum</label>
+                                <input type="date" id="formDate" class="form-control" required value="2026-06-20">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="formLocation">3. Místo konání (město či obec)</label>
+                                <input type="text" id="formLocation" class="form-control" placeholder="Např. Pardubice, Chrudim, Hradec Králové..." required>
+                            </div>
+                        </div>
+
+                        <!-- 3. Krok: Kontaktní údaje -->
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label" for="formName">Vaše jméno / Pořadatel</label>
+                                <input type="text" id="formName" class="form-control" placeholder="Jan Novák" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="formPhone">Telefonní číslo</label>
+                                <input type="tel" id="formPhone" class="form-control" placeholder="+420 777 123 456" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="formEmail">Váš e-mail</label>
+                            <input type="email" id="formEmail" class="form-control" placeholder="vas@email.cz" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="formNotes">Doplňující poznámka nebo dotaz (nepovinné)</label>
+                            <textarea id="formNotes" class="form-control" rows="2" placeholder="Orientační čas produkce, velikost sálu, speciální píseň na přání..."></textarea>
+                        </div>
+
+                        <!-- Tlačítko Odeslání -->
+                        <div style="margin-top: 2rem;">
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; box-shadow: var(--glow-cyan);">
+                                Odeslat nezávaznou poptávku termínu
+                            </button>
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 0.85rem; font-size: 0.8rem; color: #CBD5E1;">
+                                <span style="color: #34D399;">✓</span> Odpovídáme obratem do 24 hodin • Poptávka je zcela nezávazná
+                            </div>
+                        </div>
+
+                        <!-- Box pro výsledek odeslání -->
+                        <div id="formSuccessMessage" style="display: none; margin-top: 1.5rem; padding: 1.25rem; border-radius: 12px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); text-align: center;">
+                            <h4 style="color: #34D399; margin-bottom: 0.35rem;">Děkujeme za vaši poptávku!</h4>
+                            <p style="color: #E2E8F0; font-size: 0.9rem; margin-bottom: 0.75rem;">Údaje jsme připravili k odeslání. Otevřete si email nebo zprávu kliknutím níže, případně nám rovnou zavolejte na <strong>734 393 711</strong>.</p>
+                            <a id="emailDraftLink" href="#" class="btn btn-secondary" style="font-size: 0.85rem;">Otevřít předvyplněný e-mail</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL PROOF & TESTIMONIALS -->
+        <section class="section-padding" style="background: rgba(5, 7, 11, 0.6);">
+            <div class="container">
+                <div class="text-center" style="max-width: 600px; margin: 0 auto;">
+                    <span class="badge-tag">Reference</span>
+                    <h2>Co o nás říkají pořadatelé a novomanželé</h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    
+                    <div class="glass-card testimonial-card">
+                        <div>
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"BoneSaver byli naprosto skvělí na naší svatbě! Všichni se bavili a tančili až do rána. Saxofon byl úžasný a dodal kapele neopakovatelný šmrnc. Moc děkujeme!"</p>
+                        </div>
+                        <div class="testimonial-author-box">
+                            <div class="author-avatar">NL</div>
+                            <div>
+                                <div class="author-name">Novomanželé Lhotští</div>
+                                <div class="author-role">Svatba Chrudim</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card testimonial-card">
+                        <div>
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"Profesionální přístup, výborný zvuk, skvělá energie a výborná komunikace před akcí. Obecní ples se díky nim opravdu vydařil, lidé si kapelu chválili ještě týdny po plese."</p>
+                        </div>
+                        <div class="testimonial-author-box">
+                            <div class="author-avatar">SM</div>
+                            <div>
+                                <div class="author-name">Starostka obce Smidary</div>
+                                <div class="author-role">Obecní ples</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card testimonial-card">
+                        <div>
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"Na firemním večírku vytvořili úžasnou atmosféru. Zpěvačka, saxofon i celá kapela mají neskutečný drajv. Rozhodně doporučujeme pro jakoukoliv firemní party!"</p>
+                        </div>
+                        <div class="testimonial-author-box">
+                            <div class="author-avatar">CP</div>
+                            <div>
+                                <div class="author-name">Manažerka eventů</div>
+                                <div class="author-role">Firma Contipro a.s.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer>
-        <div loading="lazy" class="container">
-            <div loading="lazy" class="footer-content">
-                <div loading="lazy" class="footer-contact">
-                    <h4>Kontaktujte nás</h4>
-                    <p>Ing. Miroslav Bečička</p>
-                    <p><img src="img/icon-phone.svg" alt="" loading="lazy" class="contact-icon"> <a
-                            href="tel:+420734393711">+420 734 393 711</a></p>
-                    <p><img src="img/icon-email.svg" alt="" loading="lazy" class="contact-icon"> <a
-                            href="mailto:bonesavermusic@gmail.com">bonesavermusic@gmail.com</a></p>
+    <!-- MODERN FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h4>Bone<span style="color: var(--accent-cyan);">Saver</span></h4>
+                    <p style="max-width: 380px; font-size: 0.9rem; line-height: 1.6;">
+                        Energická živá hudba pro vaši svatbu, maturitní ples, firemní večírek i městské slavnosti. 100% live produkce z Pardubic s vlastním zvukem a světly.
+                    </p>
+                    <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+                        Ing. Miroslav Bečička • IČO: 69126887 • Plátci DPH
+                    </div>
                 </div>
-                <div loading="lazy" class="footer-social">
-                    <h4>Sledujte nás</h4>
-                    <a href="https://facebook.com/bonesaver" target="_blank" aria-label="Facebook"><img
-                            src="img/icon-facebook.svg" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/bonesaver.cz" target="_blank" aria-label="Instagram"><img
-                            src="img/icon-instagram.svg" alt="Instagram"></a>
-                    <a href="https://www.youtube.com/@bonesaver2347" target="_blank" aria-label="YouTube"><img
-                            src="img/icon-youtube.svg" alt="YouTube"></a>
+
+                <div class="footer-links">
+                    <h5>Rychlá navigace</h5>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="o-nas.html">O kapele & Členové</a></li>
+                        <li><a href="repertoar.html">Seznam skladeb (Repertoár)</a></li>
+                        <li><a href="ukazky.html">Video a audio ukázky</a></li>
+                        <li><a href="kontakt.html">Kontaktní a fakturační údaje</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h5>Přímý kontakt & Sítě</h5>
+                    <p style="font-size: 0.85rem; margin-bottom: 0.35rem;">
+                        <a href="tel:+420734393711" style="color: #fff; font-weight: 700;">+420 734 393 711</a>
+                    </p>
+                    <p style="font-size: 0.85rem; margin-bottom: 1.25rem;">
+                        <a href="mailto:bonesavermusic@gmail.com" style="color: var(--accent-cyan-light);">bonesavermusic@gmail.com</a>
+                    </p>
+                    <div class="footer-social-icons">
+                        <a href="https://facebook.com/bonesaver" target="_blank" class="social-circle-btn" aria-label="Facebook">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/bonesaver.cz" target="_blank" class="social-circle-btn" aria-label="Instagram">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@bonesaver2347" target="_blank" class="social-circle-btn" aria-label="YouTube">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div loading="lazy" class="copyright">
-                <p>© <span id="currentYear"></span> BoneSaver. Všechna práva vyhrazena.</p>
+
+            <div class="footer-bottom">
+                <div>
+                    © <span id="currentYear"></span> BoneSaver. Všechna práva vyhrazena.
+                </div>
+                <div style="color: var(--text-muted);">
+                    Živá hudební skupina Pardubice & Východní Čechy
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 

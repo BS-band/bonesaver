@@ -4,171 +4,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O kapele BoneSaver | Hudební skupina Pardubice</title>
+    <title>O kapele BoneSaver | Živá hudební skupina Pardubice</title>
     <meta name="description"
-        content="Poznejte kapelu BoneSaver z Pardubic. Parta nadšených muzikantů hrající rock, pop a taneční hity. Členové kapely a náš přístup k hudbě.">
+        content="Poznejte kapelu BoneSaver z Pardubic. 5 nadšených muzikantů se saxofonem, kytarami, klávesami a bicími. Hrajeme 100% živě pro vaše svatby, plesy a oslavy.">
+    
     <!-- Open Graph -->
-    <meta property="og:title" content="O kapele BoneSaver | Hudební skupina Pardubice">
+    <meta property="og:title" content="O kapele BoneSaver | Živá hudební skupina Pardubice">
     <meta property="og:description"
-        content="Poznejte kapelu BoneSaver z Pardubic. Parta nadšených muzikantů hrající rock, pop a taneční hity.">
+        content="Poznejte kapelu BoneSaver z Pardubic. 5 nadšených muzikantů hrajících rock, pop a taneční hity.">
     <meta property="og:image" content="https://www.bonesaver.cz/img/band-photo-2.JPG">
     <meta property="og:url" content="https://www.bonesaver.cz/o-nas.html">
     <meta property="og:type" content="website">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://www.bonesaver.cz/o-nas.html">
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MusicGroup",
-      "name": "BoneSaver",
-      "url": "https://www.bonesaver.cz",
-      "logo": "https://www.bonesaver.cz/img/logo.png",
-      "sameAs": [
-        "https://facebook.com/bonesaver",
-        "https://www.instagram.com/bonesaver.cz",
-        "https://www.youtube.com/@bonesaver2347"
-      ],
-      "genre": ["Rock", "Pop"],
-      "location": {
-        "@type": "Place",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Pardubice",
-          "addressCountry": "CZ"
-        }
-      }
-    }
-    </script>
+    <link rel="icon" href="img/favicon.png" type="image/png">
 
+    <!-- Fonts & Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img/favicon.png" type="image/png">
 </head>
 
 <body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-announcement">
+        <span class="season-badge">Sezóna 2026 / 2027</span>
+        <span>Hledáte spolehlivou kapelu na svůj termín?</span>
+        <a href="kontakt.html" style="color: var(--accent-cyan-light); font-weight: 700; text-decoration: underline;">Nezávazná poptávka &rarr;</a>
+    </div>
+
+    <!-- STICKY NAVBAR -->
     <header class="navbar">
         <div class="container">
-            <a href="index.html" class="nav-logo">BoneSaver</a>
-            <button class="nav-toggle" aria-label="Přepnout navigaci" aria-expanded="false">
-                <span class="hamburger"></span>
-            </button>
+            <div class="nav-brand">
+                <a href="index.html" class="nav-brand" style="text-decoration: none;">
+                    <div class="nav-badge">BS</div>
+                    <div class="nav-logo-text">
+                        <span class="nav-logo">Bone<span>Saver</span></span>
+                        <span class="nav-tagline">Živá kapela Pardubice</span>
+                    </div>
+                </a>
+            </div>
+
             <nav class="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="index.html" class="nav-link">Domů</a></li>
-                    <li class="nav-item"><a href="o-nas.html" class="nav-link">O nás</a></li>
+                    <li class="nav-item"><a href="o-nas.html" class="nav-link active">O nás</a></li>
                     <li class="nav-item"><a href="repertoar.html" class="nav-link">Repertoár</a></li>
                     <li class="nav-item"><a href="ukazky.html" class="nav-link">Ukázky</a></li>
-                    <li class="nav-item"><a href="kontakt.html" class="nav-link btn btn-primary">Kontakt</a></li>
-                    <li class="nav-item theme-switch-item">
-                        <button id="theme-switcher" class="theme-switcher-btn" aria-label="Přepnout tmavý/světlý režim">
-                            <span class="theme-icon-placeholder"></span>
-                        </button>
-                    </li>
+                    <li class="nav-item"><a href="kontakt.html" class="nav-link">Kontakt</a></li>
                 </ul>
+
+                <div class="nav-actions">
+                    <a href="tel:+420734393711" class="nav-phone-link">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        734 393 711
+                    </a>
+                    <a href="kontakt.html" class="btn btn-primary" style="padding: 0.55rem 1.2rem; font-size: 0.88rem;">Poptat termín</a>
+                    <button id="theme-switcher" class="theme-switcher-btn" aria-label="Přepnout motiv">
+                        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+                    </button>
+                </div>
             </nav>
+
+            <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
         </div>
     </header>
 
     <main>
-        <section class="page-title-section">
+        <!-- SUBPAGE HERO -->
+        <section class="subpage-hero stage-gradient">
             <div class="container">
+                <span class="badge-tag">Příběh & Obsazení</span>
                 <h1>O kapele BoneSaver</h1>
+                <p>Parta muzikantů z Pardubic, které spojuje vášeň pro poctivou živou muziku, skvělou náladu a plný parket.</p>
             </div>
         </section>
 
-        <section class="about-detailed section-padding">
+        <!-- MAIN ABOUT STORY -->
+        <section class="section-padding">
             <div class="container">
-                <div class="about-grid">
-                    <div class="about-text">
-                        <h2>Naše vášeň pro hudbu</h2>
-                        <p>Jsme parta nadšených muzikantů z Pardubic, které spojuje láska k dobré hudbě a touha bavit
-                            lidi. BoneSaver vznikl s cílem přinášet na pódia energická vystoupení plná známých hitů,
-                            které si každý rád poslechne a zazpívá.</p>
-                        <p>Náš repertoár je široký – od nesmrtelných rockových klasik přes populární popové melodie až
-                            po taneční pecky, které nenechají nikoho sedět. Hrajeme 100% naživo a vždy s maximálním
-                            nasazením. Kromě kytar, bicích a kláves máme i saxofon, který dodá naší muzice punc
-                            originality.</p>
-                        <h3>Co hrajeme?</h3>
-                        <p>Zaměřujeme se na cover verze známých českých i zahraničních interpretů. Na našem playlistu
-                            najdete písně od kapel jako Kabát, Harlej, Tři sestry, Hudba Praha, AC/DC, Kiss, ale i
-                            modernější interprety jako Rybičky 48, Walda Gang, Chinaski, Kryštof, Lady GaGa a mnoho
-                            dalších. Pro plesy a společenské události máme připravené i standardní taneční skladby
-                            (polka, valčík, waltz, tango...).</p>
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 3.5rem; align-items: center;" class="about-flex-row">
+                    <div>
+                        <h2>Naše vášeň pro hudbu a živou energii</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.7; color: #CBD5E1;">
+                            Kapela <strong>BoneSaver</strong> vznikla s jasným cílem: přinášet na pódia energická vystoupení plná známých hitů, které si každý rád poslechne, zazpívá a zatančí.
+                        </p>
+                        <p>
+                            Hrajeme <strong>100% naživo</strong> a vždy s maximálním nasazením. Náš zvuk stavíme na pevných kytarových a bicích základech, melodických klávesách a výrazných zpěvech. Velkou chloubou naší sestavy je <strong>saxofon</strong>, který dodává rockovým i popovým skladbám jedinečnou barvu a neopakovatelnou atmosféru.
+                        </p>
+                        <p>
+                            Ať už plánujete svatbu s romantickým prvním tancem, maturitní ples s noblesními valčíky a divokou půlnoční jízdou, nebo firemní party, dokážeme repertoár citlivě přizpůsobit náladě publika.
+                        </p>
+                        
+                        <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                            <div class="glass-card" style="padding: 1rem 1.25rem; border-radius: 14px; flex: 1; min-width: 140px;">
+                                <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-cyan-light);">100%</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Živý zvuk bez podkladů</div>
+                            </div>
+                            <div class="glass-card" style="padding: 1rem 1.25rem; border-radius: 14px; flex: 1; min-width: 140px;">
+                                <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-amber);">5</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Muzikantů v sestavě</div>
+                            </div>
+                            <div class="glass-card" style="padding: 1rem 1.25rem; border-radius: 14px; flex: 1; min-width: 140px;">
+                                <div style="font-size: 1.5rem; font-weight: 800; color: #34D399;">100+</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Skladeb v repertoáru</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="about-image-large"> <!-- Změna třídy pro větší obrázek -->
-                        <img loading="lazy" src="img/band-photo-2.JPG" alt="Kapela BoneSaver v akci na pódiu">
+
+                    <div>
+                        <div class="glass-card glow-cyan" style="padding: 0.75rem; border-radius: 24px; overflow: hidden;">
+                            <img src="img/band-photo-2.JPG" alt="BoneSaver na pódiu" style="border-radius: 18px; width: 100%; height: auto;" loading="lazy">
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <h2 class="text-center member-heading">Členové kapely</h2>
-                <div class="members-grid-wrapper"> <!-- Přidán wrapper pro lepší centrování -->
-                    <div class="members-grid">
-                        <div class="member-card">
-                            <img loading="lazy" src="img/member-MBE.JPG" alt="Mirek Bečička">
-                            <h4>Mirek Bečička</h4>
-                            <p>Kytara, Saxofon, Klávesy, Zpěv</p>
-                        </div>
-                        <div class="member-card">
-                            <img loading="lazy" src="img/member-ALH.JPG" alt="Adéla Lhotová">
-                            <h4>Adéla Lhotová</h4>
-                            <p>Klávesy, Zpěv</p>
-                        </div>
-                        <div class="member-card">
-                            <img loading="lazy" src="img/member-DSST.JPG" alt="David Syrovec">
-                            <h4>David Syrovec</h4>
-                            <p>Basová kytara</p>
-                        </div>
-                        <div class="member-card">
-                            <img loading="lazy" src="img/member-DSML.JPG" alt="David Pasta Syrovec">
-                            <h4>David "Pasta" Syrovec</h4>
-                            <p>Kytara</p>
-                        </div>
-                        <div class="member-card">
-                            <img loading="lazy" src="img/member-PAD.JPG" alt="Petr Adam">
-                            <h4>Petr "Dolfi" Adam</h4>
-                            <p>Bicí, Zpěv</p>
-                        </div>
+        <!-- MEMBERS SECTION -->
+        <section class="section-padding" style="background: rgba(15, 23, 42, 0.5); border-y: 1px solid rgba(255,255,255,0.06);">
+            <div class="container">
+                <div class="text-center" style="max-width: 600px; margin: 0 auto 3rem;">
+                    <span class="badge-tag">Sestava kapely</span>
+                    <h2>Kdo pro vás hraje?</h2>
+                    <p>Pět muzikantů, z nichž každý přináší do kapely své specifické hudební zkušenosti a energii.</p>
+                </div>
+
+                <div class="members-detailed-grid">
+                    
+                    <div class="glass-card member-detail-card glow-cyan">
+                        <img src="img/member-MBE.JPG" alt="Mirek Bečička" loading="lazy">
+                        <h3>Ing. Miroslav Bečička</h3>
+                        <p style="color: var(--accent-cyan-light); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem;">Kytara, Saxofon, Klávesy, Zpěv</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Kapelník, multiinstrumentalista a duše kapely. Saxofonem a kytarou dodává skladbám ten pravý drajv.</p>
                     </div>
+
+                    <div class="glass-card member-detail-card">
+                        <img src="img/member-ALH.JPG" alt="Adéla Lhotová" loading="lazy">
+                        <h3>Adéla Lhotová</h3>
+                        <p style="color: var(--accent-cyan-light); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem;">Klávesy, Zpěv</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Krásný ženský vokál, melodické klávesové linky a nezaměnitelný úsměv na každém pódiu.</p>
+                    </div>
+
+                    <div class="glass-card member-detail-card">
+                        <img src="img/member-DSST.JPG" alt="David Syrovec" loading="lazy">
+                        <h3>David Syrovec</h3>
+                        <p style="color: var(--accent-cyan-light); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem;">Basová kytara</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Neúnavný motor rytmiky, který drží basový groove pevně pohromadě od první písničky do rána.</p>
+                    </div>
+
+                    <div class="glass-card member-detail-card">
+                        <img src="img/member-DSML.JPG" alt="David Pasta Syrovec" loading="lazy">
+                        <h3>David "Pasta" Syrovec</h3>
+                        <p style="color: var(--accent-cyan-light); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem;">Sólová kytara</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Šťavnatá kytarová sóla, rockové riffy a poctivý zvuk, který zvedne ze židle každého rockera.</p>
+                    </div>
+
+                    <div class="glass-card member-detail-card">
+                        <img src="img/member-PAD.JPG" alt="Petr Dolfi Adam" loading="lazy">
+                        <h3>Petr "Dolfi" Adam</h3>
+                        <p style="color: var(--accent-cyan-light); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem;">Bicí, Zpěv</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Paličky plné energie, přesný rytmus a vokální podpora, díky kterým má kapela nezaměnitelný šlap.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="section-padding stage-gradient">
+            <div class="container text-center">
+                <h2>Chtěli byste BoneSaver na své akci?</h2>
+                <p style="max-width: 550px; margin: 0 auto 2rem;">Napište nám nebo zavolejte a společně vymyslíme hudební program přímo na míru vašim představám.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="kontakt.html" class="btn btn-primary btn-lg">Poptat termín vystoupení</a>
+                    <a href="ukazky.html" class="btn btn-secondary btn-lg">Pustit si ukázky</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <!-- FOOTER -->
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-contact">
-                    <h4>Kontaktujte nás</h4>
-                    <p>Ing. Miroslav Bečička</p>
-                    <p><img loading="lazy" src="img/icon-phone.svg" alt="" class="contact-icon"> <a
-                            href="tel:+420734393711">+420 734 393 711</a></p>
-                    <p><img loading="lazy" src="img/icon-email.svg" alt="" class="contact-icon"> <a
-                            href="mailto:bonesavermusic@gmail.com">bonesavermusic@gmail.com</a></p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h4>Bone<span style="color: var(--accent-cyan);">Saver</span></h4>
+                    <p style="max-width: 380px; font-size: 0.9rem; line-height: 1.6;">
+                        Energická živá hudba pro vaši svatbu, maturitní ples, firemní večírek i městské slavnosti. 100% live produkce z Pardubic s vlastním zvukem a světly.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h5>Rychlé odkazy</h5>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="o-nas.html">O kapele</a></li>
+                        <li><a href="repertoar.html">Repertoár</a></li>
+                        <li><a href="ukazky.html">Ukázky</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
                 </div>
                 <div class="footer-social">
-                    <h4>Sledujte nás</h4>
-                    <a href="https://facebook.com/bonesaver" target="_blank" aria-label="Facebook"><img loading="lazy"
-                            src="img/icon-facebook.svg" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/bonesaver.cz" target="_blank" aria-label="Instagram"><img
-                            loading="lazy" src="img/icon-instagram.svg" alt="Instagram"></a>
-                    <a href="https://www.youtube.com/@bonesaver2347" target="_blank" aria-label="YouTube"><img
-                            loading="lazy" src="img/icon-youtube.svg" alt="YouTube"></a>
+                    <h5>Kontakt</h5>
+                    <p><a href="tel:+420734393711" style="color: #fff; font-weight: 700;">+420 734 393 711</a></p>
+                    <p><a href="mailto:bonesavermusic@gmail.com" style="color: var(--accent-cyan-light);">bonesavermusic@gmail.com</a></p>
                 </div>
             </div>
-            <div class="copyright">
-                <p>© <span id="currentYear"></span> BoneSaver. Všechna práva vyhrazena.</p>
+            <div class="footer-bottom">
+                <div>© <span id="currentYear"></span> BoneSaver. Všechna práva vyhrazena.</div>
+                <div>Živá kapela Pardubice & Východní Čechy</div>
             </div>
         </div>
     </footer>
 
-    <script loading="lazy" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
