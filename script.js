@@ -58,30 +58,45 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==========================================
     // 4. Přepínání motivu (Dark-First default)
     // ==========================================
-    const themeSwitcher = document.getElementById('theme-switcher');
     const body = document.body;
 
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'light') {
-        body.classList.add('light-mode-explicit');
-    }
+    function updateThemeUI(isLight) {
+        const moonSvg = '<svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>';
+        const sunSvg = '<svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>';
 
-    if (themeSwitcher) {
-        themeSwitcher.addEventListener('click', () => {
-            const isLight = body.classList.contains('light-mode-explicit');
-            if (isLight) {
-                body.classList.remove('light-mode-explicit');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.add('light-mode-explicit');
-                localStorage.setItem('theme', 'light');
-            }
+        document.querySelectorAll('.theme-switcher-btn').forEach(btn => {
+            btn.innerHTML = isLight ? moonSvg : sunSvg;
+            btn.setAttribute('aria-label', isLight ? 'Přepnout do tmavého režimu' : 'Přepnout do světlého režimu');
+            btn.setAttribute('title', isLight ? 'Přepnout do tmavého režimu' : 'Přepnout do světlého režimu');
         });
     }
 
+    const storedTheme = localStorage.getItem('theme');
+    const isLightInitial = storedTheme === 'light';
+    if (isLightInitial) {
+        body.classList.add('light-mode-explicit');
+    }
+    updateThemeUI(isLightInitial);
+
+    document.querySelectorAll('.theme-switcher-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const isLight = body.classList.toggle('light-mode-explicit');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            updateThemeUI(isLight);
+        });
+    });
+
     // ==========================================
-    // 5. Interaktivní Repertoár (Filtry & Vyhledávání)
+    // 5. Interaktivní Repertoár (Filtry & Vyhledávání s diakritikou)
     // ==========================================
+    function normalizeText(str) {
+        return (str || '')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .trim();
+    }
+
     function setupRepertoireExplorer(filterContainerId, searchInputId, cardsGridId) {
         const filterContainer = document.getElementById(filterContainerId);
         const searchInput = document.getElementById(searchInputId);
@@ -95,13 +110,14 @@ document.addEventListener('DOMContentLoaded', function () {
         function filterCards() {
             const cards = cardsGrid.querySelectorAll('.song-card');
             let matchCount = 0;
+            const normalizedSearch = normalizeText(searchQuery);
 
             cards.forEach(card => {
                 const cardGenre = card.getAttribute('data-genre') || '';
-                const cardText = card.textContent.toLowerCase();
+                const cardText = normalizeText(card.textContent);
 
                 const matchesGenre = (activeGenre === 'all') || (cardGenre === activeGenre);
-                const matchesSearch = !searchQuery || cardText.includes(searchQuery);
+                const matchesSearch = !normalizedSearch || cardText.includes(normalizedSearch);
 
                 if (matchesGenre && matchesSearch) {
                     card.style.display = 'flex';
@@ -119,8 +135,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     noResultMsg.className = 'no-repertoire-results';
                     noResultMsg.style.gridColumn = '1 / -1';
                     noResultMsg.style.textAlign = 'center';
-                    noResultMsg.style.padding = '2rem';
-                    noResultMsg.style.color = '#94A3B8';
+                    noResultMsg.style.padding = '2.5rem 1rem';
+                    noResultMsg.style.color = 'var(--text-muted)';
                     noResultMsg.textContent = 'Pro zadaný filtr jsme nic nenašli. Zkuste jiný výraz nebo si stáhněte kompletní PDF repertoár.';
                     cardsGrid.appendChild(noResultMsg);
                 }
@@ -144,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
-                searchQuery = e.target.value.toLowerCase().trim();
+                searchQuery = e.target.value;
                 filterCards();
             });
         }
@@ -263,5 +279,31 @@ document.addEventListener('DOMContentLoaded', function () {
         'contactEmail',
         'contactNotes'
     );
+    // ==========================================
+    // 8. Omezení kalendáře na dnešní a budoucí data
+    // ==========================================
+    const today = new Date().toISOString().split('T')[0];
+    const formDate = document.getElementById('formDate');
+    const contactDate = document.getElementById('contactDate');
+    if (formDate) formDate.min = today;
+    if (contactDate) contactDate.min = today;
+
+    // ==========================================
+    // 9. Plovoucí tlačítko Zpět nahoru
+    // ==========================================
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
 });
