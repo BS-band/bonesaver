@@ -173,27 +173,103 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==========================================
     // 6. Hero Audio Snippet Player (Ukázkový přehrávač)
     // ==========================================
+    const audioElement = document.getElementById('heroAudioElement');
     const audioBtn = document.getElementById('audioSnippetBtn');
+    const audioBtnText = document.getElementById('audioBtnText');
     const audioFill = document.getElementById('audioSnippetFill');
-    let isPlaying = false;
-    let audioTimer = null;
-    let progressPercent = 35;
+    const audioBar = document.getElementById('audioSnippetBar');
+    const audioTimeDisplay = document.getElementById('audioTimeDisplay');
+    const audioStatusText = document.getElementById('audioStatusText');
 
-    if (audioBtn && audioFill) {
+    function formatTime(seconds) {
+        if (!seconds || isNaN(seconds) || !isFinite(seconds) || seconds < 0) return '0:00';
+        const m = Math.floor(seconds / 60);
+        const s = Math.floor(seconds % 60);
+        return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    if (audioBtn && audioElement) {
+        const playIcon = '<path d="M8 5v14l11-7z"/>';
+        const pauseIcon = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+
+        function updatePlayBtnUI(isPlaying) {
+            const svg = audioBtn.querySelector('svg');
+            if (svg) svg.innerHTML = isPlaying ? pauseIcon : playIcon;
+            if (audioBtnText) audioBtnText.textContent = isPlaying ? 'Pozastavit' : (audioElement.currentTime > 0 ? 'Pokračovat' : 'Přehrát ukázku');
+            audioBtn.style.borderColor = isPlaying ? 'var(--accent-cyan)' : '';
+        }
+
+        audioElement.addEventListener('loadedmetadata', () => {
+            if (audioTimeDisplay) {
+                if (isFinite(audioElement.duration) && audioElement.duration > 0) {
+                    audioTimeDisplay.textContent = `0:00 / ${formatTime(audioElement.duration)}`;
+                } else {
+                    audioTimeDisplay.textContent = '100% LIVE';
+                }
+            }
+        });
+
+        audioElement.addEventListener('timeupdate', () => {
+            if (isFinite(audioElement.duration) && audioElement.duration > 0) {
+                const percent = (audioElement.currentTime / audioElement.duration) * 100;
+                if (audioFill) audioFill.style.width = percent + '%';
+                if (audioTimeDisplay) {
+                    audioTimeDisplay.textContent = `${formatTime(audioElement.currentTime)} / ${formatTime(audioElement.duration)}`;
+                }
+            } else if (audioTimeDisplay) {
+                audioTimeDisplay.textContent = formatTime(audioElement.currentTime);
+            }
+        });
+
+        audioElement.addEventListener('ended', () => {
+            updatePlayBtnUI(false);
+            if (audioFill) audioFill.style.width = '0%';
+            if (audioTimeDisplay) {
+                if (isFinite(audioElement.duration) && audioElement.duration > 0) {
+                    audioTimeDisplay.textContent = `0:00 / ${formatTime(audioElement.duration)}`;
+                } else {
+                    audioTimeDisplay.textContent = '100% LIVE';
+                }
+            }
+            if (audioStatusText) audioStatusText.textContent = 'Ukázka dohrála';
+        });
+
+        if (audioBar) {
+            audioBar.addEventListener('click', (e) => {
+                if (isFinite(audioElement.duration) && audioElement.duration > 0) {
+                    const rect = audioBar.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const percent = Math.max(0, Math.min(1, clickX / rect.width));
+                    audioElement.currentTime = percent * audioElement.duration;
+                }
+            });
+        }
+
         audioBtn.addEventListener('click', () => {
-            isPlaying = !isPlaying;
-            if (isPlaying) {
-                audioBtn.innerHTML = '⏸ Zastavit ukázku';
-                audioBtn.style.borderColor = 'var(--accent-cyan)';
-                audioTimer = setInterval(() => {
-                    progressPercent += 2;
-                    if (progressPercent > 100) progressPercent = 0;
-                    audioFill.style.width = progressPercent + '%';
-                }, 150);
+            if (audioElement.paused) {
+                const playPromise = audioElement.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        updatePlayBtnUI(true);
+                        if (audioStatusText) {
+                            audioStatusText.textContent = 'Přehrává se ukázka';
+                            audioStatusText.style.color = '';
+                        }
+                    }).catch(err => {
+                        console.warn("Audio play error:", err);
+                        if (audioStatusText) {
+                            audioStatusText.textContent = 'Nahrajte soubor do assets/audio/ukazka.mp3';
+                            audioStatusText.style.color = 'var(--accent-amber)';
+                        }
+                    });
+                }
             } else {
-                audioBtn.innerHTML = '▶ Přehrát ukázku';
-                audioBtn.style.borderColor = '';
-                clearInterval(audioTimer);
+                audioElement.pause();
+                updatePlayBtnUI(false);
+                if (audioStatusText) {
+                    audioStatusText.textContent = 'Ukázka pozastavena';
+                    audioStatusText.style.color = '';
+                }
             }
         });
     }

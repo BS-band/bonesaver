@@ -183,19 +183,26 @@
 
                             <!-- Interactive Audio Snippet Player (2026 Feature) -->
                             <div class="hero-audio-bar">
+                                <audio id="heroAudioElement" preload="metadata">
+                                    <source src="assets/audio/ukazka.mp3" type="audio/mpeg">
+                                    <source src="assets/audio/ukazka.wav" type="audio/wav">
+                                    <source src="assets/audio/bonesaver-ukazka.mp3" type="audio/mpeg">
+                                    <source src="assets/audio/bonesaver-ukazka.wav" type="audio/wav">
+                                </audio>
                                 <div class="audio-bar-header">
-                                    <span style=" font-weight: 600;">Ukázka: <strong>Rock & Pop Live Medley</strong></span>
-                                    <span style="color: var(--accent-cyan-light); font-family: monospace; font-size: 0.75rem;">100% LIVE</span>
+                                    <span style="font-weight: 600;">Ukázka: <strong>Rock & Pop Live Medley</strong></span>
+                                    <span id="audioTimeDisplay" style="color: var(--accent-cyan); font-family: monospace; font-size: 0.75rem;">0:00 / 0:00</span>
                                 </div>
-                                <div class="audio-progress" id="audioSnippetBar">
-                                    <div class="audio-progress-fill" id="audioSnippetFill"></div>
+                                <div class="audio-progress" id="audioSnippetBar" title="Kliknutím přeskočíte v nahrávce">
+                                    <div class="audio-progress-fill" id="audioSnippetFill" style="width: 0%;"></div>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; font-size: 0.78rem;">
-                                    <button id="audioSnippetBtn" class="btn btn-secondary" style="padding: 0.25rem 0.7rem; font-size: 0.75rem; border-radius: 8px;">
-                                        ▶ Přehrát ukázku
+                                    <button id="audioSnippetBtn" class="btn btn-secondary" style="padding: 0.28rem 0.8rem; font-size: 0.75rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 5px;">
+                                        <svg id="audioBtnIcon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                        <span id="audioBtnText">Přehrát ukázku</span>
                                     </button>
-                                    <span style="color: var(--text-muted);">Zvuk přímo z pultu</span>
-                                    <a href="repertoar.html" style="color: var(--accent-cyan-light); font-weight: 600;">Celý repertoár &rarr;</a>
+                                    <span id="audioStatusText" style="color: var(--text-muted); font-size: 0.75rem;">100% živý zvuk z pultu</span>
+                                    <a href="repertoar.html" style="color: var(--accent-cyan); font-weight: 600; text-decoration: none;">Celý repertoár &rarr;</a>
                                 </div>
                             </div>
                         </div>
