@@ -2,7 +2,7 @@
 
 Datum: 24. 9. 2026. Výchozí commit: `0ec64811b8256ee6b29799fb4b9cbe7da8ed4c35`.
 
-Potvrzený cíl majitele: hlavně získávat poptávky na hraní; vlastní tvorbu představit v samostatné sekci. Tento dokument je návrh. Stávající veřejné stránky dosud nebyly přepsány.
+Potvrzený cíl majitele: hlavně získávat poptávky na hraní; vlastní tvorbu představit v samostatné sekci. Níže je původní audit a plán. Na následný výslovný pokyn majitele již vznikla první lokální implementace — aktuální stav shrnuje oddíl 9 a REVIEW.md. Stávající veřejné stránky dosud nebyly přepsány.
 
 ## 1. Co bylo ověřeno a co zatím ne
 
@@ -140,3 +140,14 @@ Pro pozdější prohlížení z telefonu není `127.0.0.1` na telefonu adresa to
 - [OpenAI: OAI-SearchBot, GPTBot a nezávislost jejich nastavení](https://developers.openai.com/api/docs/bots)
 
 Snímky z kontroly jsou lokálně v `_dev/output/`. Report neobsahuje neveřejná analytická data ani tvrzení o ověřené pozici kapely ve vyhledávačích.
+
+## 9. Stav po první lokální implementaci — 24. 9. 2026
+
+- Fáze B: hotové lokální opravy data, úzkého kontaktu, navigace, barevných motivů a pravdivé přípravy e-mailu. Skutečné doručování není zapojené a není za hotové vydáváno.
+- Fáze C: hotová první podoba homepage s autentickými fotografiemi, videem, šesti písněmi, FAQ a poptávkou. Majitel v této úloze výslovně schválil všechny tři původní reference; jsou zařazeny přímo za hlavní ukázkou.
+- Fáze D: hotové 3 stránky typů akcí, samostatná vlastní tvorba, soukromí, metadata, propojená MusicGroup/WebSite/Service data, sitemap, robots a skutečná lokální 404. Písma a náhledy lokálně, fotografie WebP, originály zachovány. Použit malý statický generátor, žádný SPA framework.
+- Fáze E: 239 automatických kontrol prošlo, včetně 220 kombinací šířek a témat, 174 zachovaných písní, 16 vlastních, hledání, formulářů, navigace a odkazů. Dále 28 auditů axe-core bez hlášených porušení po opravách kontrastu a nadpisů. Vizuálně prohlédnut desktop i mobil. Zbývá lidské odsouhlasení designu/obsahu, reálný telefon a ověření videí v běžném uživatelském prohlížeči; izolovaný testovací Chrome u YouTube narazil na kontrolu proti robotům. Připraven je přímý odkaz na YouTube. Serverové doručení musí projít vlastním testem po jeho případném zapojení.
+- VideoObject zůstává podmíněný doložením data nahrání a délky. Event, falešné hodnocení ani nedoložené výkonnostní sliby nebyly přidány. Search Console, Seznam/Bing nástroje a reálné CWV zatím nebyly nastavovány ani měřeny.
+- Fáze F: NEPROVEDENA. Vzdálený GitHub, `main`, CNAME, DNS a ostrý web beze změny. Nejprve kontrola na `http://127.0.0.1:4174/`, potom samostatná domluva o publikování.
+
+Konkrétní zbývající rozhodnutí, omezení a návod pro vlastníka: [REVIEW.md](REVIEW.md).

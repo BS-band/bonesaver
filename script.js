@@ -1,385 +1,226 @@
-/**
- * BoneSaver 2026 - Interactive Script
- * Live Music Band (Pardubice, ČR)
- */
-
-document.addEventListener('DOMContentLoaded', function () {
-
-    // ==========================================
-    // 1. Mobilní navigace (Hamburger toggle)
-    // ==========================================
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
-            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-
-        // Zavření po kliknutí na odkaz
-        const navLinks = navMenu.querySelectorAll('.nav-link, .nav-actions .btn');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    navToggle.classList.remove('active');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
+(() => {
+  "use strict";
+  const root = document.documentElement;
+  const themeButton = document.querySelector(".theme-toggle");
+  const updateTheme = () => {
+    const light = root.dataset.theme === "light";
+    const label = light
+      ? "Přepnout na tmavý motiv"
+      : "Přepnout na světlý motiv";
+    themeButton?.setAttribute("aria-label", label);
+    themeButton?.setAttribute("title", label);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", light ? "#f5f6f3" : "#10141b");
+  };
+  themeButton?.addEventListener("click", () => {
+    root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+    try {
+      localStorage.setItem("bonesaver-theme", root.dataset.theme);
+    } catch {
+      /* Browsing remains functional without storage. */
     }
+    updateTheme();
+  });
+  updateTheme();
+  document.querySelectorAll("[data-year]").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
 
-    // ==========================================
-    // 2. Automatický rok v copyrightu
-    // ==========================================
-    const yearSpan = document.getElementById('currentYear');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-
-    // ==========================================
-    // 3. Aktivní odkaz v navigaci
-    // ==========================================
-    const currentLocation = window.location.pathname.split("/").pop() || "index.html";
-    const menuLinks = document.querySelectorAll('.nav-menu .nav-link');
-
-    menuLinks.forEach(link => {
-        const linkPath = link.getAttribute('href')?.split("/").pop();
-        if (linkPath === currentLocation || (currentLocation === "" && linkPath === "index.html")) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+  const nav = document.querySelector(".site-nav");
+  const toggle = document.querySelector(".nav-toggle");
+  const closeMenu = () => {
+    nav?.classList.remove("is-open");
+    toggle?.setAttribute("aria-expanded", "false");
+    toggle?.setAttribute("aria-label", "Otevřít menu");
+    document.querySelectorAll(".nav-dropdown[open]").forEach((el) => {
+      el.open = false;
     });
+  };
+  toggle?.addEventListener("click", () => {
+    const open = !nav.classList.contains("is-open");
+    closeMenu();
+    nav.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Zavřít menu" : "Otevřít menu");
+  });
+  nav
+    ?.querySelectorAll("a")
+    .forEach((a) => a.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    const mobileOpen = nav?.classList.contains("is-open");
+    const dropdown = document.querySelector(".nav-dropdown[open]");
+    closeMenu();
+    if (mobileOpen) toggle.focus();
+    else dropdown?.querySelector("summary").focus();
+  });
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".site-header")) closeMenu();
+  });
+  window
+    .matchMedia("(min-width: 1025px)")
+    .addEventListener("change", closeMenu);
 
-    // ==========================================
-    // 4. Přepínání motivu (Dark-First default)
-    // ==========================================
-    const body = document.body;
-
-    function updateThemeUI(isLight) {
-        const moonSvg = '<svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>';
-        const sunSvg = '<svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>';
-
-        document.querySelectorAll('.theme-switcher-btn').forEach(btn => {
-            btn.innerHTML = isLight ? moonSvg : sunSvg;
-            btn.setAttribute('aria-label', isLight ? 'Přepnout do tmavého režimu' : 'Přepnout do světlého režimu');
-            btn.setAttribute('title', isLight ? 'Přepnout do tmavého režimu' : 'Přepnout do světlého režimu');
-        });
-    }
-
-    const storedTheme = localStorage.getItem('theme');
-    const isLightInitial = storedTheme === 'light';
-    if (isLightInitial) {
-        body.classList.add('light-mode-explicit');
-    }
-    updateThemeUI(isLightInitial);
-
-    document.querySelectorAll('.theme-switcher-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const isLight = body.classList.toggle('light-mode-explicit');
-            localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            updateThemeUI(isLight);
-        });
+  document.querySelectorAll("[data-video]").forEach((frame) => {
+    frame.querySelector("button")?.addEventListener("click", () => {
+      if (!/^[\w-]{11}$/.test(frame.dataset.video)) return;
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${frame.dataset.video}?autoplay=1&rel=0`;
+      iframe.title = frame.dataset.title;
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      frame.replaceChildren(iframe);
+      frame.classList.add("is-playing");
+      iframe.focus();
     });
+  });
 
-    // ==========================================
-    // 5. Interaktivní Repertoár (Filtry & Vyhledávání s diakritikou)
-    // ==========================================
-    function normalizeText(str) {
-        return (str || '')
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .toLowerCase()
-            .trim();
-    }
-
-    function setupRepertoireExplorer(filterContainerId, searchInputId, cardsGridId) {
-        const filterContainer = document.getElementById(filterContainerId);
-        const searchInput = document.getElementById(searchInputId);
-        const cardsGrid = document.getElementById(cardsGridId);
-
-        if (!cardsGrid) return;
-
-        let activeGenre = 'all';
-        let searchQuery = '';
-
-        function filterCards() {
-            const cards = cardsGrid.querySelectorAll('.song-card');
-            let matchCount = 0;
-            const normalizedSearch = normalizeText(searchQuery);
-
-            cards.forEach(card => {
-                const cardGenre = card.getAttribute('data-genre') || '';
-                const cardText = normalizeText(card.textContent);
-
-                const matchesGenre = (activeGenre === 'all') || (cardGenre === activeGenre);
-                const matchesSearch = !normalizedSearch || cardText.includes(normalizedSearch);
-
-                if (matchesGenre && matchesSearch) {
-                    card.style.display = 'flex';
-                    matchCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            // "Nenalezeno" hláška
-            let noResultMsg = cardsGrid.querySelector('.no-repertoire-results');
-            if (matchCount === 0) {
-                if (!noResultMsg) {
-                    noResultMsg = document.createElement('div');
-                    noResultMsg.className = 'no-repertoire-results';
-                    noResultMsg.style.gridColumn = '1 / -1';
-                    noResultMsg.style.textAlign = 'center';
-                    noResultMsg.style.padding = '2.5rem 1rem';
-                    noResultMsg.style.color = 'var(--text-muted)';
-                    noResultMsg.textContent = 'Pro zadaný filtr jsme nic nenašli. Zkuste jiný výraz nebo si stáhněte kompletní PDF repertoár.';
-                    cardsGrid.appendChild(noResultMsg);
-                }
-                noResultMsg.style.display = 'block';
-            } else if (noResultMsg) {
-                noResultMsg.style.display = 'none';
-            }
-        }
-
-        if (filterContainer) {
-            const filterButtons = filterContainer.querySelectorAll('.filter-btn');
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    activeGenre = btn.getAttribute('data-genre') || 'all';
-                    filterCards();
-                });
-            });
-        }
-
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                searchQuery = e.target.value;
-                filterCards();
-            });
-        }
-    }
-
-    // Inicializace repertoáru na homepage i podstránce
-    setupRepertoireExplorer('homeRepertoireFilters', 'homeRepertoireSearch', 'homeRepertoireGrid');
-    setupRepertoireExplorer('pageRepertoireFilters', 'pageRepertoireSearch', 'pageRepertoireGrid');
-
-    // ==========================================
-    // 6. Hero Audio Snippet Player (Ukázkový přehrávač)
-    // ==========================================
-    const audioElement = document.getElementById('heroAudioElement');
-    const audioBtn = document.getElementById('audioSnippetBtn');
-    const audioBtnText = document.getElementById('audioBtnText');
-    const audioFill = document.getElementById('audioSnippetFill');
-    const audioBar = document.getElementById('audioSnippetBar');
-    const audioTimeDisplay = document.getElementById('audioTimeDisplay');
-    const audioStatusText = document.getElementById('audioStatusText');
-
-    function formatTime(seconds) {
-        if (!seconds || isNaN(seconds) || !isFinite(seconds) || seconds < 0) return '0:00';
-        const m = Math.floor(seconds / 60);
-        const s = Math.floor(seconds % 60);
-        return `${m}:${s < 10 ? '0' : ''}${s}`;
-    }
-
-    if (audioBtn && audioElement) {
-        const playIcon = '<path d="M8 5v14l11-7z"/>';
-        const pauseIcon = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
-
-        function updatePlayBtnUI(isPlaying) {
-            const svg = audioBtn.querySelector('svg');
-            if (svg) svg.innerHTML = isPlaying ? pauseIcon : playIcon;
-            if (audioBtnText) audioBtnText.textContent = isPlaying ? 'Pozastavit' : (audioElement.currentTime > 0 ? 'Pokračovat' : 'Přehrát ukázku');
-            audioBtn.style.borderColor = isPlaying ? 'var(--accent-cyan)' : '';
-        }
-
-        audioElement.addEventListener('loadedmetadata', () => {
-            if (audioTimeDisplay) {
-                if (isFinite(audioElement.duration) && audioElement.duration > 0) {
-                    audioTimeDisplay.textContent = `0:00 / ${formatTime(audioElement.duration)}`;
-                } else {
-                    audioTimeDisplay.textContent = '100% LIVE';
-                }
-            }
-        });
-
-        audioElement.addEventListener('timeupdate', () => {
-            if (isFinite(audioElement.duration) && audioElement.duration > 0) {
-                const percent = (audioElement.currentTime / audioElement.duration) * 100;
-                if (audioFill) audioFill.style.width = percent + '%';
-                if (audioTimeDisplay) {
-                    audioTimeDisplay.textContent = `${formatTime(audioElement.currentTime)} / ${formatTime(audioElement.duration)}`;
-                }
-            } else if (audioTimeDisplay) {
-                audioTimeDisplay.textContent = formatTime(audioElement.currentTime);
-            }
-        });
-
-        audioElement.addEventListener('ended', () => {
-            updatePlayBtnUI(false);
-            if (audioFill) audioFill.style.width = '0%';
-            if (audioTimeDisplay) {
-                if (isFinite(audioElement.duration) && audioElement.duration > 0) {
-                    audioTimeDisplay.textContent = `0:00 / ${formatTime(audioElement.duration)}`;
-                } else {
-                    audioTimeDisplay.textContent = '100% LIVE';
-                }
-            }
-            if (audioStatusText) audioStatusText.textContent = 'Ukázka dohrála';
-        });
-
-        if (audioBar) {
-            audioBar.addEventListener('click', (e) => {
-                if (isFinite(audioElement.duration) && audioElement.duration > 0) {
-                    const rect = audioBar.getBoundingClientRect();
-                    const clickX = e.clientX - rect.left;
-                    const percent = Math.max(0, Math.min(1, clickX / rect.width));
-                    audioElement.currentTime = percent * audioElement.duration;
-                }
-            });
-        }
-
-        audioBtn.addEventListener('click', () => {
-            if (audioElement.paused) {
-                const playPromise = audioElement.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        updatePlayBtnUI(true);
-                        if (audioStatusText) {
-                            audioStatusText.textContent = 'Přehrává se ukázka';
-                            audioStatusText.style.color = '';
-                        }
-                    }).catch(err => {
-                        console.warn("Audio play error:", err);
-                        if (audioStatusText) {
-                            audioStatusText.textContent = 'Nahrajte soubor do assets/audio/ukazka.mp3';
-                            audioStatusText.style.color = 'var(--accent-amber)';
-                        }
-                    });
-                }
-            } else {
-                audioElement.pause();
-                updatePlayBtnUI(false);
-                if (audioStatusText) {
-                    audioStatusText.textContent = 'Ukázka pozastavena';
-                    audioStatusText.style.color = '';
-                }
-            }
-        });
-    }
-
-    // ==========================================
-    // 7. Inteligentní poptávkový formulář (Wizard)
-    // ==========================================
-    function setupInquiryForm(formId, successBoxId, emailDraftLinkId, eventTypeRadioName, dateId, locationId, nameId, phoneId, emailId, notesId) {
-        const form = document.getElementById(formId);
-        const successBox = document.getElementById(successBoxId);
-        const emailDraftLink = document.getElementById(emailDraftLinkId);
-
-        if (!form) return;
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const selectedRadio = form.querySelector(`input[name="${eventTypeRadioName}"]:checked`);
-            const eventType = selectedRadio ? selectedRadio.value : 'Vystoupení kapely';
-            const date = document.getElementById(dateId)?.value || '';
-            const location = document.getElementById(locationId)?.value || '';
-            const name = document.getElementById(nameId)?.value || '';
-            const phone = document.getElementById(phoneId)?.value || '';
-            const email = document.getElementById(emailId)?.value || '';
-            const notes = document.getElementById(notesId)?.value || '';
-
-            // Sestavení přehledného textu poptávky
-            const subject = encodeURIComponent(`Poptávka vystoupení BoneSaver - ${eventType} (${date})`);
-            const body = encodeURIComponent(
-                `Dobrý den,\n\n` +
-                `rád(a) bych nezávazně poptal(a) vystoupení kapely BoneSaver na naši akci:\n\n` +
-                `• Typ akce: ${eventType}\n` +
-                `• Datum: ${date}\n` +
-                `• Místo konání: ${location}\n` +
-                `• Jméno / Pořadatel: ${name}\n` +
-                `• Telefon: ${phone}\n` +
-                `• E-mail: ${email}\n` +
-                (notes ? `• Poznámka / dotaz: ${notes}\n` : '') +
-                `\nProsím o ověření volného termínu a zaslání cenové nabídky.\n\n` +
-                `S pozdravem,\n${name}`
-            );
-
-            const mailtoUrl = `mailto:bonesavermusic@gmail.com?subject=${subject}&body=${body}`;
-
-            if (emailDraftLink) {
-                emailDraftLink.href = mailtoUrl;
-            }
-
-            if (successBox) {
-                successBox.style.display = 'block';
-                successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-
-            // Pokus o automatické otevření mailového klienta
-            window.location.href = mailtoUrl;
-        });
-    }
-
-    // Inicializace pro formulář na homepage
-    setupInquiryForm(
-        'inquiryForm',
-        'formSuccessMessage',
-        'emailDraftLink',
-        'event_type',
-        'formDate',
-        'formLocation',
-        'formName',
-        'formPhone',
-        'formEmail',
-        'formNotes'
+  const search = document.getElementById("repertoireSearch");
+  if (search) {
+    const normalize = (text) =>
+      text
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("cs")
+        .trim();
+    const table = document.getElementById("songTable");
+    const rows = [...table.querySelectorAll("tbody tr")].map((el) => ({
+      el,
+      text: normalize(el.textContent),
+      genre: el.dataset.genre,
+    }));
+    const filters = [...document.querySelectorAll("[data-filter]")];
+    const params = new URLSearchParams(location.search);
+    let genre = filters.some((el) => el.dataset.filter === params.get("zanr"))
+      ? params.get("zanr")
+      : "all";
+    search.value = params.get("q") || "";
+    const filter = () => {
+      const words = normalize(search.value).split(/\s+/).filter(Boolean);
+      let count = 0;
+      for (const row of rows) {
+        const visible =
+          (genre === "all" || row.genre === genre) &&
+          words.every((word) => row.text.includes(word));
+        row.el.hidden = !visible;
+        if (visible) count++;
+      }
+      filters.forEach((button) =>
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.filter === genre),
+        ),
+      );
+      document.getElementById("repertoireCount").textContent =
+        `${count} / ${rows.length} skladeb`;
+      document.getElementById("repertoireEmpty").hidden = count !== 0;
+      table.hidden = count === 0;
+    };
+    search.addEventListener("input", filter);
+    filters.forEach((button) =>
+      button.addEventListener("click", () => {
+        genre = button.dataset.filter;
+        filter();
+      }),
     );
+    document.getElementById("resetRepertoire").addEventListener("click", () => {
+      search.value = "";
+      genre = "all";
+      filter();
+      search.focus();
+    });
+    filter();
+  }
 
-    // Inicializace pro formulář na kontaktní stránce
-    setupInquiryForm(
-        'contactPageForm',
-        'contactPageSuccess',
-        'contactEmailDraftLink',
-        'contact_event_type',
-        'contactDate',
-        'contactLocation',
-        'contactName',
-        'contactPhone',
-        'contactEmail',
-        'contactNotes'
-    );
-    // ==========================================
-    // 8. Omezení kalendáře na dnešní a budoucí data
-    // ==========================================
-    const today = new Date().toISOString().split('T')[0];
-    const formDate = document.getElementById('formDate');
-    const contactDate = document.getElementById('contactDate');
-    if (formDate) formDate.min = today;
-    if (contactDate) contactDate.min = today;
-
-    // ==========================================
-    // 9. Plovoucí tlačítko Zpět nahoru
-    // ==========================================
-    const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        }, { passive: true });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-});
+  const form = document.querySelector("[data-inquiry]");
+  if (form) {
+    const date = form.elements.eventDate;
+    const unknown = form.elements.dateUnknown;
+    const localToday = () => {
+      const now = new Date();
+      return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+    };
+    date.min = localToday();
+    const syncDate = () => {
+      date.disabled = unknown.checked;
+      date.required = !unknown.checked;
+      date.min = localToday();
+    };
+    unknown.addEventListener("change", syncDate);
+    syncDate();
+    const type = new URLSearchParams(location.search).get("akce");
+    if (
+      [...form.elements.eventType.options].some(
+        (option) => option.value === type,
+      )
+    )
+      form.elements.eventType.value = type;
+    const result = document.getElementById("inquiryResult");
+    const draftText = document.getElementById("inquiryText");
+    const copyStatus = document.getElementById("copyStatus");
+    const clearResult = (event) => {
+      if (event.target !== draftText) {
+        result.hidden = true;
+        copyStatus.textContent = "";
+      }
+    };
+    form.addEventListener("input", clearResult);
+    form.addEventListener("change", clearResult);
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      syncDate();
+      if (!form.reportValidity()) return;
+      const value = (name) => form.elements[name].value.trim();
+      const eventLabel = form.elements.eventType.selectedOptions[0].textContent;
+      const eventDate = unknown.checked
+        ? "Termín ještě neznám"
+        : date.value.split("-").reverse().join(". ");
+      const subject = `Poptávka BoneSaver — ${eventLabel}, ${eventDate}`;
+      const body = `Dobrý den,\n\nmáme zájem o vystoupení kapely BoneSaver.\n\nTyp akce: ${eventLabel}\nTermín: ${eventDate}\nMísto: ${value("eventLocation")}\nJméno: ${value("contactName")}\nE-mail: ${value("contactEmail")}\nTelefon: ${value("contactPhone") || "Neuveden"}\n\nPoznámka:\n${value("eventNotes") || "Bez další poznámky."}\n\nDěkujeme za nabídku.\n${value("contactName")}`;
+      document.getElementById("emailDraft").href =
+        `mailto:bonesavermusic@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      draftText.value = `Komu: bonesavermusic@gmail.com\nPředmět: ${subject}\n\n${body}`;
+      result.hidden = false;
+      copyStatus.textContent = "";
+      document.getElementById("resultHeading").focus({ preventScroll: true });
+      result.scrollIntoView({
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+        block: "center",
+      });
+    });
+    document
+      .getElementById("copyInquiry")
+      .addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(draftText.value);
+          copyStatus.textContent =
+            "Text je zkopírovaný. Vložte ho do svého e-mailu a odešlete.";
+        } catch {
+          draftText.focus();
+          draftText.select();
+          copyStatus.textContent =
+            "Označili jsme text. Zkopírujte ho ručně a vložte do svého e-mailu.";
+        }
+      });
+    form.querySelector("[type=submit]").disabled = false;
+    if ("IntersectionObserver" in window)
+      new IntersectionObserver(
+        (entries) => {
+          document.body.classList.toggle(
+            "form-in-view",
+            entries[0].isIntersecting,
+          );
+        },
+        { threshold: 0.05 },
+      ).observe(form);
+  }
+  const updateScroll = () =>
+    document.body.classList.toggle("is-scrolled", window.scrollY > 500);
+  window.addEventListener("scroll", updateScroll, { passive: true });
+  updateScroll();
+})();

@@ -1,0 +1,8 @@
+# Keep local tooling and diagnostic output out of GitHub Pages' Jekyll output.
+# Do not add .nojekyll without introducing an equivalent publish allowlist.
+exclude:
+  - _dev
+  - gcm-diagnose.log
+  - node_modules
+  - package.json
+  - package-lock.json

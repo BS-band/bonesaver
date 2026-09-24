@@ -1,0 +1,872 @@
+[
+  {
+    "title": "What's Up",
+    "artist": "4 Non Blondes",
+    "genre": "slow"
+  },
+  {
+    "title": "Highway to Hell",
+    "artist": "AC/DC",
+    "genre": "rock"
+  },
+  {
+    "title": "T.N.T.",
+    "artist": "AC/DC",
+    "genre": "rock"
+  },
+  {
+    "title": "You shook me all night long",
+    "artist": "AC/DC",
+    "genre": "rock"
+  },
+  {
+    "title": "Dívka s perlami ve vlasech",
+    "artist": "Aleš Brichta",
+    "genre": "slow"
+  },
+  {
+    "title": "Spalovač chlastu",
+    "artist": "Alkehol",
+    "genre": "rock"
+  },
+  {
+    "title": "Voda živá",
+    "artist": "Aneta Langerová",
+    "genre": "slow"
+  },
+  {
+    "title": "Zimní královna",
+    "artist": "Arakain",
+    "genre": "slow"
+  },
+  {
+    "title": "Jarošovský pivovar",
+    "artist": "Argema",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Prohrát není žádná hanba",
+    "artist": "Argema (Smokie)",
+    "genre": "poprock"
+  },
+  {
+    "title": "Sluneční hrob",
+    "artist": "Blue Effect",
+    "genre": "slow"
+  },
+  {
+    "title": "Vyznání",
+    "artist": "Bobr a motýl",
+    "genre": "slow"
+  },
+  {
+    "title": "Naše první kapela",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Vyhnanec času",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Já piju dál",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Protože chcem",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Nedostanu metál za metal",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Růže",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Mlhavá rána",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Balada o hladovém strýci",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "CampNRoll",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "GrowYourOwn",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Ješitnost",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Krtek",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "O svobodě",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Pomsta bábě",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Prase",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Stal se z něho maniak",
+    "artist": "Bonesaver",
+    "genre": "bonesaver"
+  },
+  {
+    "title": "Slečna závist",
+    "artist": "Brichta Aleš",
+    "genre": "poprock"
+  },
+  {
+    "title": "Nechte vlajky vlát",
+    "artist": "Brichta Aleš",
+    "genre": "rock"
+  },
+  {
+    "title": "Dlažební kostka",
+    "artist": "Brutus",
+    "genre": "rock"
+  },
+  {
+    "title": "Summer of 69",
+    "artist": "Bryan Adams",
+    "genre": "rock"
+  },
+  {
+    "title": "Please Forgive Me",
+    "artist": "Bryan Adams",
+    "genre": "slow"
+  },
+  {
+    "title": "Nad stádem koní",
+    "artist": "Buty",
+    "genre": "slow"
+  },
+  {
+    "title": "Večerníček",
+    "artist": "Čejka band",
+    "genre": "slow"
+  },
+  {
+    "title": "Zrcadlo",
+    "artist": "Černoch Karel",
+    "genre": "poprock"
+  },
+  {
+    "title": "Holky a mašiny",
+    "artist": "Daniel Landa",
+    "genre": "rock"
+  },
+  {
+    "title": "Smoke on The Water",
+    "artist": "Deep Purple",
+    "genre": "rock"
+  },
+  {
+    "title": "Vyletěl mozek z lebky",
+    "artist": "DefLeBart",
+    "genre": "rock"
+  },
+  {
+    "title": "Plakala",
+    "artist": "Divokej Bill",
+    "genre": "rock"
+  },
+  {
+    "title": "Whisky co má šťávu",
+    "artist": "Doctor PP",
+    "genre": "rock"
+  },
+  {
+    "title": "Hotel California",
+    "artist": "Eagles",
+    "genre": "rock"
+  },
+  {
+    "title": "Čekej tiše (Waltz)",
+    "artist": "Eva Olmerová",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Po starodávnu",
+    "artist": "František Kmoch",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Muchomůrky bílé",
+    "artist": "Garáž / Plastic People of The Universe",
+    "genre": "slow"
+  },
+  {
+    "title": "Knocking on heavens door",
+    "artist": "Guns N' Roses",
+    "genre": "slow"
+  },
+  {
+    "title": "Bad Romance",
+    "artist": "Halestorm",
+    "genre": "rock"
+  },
+  {
+    "title": "Svařák",
+    "artist": "Harlej",
+    "genre": "rock"
+  },
+  {
+    "title": "Přirození",
+    "artist": "Harlej",
+    "genre": "rock"
+  },
+  {
+    "title": "Strážní andělé",
+    "artist": "Harlej",
+    "genre": "rock"
+  },
+  {
+    "title": "Pověste ho vejš",
+    "artist": "Harlej",
+    "genre": "rock"
+  },
+  {
+    "title": "Až tady jednou nebudu",
+    "artist": "Harlej",
+    "genre": "rock"
+  },
+  {
+    "title": "Proč pocit mám",
+    "artist": "Harlej",
+    "genre": "rock"
+  },
+  {
+    "title": "I want out",
+    "artist": "Helloween",
+    "genre": "rock"
+  },
+  {
+    "title": "Stánky",
+    "artist": "Honza Nedvěd",
+    "genre": "folk"
+  },
+  {
+    "title": "L.A.G. Song",
+    "artist": "Horkýže slíže",
+    "genre": "rock"
+  },
+  {
+    "title": "Malá Žužu",
+    "artist": "Horkýže slíže",
+    "genre": "rock"
+  },
+  {
+    "title": "Máma - táta",
+    "artist": "Hudba Praha",
+    "genre": "rock"
+  },
+  {
+    "title": "Špinavý záda (Na Žofíně)",
+    "artist": "Hudba Praha",
+    "genre": "rock"
+  },
+  {
+    "title": "1970",
+    "artist": "Chinaski",
+    "genre": "poprock"
+  },
+  {
+    "title": "Slovenský klín",
+    "artist": "Chinaski",
+    "genre": "slow"
+  },
+  {
+    "title": "Punčocháče",
+    "artist": "Chinaski",
+    "genre": "rock"
+  },
+  {
+    "title": "Vinárna u Valdštejna",
+    "artist": "Chinaski",
+    "genre": "slow"
+  },
+  {
+    "title": "Jednou mi fotr povídá",
+    "artist": "Ivan Hlas",
+    "genre": "rock"
+  },
+  {
+    "title": "Malagelo",
+    "artist": "Ivan Hlas",
+    "genre": "rock"
+  },
+  {
+    "title": "RockNRoll pro Beethovena",
+    "artist": "Ivan Hlas",
+    "genre": "rock"
+  },
+  {
+    "title": "Když je v Praze hic",
+    "artist": "Ivan Mládek",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Já jsem Aleš",
+    "artist": "Tři sestry",
+    "genre": "rock"
+  },
+  {
+    "title": "Na ptáky jsme krátký",
+    "artist": "Janek Ledecký",
+    "genre": "poprock"
+  },
+  {
+    "title": "Archivní",
+    "artist": "Jarda Hypochondr",
+    "genre": "poprock"
+  },
+  {
+    "title": "Šenkýřka",
+    "artist": "Jarda Hypochondr",
+    "genre": "poprock"
+  },
+  {
+    "title": "Jahody mražený",
+    "artist": "Jiří Schelinger",
+    "genre": "poprock"
+  },
+  {
+    "title": "I love Rock N Roll",
+    "artist": "Joan Jett",
+    "genre": "rock"
+  },
+  {
+    "title": "Šaman",
+    "artist": "Kabát",
+    "genre": "rock"
+  },
+  {
+    "title": "Pohoda",
+    "artist": "Kabát",
+    "genre": "rock"
+  },
+  {
+    "title": "Balada o špinavejch fuseklých",
+    "artist": "Kabát",
+    "genre": "slow"
+  },
+  {
+    "title": "Houby magický",
+    "artist": "Kabát",
+    "genre": "poprock"
+  },
+  {
+    "title": "V pekle sudy válej",
+    "artist": "Kabát",
+    "genre": "rock"
+  },
+  {
+    "title": "Malá dáma",
+    "artist": "Kabát",
+    "genre": "rock"
+  },
+  {
+    "title": "Láďa má velkou hlavu",
+    "artist": "Kabát",
+    "genre": "rock"
+  },
+  {
+    "title": "Žízeň",
+    "artist": "Kabát",
+    "genre": "rock"
+  },
+  {
+    "title": "Zlatíčka",
+    "artist": "Kapitán Demo",
+    "genre": "poprock"
+  },
+  {
+    "title": "Trezor",
+    "artist": "Karel Gott",
+    "genre": "poprock"
+  },
+  {
+    "title": "Vltavo, Vltavo",
+    "artist": "Karel Hašler",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Fůra slámy",
+    "artist": "Karel Vacek",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Nikdy se nevrátí pohádka mládí",
+    "artist": "Karel Vacek",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Až",
+    "artist": "Katapult",
+    "genre": "rock"
+  },
+  {
+    "title": "Smutná nevěsta",
+    "artist": "Katapult",
+    "genre": "poprock"
+  },
+  {
+    "title": "Já nesnídám sám",
+    "artist": "Katapult",
+    "genre": "slow"
+  },
+  {
+    "title": "Blues opuštěný postele",
+    "artist": "Katapult",
+    "genre": "poprock"
+  },
+  {
+    "title": "Někdy příště",
+    "artist": "Katapult",
+    "genre": "rock"
+  },
+  {
+    "title": "Vojín XY hlásí příchod",
+    "artist": "Katapult",
+    "genre": "slow"
+  },
+  {
+    "title": "Víš",
+    "artist": "Keks",
+    "genre": "slow"
+  },
+  {
+    "title": "Proč holky pláčou",
+    "artist": "Keks",
+    "genre": "slow"
+  },
+  {
+    "title": "I was made for loving you",
+    "artist": "Kiss",
+    "genre": "rock"
+  },
+  {
+    "title": "Inzerát",
+    "artist": "Kryštof",
+    "genre": "poprock"
+  },
+  {
+    "title": "Shallow",
+    "artist": "Lady Gaga",
+    "genre": "slow"
+  },
+  {
+    "title": "Pivovarští koně",
+    "artist": "Lidová",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Sukýnka",
+    "artist": "Lidová",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Za tů horů",
+    "artist": "Lidová",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Na tý louce zelený",
+    "artist": "Lidová",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Mysliveček (polka směs)",
+    "artist": "Lidová",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Já jsem malý mysliveček",
+    "artist": "Lidová",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Tak Vznikla Zem",
+    "artist": "Luboš Pospíšil",
+    "genre": "slow"
+  },
+  {
+    "title": "Panic",
+    "artist": "Lucie",
+    "genre": "slow"
+  },
+  {
+    "title": "Sen",
+    "artist": "Lucie",
+    "genre": "slow"
+  },
+  {
+    "title": "Šťastnej chlap",
+    "artist": "Lucie",
+    "genre": "rock"
+  },
+  {
+    "title": "Amerika",
+    "artist": "Lucie",
+    "genre": "slow"
+  },
+  {
+    "title": "Šrouby a matice",
+    "artist": "Mandrage",
+    "genre": "slow"
+  },
+  {
+    "title": "Hledá se žena",
+    "artist": "Mandrage",
+    "genre": "poprock"
+  },
+  {
+    "title": "Whisky in the Jar",
+    "artist": "Metallica",
+    "genre": "rock"
+  },
+  {
+    "title": "Nothing Else Matters",
+    "artist": "Metallica",
+    "genre": "slow"
+  },
+  {
+    "title": "Poupata",
+    "artist": "Michal David",
+    "genre": "poprock"
+  },
+  {
+    "title": "Nonstop",
+    "artist": "Michal David",
+    "genre": "poprock"
+  },
+  {
+    "title": "Každý mi tě lásko závidí",
+    "artist": "Michal David",
+    "genre": "slow"
+  },
+  {
+    "title": "Pár přátel",
+    "artist": "Michal David",
+    "genre": "slow"
+  },
+  {
+    "title": "Blues o spolykaných slovech",
+    "artist": "Michal Prokop",
+    "genre": "slow"
+  },
+  {
+    "title": "Hořely, padaly hvězdy",
+    "artist": "Michal Šindelář",
+    "genre": "slow"
+  },
+  {
+    "title": "Malá Baletka",
+    "artist": "Michal Širl",
+    "genre": "ballroom"
+  },
+  {
+    "title": "I cesta může být cíl",
+    "artist": "Mňága a Žďorp",
+    "genre": "poprock"
+  },
+  {
+    "title": "Písnička pro tebe",
+    "artist": "Mňága a Žďorp",
+    "genre": "rock"
+  },
+  {
+    "title": "Moonlight Shadow",
+    "artist": "Mike Oldfield",
+    "genre": "poprock"
+  },
+  {
+    "title": "Hledá se děda",
+    "artist": "Morčata na útěku",
+    "genre": "rock"
+  },
+  {
+    "title": "Kočovní herci",
+    "artist": "Nedvědi",
+    "genre": "folk"
+  },
+  {
+    "title": "Ptáčata",
+    "artist": "Nedvědi",
+    "genre": "folk"
+  },
+  {
+    "title": "Podvod",
+    "artist": "Nedvědi",
+    "genre": "folk"
+  },
+  {
+    "title": "Kohout",
+    "artist": "Nedvědi",
+    "genre": "folk"
+  },
+  {
+    "title": "Frankie Dlouhán",
+    "artist": "Nedvědi",
+    "genre": "folk"
+  },
+  {
+    "title": "Srdce v ruce mám",
+    "artist": "Neto",
+    "genre": "poprock"
+  },
+  {
+    "title": "Ptačí tanec",
+    "artist": "Neznámý autor",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "genre": "rock"
+  },
+  {
+    "title": "Žily",
+    "artist": "No Name",
+    "genre": "poprock"
+  },
+  {
+    "title": "Divadelní společnost JK Tyla",
+    "artist": "Odyssea",
+    "genre": "slow"
+  },
+  {
+    "title": "Kamna kouří",
+    "artist": "Odyssea",
+    "genre": "rock"
+  },
+  {
+    "title": "Okno mé lásky",
+    "artist": "Olympic",
+    "genre": "slow"
+  },
+  {
+    "title": "Dej mi víc své lásky",
+    "artist": "Olympic",
+    "genre": "poprock"
+  },
+  {
+    "title": "Želva",
+    "artist": "Olympic",
+    "genre": "poprock"
+  },
+  {
+    "title": "Stejskání",
+    "artist": "Olympic (Petr Janda solo)",
+    "genre": "slow"
+  },
+  {
+    "title": "Bílej jezdec",
+    "artist": "Orlík",
+    "genre": "rock"
+  },
+  {
+    "title": "Saxana",
+    "artist": "Petra Černocká",
+    "genre": "poprock"
+  },
+  {
+    "title": "Jedeme dál",
+    "artist": "Petra Janů, Petr Janda",
+    "genre": "poprock"
+  },
+  {
+    "title": "Try",
+    "artist": "Pink",
+    "genre": "poprock"
+  },
+  {
+    "title": "Wish You Were Here",
+    "artist": "Pink Floyd",
+    "genre": "slow"
+  },
+  {
+    "title": "Svět jsou jen báry",
+    "artist": "Plexis",
+    "genre": "poprock"
+  },
+  {
+    "title": "Statistika",
+    "artist": "Uhlíř, Svěrák",
+    "genre": "poprock"
+  },
+  {
+    "title": "Dělání",
+    "artist": "Uhlíř, Svěrák",
+    "genre": "poprock"
+  },
+  {
+    "title": "Hlupáku, najdu tě",
+    "artist": "Uhlíř, Svěrák",
+    "genre": "poprock"
+  },
+  {
+    "title": "Hrobař",
+    "artist": "Premier",
+    "genre": "rock"
+  },
+  {
+    "title": "We Will Rock You",
+    "artist": "Queen",
+    "genre": "rock"
+  },
+  {
+    "title": "Zvedněte kotvy",
+    "artist": "Rangers",
+    "genre": "folk"
+  },
+  {
+    "title": "Zejtra mám",
+    "artist": "Ready Kirken",
+    "genre": "poprock"
+  },
+  {
+    "title": "Srdce jako kníže Rohan",
+    "artist": "Richard Müller",
+    "genre": "poprock"
+  },
+  {
+    "title": "Léto",
+    "artist": "Rybičky 48",
+    "genre": "folk"
+  },
+  {
+    "title": "Ženy",
+    "artist": "Rybičky 48",
+    "genre": "slow"
+  },
+  {
+    "title": "Američan z Poličan",
+    "artist": "Rybičky 48",
+    "genre": "rock"
+  },
+  {
+    "title": "Slibuju, že nebudu pít",
+    "artist": "Rybičky 48",
+    "genre": "rock"
+  },
+  {
+    "title": "Zamilovaný/nešťastná",
+    "artist": "Rybičky 48",
+    "genre": "rock"
+  },
+  {
+    "title": "My ještě nejsme starý",
+    "artist": "Rybičky 48",
+    "genre": "rock"
+  },
+  {
+    "title": "Muži",
+    "artist": "Rybičky 48",
+    "genre": "poprock"
+  },
+  {
+    "title": "Mašinka",
+    "artist": "Semtex",
+    "genre": "poprock"
+  },
+  {
+    "title": "Alenka v říši divů",
+    "artist": "Smokie / Karel Zich",
+    "genre": "poprock"
+  },
+  {
+    "title": "Hollywood Hills",
+    "artist": "Sunrise Avenue",
+    "genre": "poprock"
+  },
+  {
+    "title": "Severní vítr",
+    "artist": "Svěrák, Uhlíř",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Síla starejch vín",
+    "artist": "Škwor",
+    "genre": "slow"
+  },
+  {
+    "title": "Máme tu problém",
+    "artist": "Škwor",
+    "genre": "slow"
+  },
+  {
+    "title": "Should I stay or should I go",
+    "artist": "The Clash",
+    "genre": "rock"
+  },
+  {
+    "title": "Friday I am in love",
+    "artist": "The Cure",
+    "genre": "poprock"
+  },
+  {
+    "title": "The Best",
+    "artist": "Tina Turner",
+    "genre": "rock"
+  },
+  {
+    "title": "Kdy dojdou náboje a vzduch",
+    "artist": "Traktor",
+    "genre": "rock"
+  },
+  {
+    "title": "Letokruhy",
+    "artist": "Traktor",
+    "genre": "rock"
+  },
+  {
+    "title": "Lidojedi",
+    "artist": "Tři sestry",
+    "genre": "rock"
+  },
+  {
+    "title": "Sovy v mazutu",
+    "artist": "Tři sestry",
+    "genre": "folk"
+  },
+  {
+    "title": "Večírek",
+    "artist": "Tři sestry",
+    "genre": "ballroom"
+  },
+  {
+    "title": "Piánovka (Láďa jede autobusem)",
+    "artist": "Tři sestry",
+    "genre": "rock"
+  }
+]
