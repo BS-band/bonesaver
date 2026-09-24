@@ -161,6 +161,46 @@ async function check(name, fn) {
       }
     });
     await check(
+      "Four document downloads: labels, MIME types and exact file contents",
+      async () => {
+        await page.goto(base + "/kontakt.html#dokumenty");
+        const documents = [
+          ["bonesaver-smlouva-hudebni-produkce-vzor.pdf", "application/pdf"],
+          ["bonesaver-smlouva-hudebni-produkce-vzor.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"],
+          ["bonesaver-stage-plan.pdf", "application/pdf"],
+          ["bonesaver-repertoar-pro-plesy-osa-2026.pdf", "application/pdf"],
+        ];
+        assert.equal(await page.locator("#dokumenty a[download]").count(), 4);
+        assert.match(await page.locator("#dokumenty").innerText(), /60 skladeb/);
+        assert.match(await page.locator("#dokumenty").innerText(), /nikoli jako vyplněné hlášení pro OSA/);
+        for (const [name, mime] of documents) {
+          const href = "/assets/documents/" + name;
+          const link = page.locator(`#dokumenty a[href="${href}"][download]`);
+          assert.equal(await link.count(), 1);
+          assert.match(await link.innerText(), /PDF|Wordu/);
+          const expected = await fs.readFile(path.join(root, href.slice(1)));
+          const response = await context.request.get(base + href);
+          assert.equal(response.status(), 200);
+          assert.equal(response.headers()["content-type"], mime);
+          assert.deepEqual(await response.body(), expected);
+          const [download] = await Promise.all([
+            page.waitForEvent("download"),
+            link.click(),
+          ]);
+          assert.equal(await download.failure(), null);
+          assert.equal(download.suggestedFilename(), name);
+          assert.deepEqual(await fs.readFile(await download.path()), expected);
+        }
+        const screenshots = path.join(__dirname, "output/event-documents");
+        await fs.mkdir(screenshots, { recursive: true });
+        for (const [name, width] of [["desktop", 1440], ["mobile", 390]]) {
+          await page.setViewportSize({ width, height: 1000 });
+          await page.evaluate(() => { document.documentElement.dataset.theme = "dark"; });
+          await page.locator("#dokumenty").screenshot({ path: path.join(screenshots, `downloads-${name}.png`) });
+        }
+      },
+    );
+    await check(
       "No unexpected JavaScript errors or third-party initial requests",
       async () => {
         assert.deepEqual(errors, []);
@@ -221,7 +261,7 @@ async function check(name, fn) {
       },
     );
     await check(
-      "Both forms: no past default; unknown date; draft only; safe characters",
+      "Both forms: validation, Web3Forms payload, success and preserved data on failure",
       async () => {
         for (const route of ["/", "/kontakt.html?akce=ples"]) {
           await page.goto(base + route);
@@ -247,29 +287,55 @@ async function check(name, fn) {
           await page
             .locator("#eventNotes")
             .fill("Test pouze lokálně, nic neodesílat.");
-          const requests = [];
-          const listener = (request) =>
-            requests.push(request.method() + " " + request.url());
-          page.on("request", listener);
+          assert.equal(
+            await page.locator("#inquiryForm").getAttribute("action"),
+            "https://api.web3forms.com/submit",
+          );
+          assert((await page.locator('input[name="access_key"]').inputValue()).length > 20);
+          const submissions = [];
+          let accepted = true;
+          await page.route("https://api.web3forms.com/submit", async (intercept) => {
+            submissions.push({
+              method: intercept.request().method(),
+              body: intercept.request().postData() || "",
+            });
+            await intercept.fulfill({
+              status: 200,
+              contentType: "application/json",
+              body: JSON.stringify({ success: accepted }),
+            });
+          });
           await page.locator("form [type=submit]").click();
+          await page.locator("#resultHeading").waitFor({ state: "visible" });
+          assert.match(await page.locator("#resultHeading").innerText(), /Poptávka byla odeslána/);
           assert(await page.locator("#inquiryResult").isVisible());
-          const href = await page.locator("#emailDraft").getAttribute("href");
-          assert(href.startsWith("mailto:bonesavermusic@gmail.com?"));
-          assert(decodeURIComponent(href).includes("TEST <Jana> Žluťoučká"));
-          assert(decodeURIComponent(href).includes("Termín ještě neznám"));
+          assert.equal(submissions.length, 1);
+          assert.equal(submissions[0].method, "POST");
+          for (const field of ['access_key', 'name', 'email', 'phone', 'subject', 'from_name', 'message', 'botcheck'])
+            assert(submissions[0].body.includes(`name="${field}"`), field);
+          assert(submissions[0].body.includes("TEST <Jana> Žluťoučká"));
+          assert(submissions[0].body.includes("Termín ještě neznám"));
+          assert(submissions[0].body.includes("BoneSaver web"));
           assert.equal(
             await page
               .locator("#resultHeading")
               .evaluate((el) => el === document.activeElement),
             true,
           );
-          assert(
-            !requests.some((r) => r.startsWith("POST") || !r.includes(base)),
-            "Unexpected send: " + requests.join(", "),
-          );
-          page.off("request", listener);
-          await page.locator("#contactName").fill("TEST updated");
+          assert.equal(await page.locator("#contactName").inputValue(), "");
+          await page.locator("#contactName").fill("TEST retry");
           assert(await page.locator("#inquiryResult").isHidden());
+          await page.locator("#dateUnknown").check();
+          await page.locator("#eventLocation").fill("TEST Pardubice");
+          await page.locator("#contactEmail").fill("test@example.invalid");
+          accepted = false;
+          await page.locator("form [type=submit]").click();
+          await page.locator("#resultHeading").waitFor({ state: "visible" });
+          assert.match(await page.locator("#resultHeading").innerText(), /nepodařilo odeslat/);
+          assert.equal(await page.locator("#contactName").inputValue(), "TEST retry");
+          assert.equal(await page.locator("form [type=submit]").isDisabled(), false);
+          assert.equal(submissions.length, 2);
+          await page.unroute("https://api.web3forms.com/submit");
         }
       },
     );
@@ -348,6 +414,7 @@ async function check(name, fn) {
         await p.goto(base + "/kontakt.html");
         assert(await p.locator("form [type=submit]").isDisabled());
         assert(await p.locator(".contact-email").isVisible());
+        assert.equal(await p.locator("#dokumenty a[download]").count(), 4);
         await noJs.close();
       },
     );

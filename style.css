@@ -921,6 +921,9 @@ input[type="checkbox"] {
   color: var(--muted);
   margin-top: 14px;
 }
+.form-honeypot {
+  display: none;
+}
 .inquiry-result {
   margin-top: 30px;
   border-top: 1px solid var(--line);
@@ -934,10 +937,6 @@ input[type="checkbox"] {
   font-size: 0.8rem;
   color: var(--muted);
   margin-top: 14px;
-}
-.inquiry-result textarea {
-  margin-top: 20px;
-  font-size: 0.82rem;
 }
 .contact-card {
   border-top: 1px solid var(--line);

@@ -159,55 +159,73 @@
     )
       form.elements.eventType.value = type;
     const result = document.getElementById("inquiryResult");
-    const draftText = document.getElementById("inquiryText");
-    const copyStatus = document.getElementById("copyStatus");
-    const clearResult = (event) => {
-      if (event.target !== draftText) {
-        result.hidden = true;
-        copyStatus.textContent = "";
-      }
-    };
+    const resultHeading = document.getElementById("resultHeading");
+    const resultMessage = document.getElementById("resultMessage");
+    const submitButton = form.querySelector("[type=submit]");
+    const defaultButtonContent = submitButton.innerHTML;
+    const clearResult = () => { result.hidden = true; };
     form.addEventListener("input", clearResult);
     form.addEventListener("change", clearResult);
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      syncDate();
-      if (!form.reportValidity()) return;
-      const value = (name) => form.elements[name].value.trim();
-      const eventLabel = form.elements.eventType.selectedOptions[0].textContent;
-      const eventDate = unknown.checked
-        ? "Termín ještě neznám"
-        : date.value.split("-").reverse().join(". ");
-      const subject = `Poptávka BoneSaver — ${eventLabel}, ${eventDate}`;
-      const body = `Dobrý den,\n\nmáme zájem o vystoupení kapely BoneSaver.\n\nTyp akce: ${eventLabel}\nTermín: ${eventDate}\nMísto: ${value("eventLocation")}\nJméno: ${value("contactName")}\nE-mail: ${value("contactEmail")}\nTelefon: ${value("contactPhone") || "Neuveden"}\n\nPoznámka:\n${value("eventNotes") || "Bez další poznámky."}\n\nDěkujeme za nabídku.\n${value("contactName")}`;
-      document.getElementById("emailDraft").href =
-        `mailto:bonesavermusic@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      draftText.value = `Komu: bonesavermusic@gmail.com\nPředmět: ${subject}\n\n${body}`;
+    const showResult = (heading, message) => {
+      resultHeading.textContent = heading;
+      resultMessage.textContent = message;
       result.hidden = false;
-      copyStatus.textContent = "";
-      document.getElementById("resultHeading").focus({ preventScroll: true });
+      resultHeading.focus({ preventScroll: true });
       result.scrollIntoView({
         behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
           ? "instant"
           : "smooth",
         block: "center",
       });
+    };
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (submitButton.disabled) return;
+      syncDate();
+      if (!form.reportValidity()) return;
+      const value = (name) => form.elements[name].value.trim();
+      const eventLabel = form.elements.eventType.selectedOptions[0].textContent;
+      const [year, month, day] = date.value.split("-");
+      const eventDate = unknown.checked
+        ? "Termín ještě neznám"
+        : `${day}. ${month}. ${year}`;
+      const formData = new FormData();
+      formData.set("access_key", value("access_key"));
+      formData.set("subject", `Poptávka BoneSaver — ${eventLabel}, ${eventDate}`);
+      formData.set("from_name", "BoneSaver web");
+      formData.set("name", value("contactName"));
+      formData.set("email", value("contactEmail"));
+      formData.set("phone", value("contactPhone"));
+      formData.set("event_type", eventLabel);
+      formData.set("event_date", eventDate);
+      formData.set("event_location", value("eventLocation"));
+      formData.set("message", `Typ akce: ${eventLabel}\nTermín: ${eventDate}\nMísto: ${value("eventLocation")}\nTelefon: ${value("contactPhone") || "Neuveden"}\n\nPoznámka:\n${value("eventNotes") || "Bez další poznámky."}`);
+      formData.set("botcheck", value("botcheck"));
+      submitButton.disabled = true;
+      submitButton.textContent = "Odesílám…";
+      result.hidden = true;
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 15000);
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          signal: controller.signal,
+        });
+        const data = await response.json();
+        if (!response.ok || data.success !== true) throw new Error("Send failed");
+        form.reset();
+        syncDate();
+        showResult("Poptávka byla odeslána.", "Děkujeme. Brzy se vám ozveme na uvedený kontakt.");
+      } catch {
+        showResult("Poptávku se nepodařilo odeslat.", "Zkuste to prosím znovu. Vyplněné údaje zůstaly zachované; případně nám napište přímo na bonesavermusic@gmail.com.");
+      } finally {
+        clearTimeout(timeout);
+        submitButton.innerHTML = defaultButtonContent;
+        submitButton.disabled = false;
+      }
     });
-    document
-      .getElementById("copyInquiry")
-      .addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(draftText.value);
-          copyStatus.textContent =
-            "Text je zkopírovaný. Vložte ho do svého e-mailu a odešlete.";
-        } catch {
-          draftText.focus();
-          draftText.select();
-          copyStatus.textContent =
-            "Označili jsme text. Zkopírujte ho ručně a vložte do svého e-mailu.";
-        }
-      });
-    form.querySelector("[type=submit]").disabled = false;
+    submitButton.disabled = false;
     if ("IntersectionObserver" in window)
       new IntersectionObserver(
         (entries) => {

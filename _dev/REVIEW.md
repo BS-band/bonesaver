@@ -26,15 +26,15 @@ SEO základ zahrnuje unikátní titulky/popisy, canonical, sdílecí metadata, p
 2. Aktuálnost nabídky: pět členů, 100% živé hraní, vlastní zvuk/světla, dojezd po ČR, tři zpěvy, prostor orientačně 5 × 3 m, telefon a fakturační údaje. Vychází z minulého webu; potvrzení aktuálnosti zůstává otevřené.
 3. Hlavní video a dalších pět ukázek: přehrát v běžném prohlížeči, zhodnotit zvuk a reprezentativnost. Automatizovaný Chrome se dostal k přehrávači, YouTube ale požadoval ověření proti robotům. Samotné video nelze na základě tohoto testu označit za úspěšně přehrané. Přímý odkaz na YouTube je vždy dostupný.
 4. Vlastní tvorba: seznam je zachovaný, ale nebyly doplněny neexistující nahrávky, data vydání ani streamovací odkazy. Reálné podklady lze doplnit následně.
-5. Poptávka: nyní pouze připravuje text e-mailu a nabízí jeho otevření/kopírování. Pokud má skutečně odesílat z webu, společně zvolit službu, účet, podmínky a antispam; následně ověřit doručení a chyby. Žádný placený účet ani externí integrace nebyly založeny.
-6. Soukromí: text odpovídá režimu přípravy e-mailu a je k obsahové/právní kontrole provozovatelem. Před publikací doplnit konkrétní zpracovatele, skutečná pravidla uchování a případné mezinárodní předávání; při připojení formulářové služby text znovu upravit.
+5. Poptávka: formulář je nyní napojený na existující klíč Web3Forms z bsband.cz. Automatický test ověřil požadavek i odpovědi při simulovaném úspěchu a chybě. Skutečné doručení do přiřazené schránky zatím nebylo ověřeno; před publikací pošlete z lokálního náhledu jednu vlastní testovací poptávku a potvrďte, kam přišla. Bez toho nelze tvrdit, že odesílání funguje end-to-end. Podrobnosti v [FORM.md](FORM.md).
+6. Soukromí: text už popisuje předání údajů službě Web3Forms a je k obsahové/právní kontrole provozovatelem. Před publikací ověřit skutečná pravidla uchování a případné mezinárodní předávání v účtu poskytovatele.
 
 ## Ověření a limity
 
-- 239 automatických kontrol bez chyby. Z toho 220 kombinací 11 stránek, 10 šířek (320–1440 px včetně 861 px) a 2 motivů, bez vodorovného přetékání.
+- 240 automatických kontrol bez chyby. Z toho 220 kombinací 11 stránek, 10 šířek (320–1440 px včetně 861 px) a 2 motivů, bez vodorovného přetékání.
 - Kontrola všech interních odkazů a kotev, obrázků, jednoho H1, unikátních titulků, JSON-LD, canonical, sitemap a vyloučení preview údajů z veřejného HTML.
 - Shoda všech 174 skladeb s migrovanými daty, 16 vlastních, hledání bez diakritiky, filtry a nulový výsledek.
-- Oba formuláře: prázdný výchozí termín, odmítnutí minulosti, možnost neznámého data, předvyplnění typu akce, bezpečné kódování textu do mailto, žádný automatický POST/odeslání, zneplatnění starého návrhu při změně vstupů.
+- Oba formuláře: prázdný výchozí termín, odmítnutí minulosti, možnost neznámého data, předvyplnění typu akce, simulovaný POST do Web3Forms se jménem/e-mailem a podrobnostmi akce, zobrazení úspěchu až po potvrzení služby, zachování údajů při chybě. Test neodeslal skutečný e-mail.
 - Mobilní menu, Escape, odkaz pro přeskočení navigace, přepnutí a zapamatování motivu, základní použití bez JavaScriptu.
 - Videa načítají iframe až na kliknutí. Před kliknutím nebyly zachyceny žádné požadavky na externí domény. To nenahrazuje test přehrávání se skutečným YouTube.
 - 28 auditů axe-core 4.10.3 (11 stránek × 2 motivy na desktopu + homepage/kontakt/repertoár × 2 motivy při 390 px) bez hlášených porušení po opravách. Nejde o úplnou certifikaci přístupnosti.
@@ -43,4 +43,4 @@ SEO základ zahrnuje unikátní titulky/popisy, canonical, sdílecí metadata, p
 
 ## Bezpečné další kroky
 
-Nejprve připomínky majitele a doplnění skutečných údajů. Potom případné odesílání formuláře, kontrola na reálném mobilu, ověření aktuálního Pages source a výstupu. Teprve po výslovném souhlasu push pracovní větve, kontrolovaný PR a samostatné schválení nasazení do main podle PLAN.md. Žádný krok na GitHub ani DNS zatím neproběhl.
+Nejprve připomínky majitele, jedna skutečná testovací poptávka z localhostu a potvrzení doručení. Potom kontrola na reálném mobilu, ověření aktuálního Pages source a výstupu. Teprve po výslovném souhlasu push pracovní větve, kontrolovaný PR a samostatné schválení nasazení do main podle PLAN.md. Žádný krok na GitHub ani DNS zatím neproběhl.
