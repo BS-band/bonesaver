@@ -61,7 +61,11 @@ node .\_dev\build.mjs
 
 Výsledné HTML a média se později ukládají do Gitu; na GitHub Pages není nutné spouštět Node build. Datum `lastmod` se mění pouze při skutečné obsahové aktualizaci, ne automaticky při každém sestavení.
 
-## Ověření
+## Smlouva ke stažení
+
+Pracovní vzor v PDF a DOCX je v `assets/documents/`, dostupný na `/kontakt.html#dokumenty`. Údržba, potvrzené platební podmínky a body k právní kontrole jsou v [CONTRACT.md](CONTRACT.md). Zdroj dokumentu je `_dev/build-contract.py`, PDF se exportuje ze stejného DOCX a textová shoda se kontroluje pomocí `_dev/verify-contract.py`.
+
+## Ověření webu
 
 `node _dev/verify.cjs` provede funkční kontroly a 220 kontrol rozměrů, potřebuje běžící náhled, Chrome a dostupný balíček `playwright` (případně přes `NODE_PATH`). Cestu k jinému Chrome lze nastavit proměnnou `CHROME_PATH`. Běžné spuštění webu tyto testovací závislosti nepotřebuje.
 

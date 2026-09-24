@@ -1209,6 +1209,59 @@ input[type="checkbox"] {
 .prose a {
   color: var(--accent);
 }
+.downloads-section {
+  border-top: 1px solid var(--line);
+}
+.download-list {
+  display: grid;
+  gap: 16px;
+}
+.download-document {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 20px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  text-decoration: none;
+  background: var(--surface);
+}
+.download-document:hover {
+  border-color: var(--accent);
+}
+.download-document > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.download-document strong {
+  display: block;
+  font-size: .83rem;
+  line-height: 1.6;
+}
+.download-document span span {
+  display: block;
+  font-size: .7rem;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.document-format {
+  font: 600 .65rem var(--heading);
+  color: var(--accent);
+  flex: 0 0 38px;
+}
+.contract-inline-link {
+  font-size: .78rem;
+  color: var(--muted);
+  margin-top: 18px;
+}
+@media (max-width: 540px) {
+  .download-document {
+    padding: 20px 15px;
+    gap: 12px;
+  }
+  .download-document strong { font-size: .76rem; }
+  .download-document > svg { width: 17px; }
+}
 /* Footer and responsive rules */
 .site-footer {
   border-top: 1px solid var(--line);
