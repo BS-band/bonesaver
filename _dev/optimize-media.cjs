@@ -23,7 +23,7 @@ async function main() {
       await sharp(path.join(root, "img", filename))
         .rotate()
         .resize({ width, withoutEnlargement: true })
-        .webp({ quality: 84 })
+        .webp({ quality: 76 })
         .toFile(path.join(output, `${name}-${width}.webp`));
     }
   }
@@ -41,7 +41,7 @@ async function main() {
     .toFile(path.join(output, "logo.webp"));
   await sharp(path.join(root, "img", "hero-background3.JPG"))
     .resize(1200, 630, { fit: "cover", position: "centre" })
-    .jpeg({ quality: 86 })
+    .jpeg({ quality: 82 })
     .toFile(path.join(output, "social.jpg"));
   console.log("Optimized existing images; originals preserved.");
 }

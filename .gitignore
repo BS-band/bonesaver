@@ -1,1 +1,5 @@
+# Nástroje lokálního náhledu a diagnostiky
+# Necommitovat: Git Credential Manager sem občas zapíše diagnostiku obsahující
+# název počítače, uživatelské jméno a cesty. Z webu je navíc vylučuje _config.yml.
+gcm-diagnose.log
 _dev/output/

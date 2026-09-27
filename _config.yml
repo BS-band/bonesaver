@@ -2,6 +2,7 @@
 # Do not add .nojekyll without introducing an equivalent publish allowlist.
 exclude:
   - _dev
+  # Pojistka: tento soubor už v repozitáři není a je i v .gitignore.
   - gcm-diagnose.log
   - node_modules
   - package.json

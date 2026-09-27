@@ -426,7 +426,13 @@ async function check(name, fn) {
         );
         assert.equal(missing.status(), 404);
         assert((await missing.text()).includes("Tady už"));
-        for (const url of ["/_dev/PLAN.md", "/.git/config"])
+        for (const url of [
+          "/_dev/README.md",
+          "/_dev/content.mjs",
+          "/_dev/data/repertoire.json",
+          "/gcm-diagnose.log",
+          "/.git/config",
+        ])
           assert.equal((await context.request.get(base + url)).status(), 404);
         assert(
           (

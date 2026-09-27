@@ -10,6 +10,7 @@
   --accent: #8abbff;
   --button: #3263e9;
   --warm: #efc48c;
+  --error: #ffb4a2;
   --heading: "Space Grotesk", sans-serif;
 }
 :root[data-theme="light"] {
@@ -23,6 +24,7 @@
   --accent: #204fba;
   --button: #2859d8;
   --warm: #865018;
+  --error: #a4262c;
 }
 * {
   box-sizing: border-box;
@@ -269,6 +271,7 @@ main:focus {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  min-height: 24px;
   font-size: 0.84rem;
   font-weight: 700;
   text-decoration: none;
@@ -329,6 +332,8 @@ main:focus {
 }
 .site-nav > a:not(.button) {
   text-decoration: none;
+  padding-block: 8px;
+  margin-block: -8px;
 }
 .site-nav > a:hover:not(.button),
 .site-nav [aria-current="page"]:not(.button),
@@ -1288,11 +1293,18 @@ input[type="checkbox"] {
   line-height: 1.6;
   color: var(--muted);
 }
+.footer-top .brand {
+  padding-block: 6px;
+  margin-block: -6px;
+}
+/* WCAG 2.2 (2.5.8): odkaz zůstává na stejném místě, ale má větší klikatelnou plochu.
+   Svislý padding vyrovnává záporný margin, takže se rozvržení nemění. */
 .footer-top > div > a:not(.brand) {
   display: block;
   font-size: 0.8rem;
   text-decoration: none;
-  margin-bottom: 9px;
+  padding-block: 8px;
+  margin-block: -8px 1px;
 }
 .footer-top > div > .footer-phone {
   font-family: var(--heading);
@@ -1312,6 +1324,8 @@ input[type="checkbox"] {
   font-size: 0.65rem;
   color: var(--muted);
   text-decoration: none;
+  padding-block: 7px;
+  margin-block: -7px;
 }
 .footer-bottom {
   display: flex;
@@ -1323,6 +1337,48 @@ input[type="checkbox"] {
   padding-top: 22px;
   font-size: 0.61rem;
   color: var(--muted);
+}
+.footer-bottom a {
+  padding-inline: 2px;
+  padding-block: 8px;
+  margin-block: -8px;
+}
+.video-caption a {
+  padding-block: 6px;
+  margin-block: -6px;
+}
+/* Chybové stavy poptávkového formuláře. */
+.form-error-summary {
+  border: 1px solid var(--error);
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin-bottom: 22px;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+.form-error-summary a {
+  color: var(--error);
+  font-weight: 600;
+}
+.field-error {
+  margin-top: 7px;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--error);
+}
+.field.has-error label {
+  color: var(--error);
+}
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea,
+.field.has-error input[type="date"] {
+  border-color: var(--error);
+}
+.inquiry-result.is-error h3,
+.inquiry-result.is-error p {
+  color: var(--error);
 }
 .mobile-contact {
   display: none;
@@ -1627,6 +1683,10 @@ input[type="checkbox"] {
 @media (max-width: 540px) {
   .container {
     width: calc(100% - 40px);
+  }
+  /* Na telefonu dostane odkaz pohodlnější dotykovou plochu. */
+  .text-link {
+    min-height: 30px;
   }
   .header-inner {
     min-height: 70px;

@@ -163,13 +163,110 @@
     const resultMessage = document.getElementById("resultMessage");
     const submitButton = form.querySelector("[type=submit]");
     const defaultButtonContent = submitButton.innerHTML;
+    const errorSummary = document.getElementById("inquiryErrorSummary");
+    // Srozumitelné chyby pro čtečky i pro lidi. Formulář má novalidate,
+    // takže zprávy řídíme tady a nativní bublinu prohlížeče nepoužíváme.
+    const requiredFields = [
+      [
+        "eventDate",
+        "Vyplňte prosím datum akce, nebo zvolte „Termín ještě neznám“.",
+        "Datum akce",
+      ],
+      [
+        "eventLocation",
+        "Napište prosím město, obec nebo místo konání.",
+        "Místo konání",
+      ],
+      ["contactName", "Napište prosím své jméno.", "Jméno"],
+      ["contactEmail", "Zadejte prosím e-mail, abychom se mohli ozvat.", "E-mail"],
+    ];
+    const clearFieldError = (name) => {
+      const control = form.elements[name];
+      const message = document.getElementById(`${name}Error`);
+      if (!control) return;
+      control.removeAttribute("aria-invalid");
+      control.closest(".field")?.classList.remove("has-error");
+      if (message) {
+        message.textContent = "";
+        message.hidden = true;
+      }
+    };
+    const clearErrors = () => {
+      requiredFields.forEach(([name]) => clearFieldError(name));
+      if (errorSummary) {
+        errorSummary.innerHTML = "";
+        errorSummary.hidden = true;
+      }
+    };
+    const problemFor = ([name, missing]) => {
+      const control = form.elements[name];
+      if (!control || control.disabled) return "";
+      if (!control.value.trim()) return missing;
+      if (control.validity.typeMismatch)
+        return "Zadejte prosím e-mail ve tvaru jmeno@domena.cz.";
+      if (name === "eventDate") {
+        if (control.validity.badInput) return "Zadejte prosím platné datum.";
+        if (control.value < localToday())
+          return "Vyberte prosím dnešní nebo pozdější datum.";
+      }
+      if (control.validity.tooLong || control.validity.patternMismatch)
+        return "Zkontrolujte prosím tento údaj.";
+      return "";
+    };
+    const validate = () => {
+      clearErrors();
+      const invalid = [];
+      for (const field of requiredFields) {
+        const message = problemFor(field);
+        if (!message) continue;
+        const control = form.elements[field[0]];
+        control.setAttribute("aria-invalid", "true");
+        control.closest(".field")?.classList.add("has-error");
+        const holder = document.getElementById(`${field[0]}Error`);
+        if (holder) {
+          holder.textContent = message;
+          holder.hidden = false;
+        }
+        invalid.push({ control, label: field[2] });
+      }
+      if (!invalid.length) return true;
+      if (errorSummary) {
+        // V souhrnu jsou krátké popisky, podrobné vysvětlení je u jednotlivých polí.
+        const links = invalid
+          .map(
+            ({ control, label }) =>
+              `<a href="#${control.id}">${label}</a>`,
+          )
+          .join(", ");
+        errorSummary.innerHTML = `Poptávku ještě nejde odeslat. Doplňte prosím: ${links}.`;
+        errorSummary.hidden = false;
+        errorSummary.focus({ preventScroll: true });
+        errorSummary.scrollIntoView({
+          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "instant"
+            : "smooth",
+          block: "center",
+        });
+      }
+      return false;
+    };
     const clearResult = () => { result.hidden = true; };
-    form.addEventListener("input", clearResult);
-    form.addEventListener("change", clearResult);
-    const showResult = (heading, message) => {
+    form.addEventListener("input", (event) => {
+      clearResult();
+      if (event.target.name) clearFieldError(event.target.name);
+    });
+    form.addEventListener("change", (event) => {
+      clearResult();
+      if (event.target.name) clearFieldError(event.target.name);
+      if (event.target.name === "dateUnknown") clearFieldError("eventDate");
+    });
+    const showResult = (heading, message, isError = false) => {
       resultHeading.textContent = heading;
       resultMessage.textContent = message;
       result.hidden = false;
+      result.classList.toggle("is-error", isError);
+      result.setAttribute("role", isError ? "alert" : "status");
+      result.setAttribute("aria-live", isError ? "assertive" : "polite");
       resultHeading.focus({ preventScroll: true });
       result.scrollIntoView({
         behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -182,7 +279,7 @@
       event.preventDefault();
       if (submitButton.disabled) return;
       syncDate();
-      if (!form.reportValidity()) return;
+      if (!validate()) return;
       const value = (name) => form.elements[name].value.trim();
       const eventLabel = form.elements.eventType.selectedOptions[0].textContent;
       const [year, month, day] = date.value.split("-");
@@ -218,7 +315,7 @@
         syncDate();
         showResult("Poptávka byla odeslána.", "Děkujeme. Brzy se vám ozveme na uvedený kontakt.");
       } catch {
-        showResult("Poptávku se nepodařilo odeslat.", "Zkuste to prosím znovu. Vyplněné údaje zůstaly zachované; případně nám napište přímo na bonesavermusic@gmail.com.");
+        showResult("Poptávku se nepodařilo odeslat.", "Zkuste to prosím znovu. Vyplněné údaje zůstaly zachované; případně nám napište přímo na bonesavermusic@gmail.com.", true);
       } finally {
         clearTimeout(timeout);
         submitButton.innerHTML = defaultButtonContent;

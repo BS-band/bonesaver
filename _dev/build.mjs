@@ -43,14 +43,11 @@ const photoSizes = {
   "band-photo-1": [960, 640],
   "band-photo-2": [921, 614],
 };
+const heroSizes = "(max-width: 700px) 100vw, 50vw";
 function photo(
   name,
   alt,
-  {
-    eager = false,
-    className = "",
-    sizes = "(max-width: 700px) 100vw, 50vw",
-  } = {},
+  { eager = false, className = "", sizes = heroSizes } = {},
 ) {
   const [width, height] = photoSizes[name];
   return `<img class="${className}" src="/img/optimized/${name}-1200.webp" srcset="/img/optimized/${name}-640.webp 640w, /img/optimized/${name}-1200.webp ${width}w" sizes="${sizes}" width="${width}" height="${height}" alt="${esc(alt)}" loading="${eager ? "eager" : "lazy"}" ${eager ? 'fetchpriority="high"' : ""} decoding="async">`;
@@ -184,7 +181,7 @@ function shell(page) {
   const url = site.url + (page.file === "index.html" ? "/" : "/" + page.file);
   return `<!doctype html>
 <html lang="cs" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(page.title)}</title><meta name="description" content="${esc(page.description)}"><meta name="theme-color" content="#10141b">${page.key === "404" ? '<meta name="robots" content="noindex">' : ""}<link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:site_name" content="BoneSaver"><meta property="og:locale" content="cs_CZ"><meta property="og:url" content="${url}"><meta property="og:title" content="${esc(page.title)}"><meta property="og:description" content="${esc(page.description)}"><meta property="og:image" content="${site.url}/img/optimized/social.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Pětičlenná kapela BoneSaver z Pardubic"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(page.title)}"><meta name="twitter:description" content="${esc(page.description)}"><meta name="twitter:image" content="${site.url}/img/optimized/social.jpg"><link rel="icon" type="image/png" sizes="48x48" href="/img/optimized/favicon-48.png"><link rel="apple-touch-icon" href="/img/optimized/apple-touch-icon.png">
-<script>document.documentElement.classList.add('js');try{const t=localStorage.getItem('bonesaver-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script><link rel="stylesheet" href="/assets/fonts/fonts.css"><link rel="stylesheet" href="/style.css"><script type="application/ld+json">${schema(page)}</script><script src="/script.js" defer></script></head><body data-page="${page.key}">${header(page.key)}<main id="main" tabindex="-1">${page.body}</main>${footer()}</body></html>\n`;
+<script>document.documentElement.classList.add('js');try{const t=localStorage.getItem('bonesaver-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>${page.file === "index.html" ? `<link rel="preload" as="image" imagesrcset="/img/optimized/hero-background3-640.webp 640w, /img/optimized/hero-background3-1200.webp ${photoSizes["hero-background3"][0]}w" imagesizes="${heroSizes}" fetchpriority="high">` : ""}<link rel="stylesheet" href="/assets/fonts/fonts.css"><link rel="stylesheet" href="/style.css"><script type="application/ld+json">${schema(page)}</script><script src="/script.js" defer></script></head><body data-page="${page.key}">${header(page.key)}<main id="main" tabindex="-1">${page.body}</main>${footer()}</body></html>\n`;
 }
 function sectionTitle(kicker, title, intro = "") {
   return `<div class="section-heading"><p class="eyebrow">${kicker}</p><h2>${title}</h2>${intro ? `<p>${intro}</p>` : ""}</div>`;
@@ -202,14 +199,15 @@ function serviceCards() {
   return `<div class="service-grid">${services.map((s) => `<a class="service-card" href="/${s.file}"><span class="service-number">${s.number}</span><h3>${s.label}</h3><p>${s.short}</p><span class="service-link">Jak to může vypadat ${arrow}</span></a>`).join("")}</div>`;
 }
 function inquiryForm() {
-  return `<form id="inquiryForm" class="inquiry-form" data-inquiry method="post" action="https://api.web3forms.com/submit">
+  return `<form id="inquiryForm" class="inquiry-form" data-inquiry method="post" action="https://api.web3forms.com/submit" novalidate>
+    <div class="form-error-summary" id="inquiryErrorSummary" role="alert" tabindex="-1" hidden></div>
     <input type="hidden" name="access_key" value="${esc(web3formsAccessKey)}"><input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honeypot">
-    <div class="form-row"><div class="field"><label for="eventType">Co plánujete?</label><select id="eventType" name="eventType"><option value="svatba">Svatbu</option><option value="ples">Ples / maturitní ples</option><option value="firemni">Firemní akci</option><option value="verejna">Veřejnou akci / slavnost</option><option value="oslava">Oslavu / jinou akci</option></select></div><div class="field"><label for="eventDate">Datum akce</label><input type="date" id="eventDate" name="eventDate" required><label class="check-label" for="dateUnknown"><input type="checkbox" id="dateUnknown" name="dateUnknown">Termín ještě neznám</label></div></div>
-    <div class="field"><label for="eventLocation">Kde se bude hrát?</label><input id="eventLocation" name="eventLocation" autocomplete="address-level2" placeholder="Město, obec nebo místo konání" maxlength="160" required></div>
-    <div class="form-row"><div class="field"><label for="contactName">Vaše jméno</label><input id="contactName" name="contactName" autocomplete="name" maxlength="100" required></div><div class="field"><label for="contactEmail">Váš e-mail</label><input id="contactEmail" name="contactEmail" type="email" autocomplete="email" maxlength="180" required></div></div>
+    <div class="form-row"><div class="field"><label for="eventType">Co plánujete?</label><select id="eventType" name="eventType"><option value="svatba">Svatbu</option><option value="ples">Ples / maturitní ples</option><option value="firemni">Firemní akci</option><option value="verejna">Veřejnou akci / slavnost</option><option value="oslava">Oslavu / jinou akci</option></select></div><div class="field"><label for="eventDate">Datum akce</label><input type="date" id="eventDate" name="eventDate" required aria-describedby="eventDateError"><label class="check-label" for="dateUnknown"><input type="checkbox" id="dateUnknown" name="dateUnknown">Termín ještě neznám</label><span class="field-error" id="eventDateError" hidden></span></div></div>
+    <div class="field"><label for="eventLocation">Kde se bude hrát?</label><input id="eventLocation" name="eventLocation" autocomplete="address-level2" placeholder="Město, obec nebo místo konání" maxlength="160" required aria-describedby="eventLocationError"><span class="field-error" id="eventLocationError" hidden></span></div>
+    <div class="form-row"><div class="field"><label for="contactName">Vaše jméno</label><input id="contactName" name="contactName" autocomplete="name" maxlength="100" required aria-describedby="contactNameError"><span class="field-error" id="contactNameError" hidden></span></div><div class="field"><label for="contactEmail">Váš e-mail</label><input id="contactEmail" name="contactEmail" type="email" autocomplete="email" maxlength="180" required aria-describedby="contactEmailError"><span class="field-error" id="contactEmailError" hidden></span></div></div>
     <div class="field"><label for="contactPhone">Telefon <span>(nepovinné)</span></label><input type="tel" id="contactPhone" name="contactPhone" autocomplete="tel" maxlength="40"></div>
     <div class="field"><label for="eventNotes">Ještě něco důležitého? <span>(nepovinné)</span></label><textarea id="eventNotes" name="eventNotes" rows="3" maxlength="1200" placeholder="Čas hraní, přibližný počet hostů nebo píseň na přání…"></textarea></div>
-    <p class="form-info">Po odeslání vám potvrdíme, zda poptávka dorazila do naší služby pro e-mailové zprávy.</p><button type="submit" class="button" disabled>Odeslat nezávaznou poptávku ${arrow}</button><p class="form-privacy">Údaje použijeme k domluvě vystoupení a při odeslání je předáme službě Web3Forms. <a href="/soukromi.html">Jak nakládáme s údaji</a></p><noscript><p>Pro odeslání poptávky zapněte JavaScript, nebo napište přímo na <a href="mailto:${site.email}">${site.email}</a>.</p></noscript>
+    <p class="form-info">Po odeslání uvidíte potvrzení, že poptávka dorazila. Ozveme se na uvedený kontakt.</p><button type="submit" class="button" disabled>Odeslat nezávaznou poptávku ${arrow}</button><p class="form-privacy">Údaje použijeme k domluvě vystoupení a při odeslání je předáme službě Web3Forms. <a href="/soukromi.html">Jak nakládáme s údaji</a></p><noscript><p>Pro odeslání poptávky zapněte JavaScript, nebo napište přímo na <a href="mailto:${site.email}">${site.email}</a>.</p></noscript>
     <section id="inquiryResult" class="inquiry-result" hidden aria-labelledby="resultHeading" role="status" aria-live="polite"><h3 id="resultHeading" tabindex="-1"></h3><p id="resultMessage"></p></section>
   </form>`;
 }
