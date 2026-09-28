@@ -34,13 +34,35 @@ Datum `lastmod` v sitemapě se mění při sestavení; udržovat ho pravdivé.
 
 ## Dokumenty ke stažení
 
-Pracovní vzor smlouvy v PDF a DOCX je v `assets/documents/` a odkazuje na něj `/kontakt.html#dokumenty`. Zdroj dokumentu je `_dev/build-contract.py`, textovou shodu DOCX a PDF ověřuje `_dev/verify-contract.py`. Stage plán a plesový repertoár pro OSA dodal majitel; jejich obsah se nemění, upravují se jen názvy souborů pro web.
+Pracovní vzor smlouvy v PDF a DOCX je v `assets/documents/` a odkazuje na něj `/kontakt.html#dokumenty`. Zdroj dokumentu je `_dev/build-contract.py`, textovou shodu DOCX a PDF ověřuje `_dev/verify-contract.py`.
+
+Repertoárové PDF se generují z dat webu a **neupravují se ručně**:
+
+- `assets/bonesaver-repertoar.pdf`: všech 174 skladeb podle interpreta, vlastní tvorba vyznačená. Generuje se z `_dev/data/repertoire.json`.
+- `assets/documents/bonesaver-repertoar-pro-plesy-osa-2026.pdf`: 60 skladeb pro plesy v pořadí, které dodal majitel (28. 9. 2026 opravené překlepy zdroje).
+
+Postup: vytvořit tiskové HTML (A4, tabulka nebo číslovaný seznam) a vyrenderovat ho do PDF headless Chromem:
+
+```powershell
+& "$env:ProgramFiles\Google\Chrome\Application\chrome.exe" --headless=new --no-pdf-header-footer --print-to-pdf=cesta.pdf tisk.html
+```
+
+Stage plán dodal majitel a generátor nemá; jeho obsah se needituje (obsahuje například překlep „Katarista“ ve zdrojovém Visio souboru).
+
+## Měření poptávek a návštěvnosti
+
+Web **záměrně neobsahuje žádné měřicí skripty**, dokud je majitel nezapne. Staví na dvou vrstvách:
+
+1. **Kontext poptávky v e-mailu** (funguje vždy, bez cookies a bez třetích stran): odeslaná zpráva obsahuje „Odesláno z:“ (stránka a parametry, např. `?akce=svatba`) a „Zdroj návštěvy:“ (utm parametry, jiná stránka webu, domény odkazujícího webu, nebo „přímý vstup“).
+2. **Volitelné měření návštěvnosti**: do `_dev/content.mjs` se vloží celý snippet poskytovatele (GoatCounter, Plausible, Umami, Google Tag Manager) přesně tak, jak ho dává jeho účet, a spustí se `node _dev/build.mjs`. Tím se snippet vloží do všech stránek, ve `script.js` se začnou odesílat události `poptavka-odeslana`, `klik-telefon`, `klik-email` a `prehrani-videa` a na stránce Soukromí se automaticky objeví oddíl o měření. Prázdná hodnota = web neposílá data nikam a Soukromí o měření mlčí.
+
+Vyhodnocení: Google Search Console a Bing Webmaster Tools (ověření přes meta značku nebo soubor; nástroje vyžadují přihlášení majitele) + Seznam Webmaster (ověřovací soubor už v repu je).
 
 ## Ověření webu
 
 `node _dev/verify.cjs` provede funkční kontroly a rozměrové kontroly 320–1440 px. Potřebuje běžící náhled, Chrome a balíček `playwright` (případně přes `NODE_PATH`); cestu k jinému Chrome lze nastavit proměnnou `CHROME_PATH`. Běžný provoz webu tyto testovací závislosti nepotřebuje.
 
-Kontroly zahrnují mimo jiné oba formuláře se simulovanou odpovědí služby, validaci s chybovým souhrnem, stažení všech dokumentů a ověření, že server interní soubory (`/_dev/...`, `/gcm-diagnose.log`, `/.git/config`) opravdu nevydává. Neúspěšné odeslání poptávky test neposílá do skutečné schránky — doručení musí před publikací ověřit majitel jednou zkušební zprávou.
+Kontroly zahrnují mimo jiné oba formuláře se simulovanou odpovědí služby, validaci s chybovým souhrnem, stažení všech dokumentů a ověření, že server interní soubory (`/_dev/...`, `/gcm-diagnose.log`, `/.git/config`) opravdu nevydává. Testy poptávku neodesílají do skutečné schránky (požadavek se zachytí a nahradí simulovanou odpovědí) — doručení musí před publikací ověřit majitel jednou zkušební zprávou.
 
 ## Interní podklady
 

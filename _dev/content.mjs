@@ -1,6 +1,13 @@
 // Editorial source of truth. Facts below come from the previous public website.
 // The owner approved all three existing testimonials on 2026-09-24.
 export const showTestimonials = true;
+// Měření návštěvnosti je vypnuté, dokud sem majitel nevloží celý snippet poskytovatele
+// (např. GoatCounter, Plausible, Umami nebo Google Tag Manager) přesně tak, jak ho dostane
+// ze svého účtu. Prázdná hodnota znamená, že web neposílá data žádné třetí straně a stránka
+// Soukromí o měření mlčí. Po vložení snippetu stačí spustit node _dev/build.mjs.
+export const measurement = {
+  snippet: "",
+};
 export const site = {
   name: "BoneSaver",
   url: "https://www.bonesaver.cz",

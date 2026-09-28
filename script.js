@@ -1,5 +1,13 @@
 (() => {
   "use strict";
+  // Měření se aktivuje až po vložení snippetu poskytovatele do `_dev/content.mjs`.
+  // Bez něj jsou tato volání prázdná a web neposílá data žádné třetí straně.
+  const track = (path, title) => {
+    window.goatcounter?.count?.({ path, title, event: true });
+    window.plausible?.(path);
+    window.umami?.track?.(path, { title });
+    window.dataLayer?.push?.({ event: path, event_title: title });
+  };
   const root = document.documentElement;
   const themeButton = document.querySelector(".theme-toggle");
   const updateTheme = () => {
@@ -74,6 +82,7 @@
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       frame.replaceChildren(iframe);
       frame.classList.add("is-playing");
+      track("prehrani-videa", "Přehrání videa");
       iframe.focus();
     });
   });
@@ -282,6 +291,27 @@
       if (!validate()) return;
       const value = (name) => form.elements[name].value.trim();
       const eventLabel = form.elements.eventType.selectedOptions[0].textContent;
+      // Kontext poptávky pro majitele: ze které stránky přišla a odkud návštěvník přišel.
+      // Žádné cookies ani sledování, jen údaje přiložené k samotné poptávce.
+      const sentFrom =
+        location.pathname + (location.search ? location.search : "");
+      const visitSource = (() => {
+        const params = new URLSearchParams(location.search);
+        const campaign = ["utm_source", "utm_medium", "utm_campaign"]
+          .map((key) => params.get(key))
+          .filter(Boolean)
+          .join(" / ");
+        if (campaign) return campaign;
+        if (!document.referrer) return "přímý vstup";
+        try {
+          const url = new URL(document.referrer);
+          return url.origin === location.origin
+            ? `jiná stránka webu (${url.pathname})`
+            : url.hostname;
+        } catch {
+          return "nezjištěno";
+        }
+      })();
       const [year, month, day] = date.value.split("-");
       const eventDate = unknown.checked
         ? "Termín ještě neznám"
@@ -296,7 +326,7 @@
       formData.set("event_type", eventLabel);
       formData.set("event_date", eventDate);
       formData.set("event_location", value("eventLocation"));
-      formData.set("message", `Typ akce: ${eventLabel}\nTermín: ${eventDate}\nMísto: ${value("eventLocation")}\nTelefon: ${value("contactPhone") || "Neuveden"}\n\nPoznámka:\n${value("eventNotes") || "Bez další poznámky."}`);
+      formData.set("message", `Typ akce: ${eventLabel}\nTermín: ${eventDate}\nMísto: ${value("eventLocation")}\nTelefon: ${value("contactPhone") || "Neuveden"}\n\nPoznámka:\n${value("eventNotes") || "Bez další poznámky."}\n\n—\nOdesláno z: ${sentFrom}\nZdroj návštěvy: ${visitSource}`);
       formData.set("botcheck", value("botcheck"));
       submitButton.disabled = true;
       submitButton.textContent = "Odesílám…";
@@ -313,6 +343,7 @@
         if (!response.ok || data.success !== true) throw new Error("Send failed");
         form.reset();
         syncDate();
+        track("poptavka-odeslana", "Poptávka odeslána");
         showResult("Poptávka byla odeslána.", "Děkujeme. Brzy se vám ozveme na uvedený kontakt.");
       } catch {
         showResult("Poptávku se nepodařilo odeslat.", "Zkuste to prosím znovu. Vyplněné údaje zůstaly zachované; případně nám napište přímo na bonesavermusic@gmail.com.", true);
@@ -334,6 +365,14 @@
         { threshold: 0.05 },
       ).observe(form);
   }
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.("a[href]");
+    if (!link) return;
+    const href = link.getAttribute("href") || "";
+    if (href.startsWith("tel:")) track("klik-telefon", "Klik na telefon");
+    else if (href.startsWith("mailto:"))
+      track("klik-email", "Klik na e-mail");
+  });
   const updateScroll = () =>
     document.body.classList.toggle("is-scrolled", window.scrollY > 500);
   window.addEventListener("scroll", updateScroll, { passive: true });
