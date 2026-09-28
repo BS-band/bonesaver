@@ -54,7 +54,12 @@ Stage plán dodal majitel a generátor nemá; jeho obsah se needituje (obsahuje 
 Web **záměrně neobsahuje žádné měřicí skripty**, dokud je majitel nezapne. Staví na dvou vrstvách:
 
 1. **Kontext poptávky v e-mailu** (funguje vždy, bez cookies a bez třetích stran): odeslaná zpráva obsahuje „Odesláno z:“ (stránka a parametry, např. `?akce=svatba`) a „Zdroj návštěvy:“ (utm parametry, jiná stránka webu, domény odkazujícího webu, nebo „přímý vstup“).
-2. **Volitelné měření návštěvnosti**: do `_dev/content.mjs` se vloží celý snippet poskytovatele (GoatCounter, Plausible, Umami, Google Tag Manager) přesně tak, jak ho dává jeho účet, a spustí se `node _dev/build.mjs`. Tím se snippet vloží do všech stránek, ve `script.js` se začnou odesílat události `poptavka-odeslana`, `klik-telefon`, `klik-email` a `prehrani-videa` a na stránce Soukromí se automaticky objeví oddíl o měření. Prázdná hodnota = web neposílá data nikam a Soukromí o měření mlčí.
+2. **Volitelné měření návštěvnosti** v `_dev/content.mjs`; po každé změně spustit `node _dev/build.mjs`:
+   - `ga4Id: "G-XXXXXXXXXX"` — Google Analytics 4. Web vloží jen meta značku `ga4-id`; `script.js` pak zobrazí lištu se souhlasem a **skript Googlu načte až po kliknutí na „Přijmout“** (do té doby žádný požadavek na cizí server). Volba se ukládá do `localStorage` pod klíčem `bonesaver-consent`, odvolat ji lze tlačítkem „Nastavení měření“ v patičce. Souhlas je nutný, protože GA4 používá cookies.
+   - `snippet: "..."` — alternativa bez cookies (GoatCounter, Plausible, Umami) se vloží do stránek doslova a bez lišty.
+   Obě volby rozesílají události `poptavka_odeslana`, `klik_telefon`, `klik_email` a `prehrani_videa` (názvy s podtržítkem kvůli GA4) a na stránce Soukromí se automaticky objeví odpovídající oddíl o měření. Prázdné hodnoty = web neposílá data nikam a Soukromí o měření mlčí.
+
+   Když je lišta otevřená, skrývá se spodní mobilní lišta s telefonem (`body.consent-open`), aby se nepřekrývaly.
 
 Vyhodnocení: Google Search Console a Bing Webmaster Tools (ověření přes meta značku nebo soubor; nástroje vyžadují přihlášení majitele) + Seznam Webmaster (ověřovací soubor už v repu je).
 

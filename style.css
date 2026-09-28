@@ -1347,6 +1347,66 @@ input[type="checkbox"] {
   padding-block: 6px;
   margin-block: -6px;
 }
+.footer-bottom .link-button {
+  background: none;
+  border: 0;
+  padding-block: 8px;
+  margin-block: -8px;
+  color: inherit;
+  font: inherit;
+  font-size: 0.61rem;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+/* Lišta se souhlasem s měřením. Zobrazí se jen po zapnutí Google Analytics. */
+.consent-bar {
+  position: fixed;
+  z-index: 40;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px calc(16px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+.consent-bar p {
+  margin: 0;
+  max-width: 720px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.consent-bar p a {
+  color: var(--accent);
+}
+.consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.consent-bar button {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.consent-bar button[data-consent="accept"] {
+  background: var(--button);
+  border-color: var(--button);
+  color: #fff;
+}
+body.consent-open .mobile-contact {
+  display: none;
+}
 /* Chybové stavy poptávkového formuláře. */
 .form-error-summary {
   border: 1px solid var(--error);

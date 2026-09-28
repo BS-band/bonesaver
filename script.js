@@ -6,8 +6,77 @@
     window.goatcounter?.count?.({ path, title, event: true });
     window.plausible?.(path);
     window.umami?.track?.(path, { title });
-    window.dataLayer?.push?.({ event: path, event_title: title });
+    if (window.gtag)
+      window.gtag("event", path, { event_category: "web", event_label: title });
+    else window.dataLayer?.push?.({ event: path, event_title: title });
   };
+  // --- Souhlas s měřením. Google Analytics se načte až po „Přijmout“, do té doby
+  // nevznikne žádný požadavek na servery Googlu. Meta značku přidává build jen tehdy,
+  // když je v _dev/content.mjs vyplněné ga4Id.
+  const CONSENT_KEY = "bonesaver-consent";
+  const ga4Id = document.querySelector('meta[name="ga4-id"]')?.content || "";
+  const readConsent = () => {
+    try {
+      const value = localStorage.getItem(CONSENT_KEY);
+      return value === "granted" || value === "denied" ? value : "";
+    } catch {
+      return "";
+    }
+  };
+  const writeConsent = (value) => {
+    try {
+      localStorage.setItem(CONSENT_KEY, value);
+    } catch {
+      /* Bez úložiště se měření prostě nenačte. */
+    }
+  };
+  const loadGa4 = () => {
+    if (!ga4Id || document.querySelector("script[data-ga4]")) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", ga4Id, { anonymize_ip: true });
+    const script = document.createElement("script");
+    script.async = true;
+    script.dataset.ga4 = "1";
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ga4Id)}`;
+    document.head.append(script);
+  };
+  let consentBar = null;
+  const closeConsentBar = () => {
+    consentBar?.remove();
+    consentBar = null;
+    document.body.classList.remove("consent-open");
+  };
+  const openConsentBar = () => {
+    if (consentBar || !ga4Id) return;
+    consentBar = document.createElement("aside");
+    consentBar.className = "consent-bar";
+    consentBar.setAttribute("role", "region");
+    consentBar.setAttribute("aria-label", "Souhlas s měřením návštěvnosti");
+    consentBar.innerHTML =
+      '<p>Rádi bychom měřili návštěvnost webu službou Google Analytics, abychom věděli, které stránky lidem pomáhají. Měřicí skript se načte jen s vaším souhlasem. <a href="/soukromi.html">Jak nakládáme s údaji</a></p><div class="consent-actions"><button type="button" data-consent="deny">Odmítnout</button><button type="button" data-consent="accept">Přijmout</button></div>';
+    consentBar.addEventListener("click", (event) => {
+      const choice = event.target.closest?.("[data-consent]")?.dataset.consent;
+      if (!choice) return;
+      writeConsent(choice === "accept" ? "granted" : "denied");
+      if (choice === "accept") loadGa4();
+      closeConsentBar();
+    });
+    document.body.append(consentBar);
+    document.body.classList.add("consent-open");
+  };
+  if (ga4Id) {
+    const stored = readConsent();
+    if (stored === "granted") loadGa4();
+    else if (!stored) openConsentBar();
+    document.querySelectorAll(".consent-settings").forEach((button) => {
+      button.hidden = false;
+      button.addEventListener("click", openConsentBar);
+    });
+  }
   const root = document.documentElement;
   const themeButton = document.querySelector(".theme-toggle");
   const updateTheme = () => {
@@ -82,7 +151,7 @@
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       frame.replaceChildren(iframe);
       frame.classList.add("is-playing");
-      track("prehrani-videa", "Přehrání videa");
+      track("prehrani_videa", "Přehrání videa");
       iframe.focus();
     });
   });
@@ -343,7 +412,7 @@
         if (!response.ok || data.success !== true) throw new Error("Send failed");
         form.reset();
         syncDate();
-        track("poptavka-odeslana", "Poptávka odeslána");
+        track("poptavka_odeslana", "Poptávka odeslána");
         showResult("Poptávka byla odeslána.", "Děkujeme. Brzy se vám ozveme na uvedený kontakt.");
       } catch {
         showResult("Poptávku se nepodařilo odeslat.", "Zkuste to prosím znovu. Vyplněné údaje zůstaly zachované; případně nám napište přímo na bonesavermusic@gmail.com.", true);
@@ -369,9 +438,8 @@
     const link = event.target.closest?.("a[href]");
     if (!link) return;
     const href = link.getAttribute("href") || "";
-    if (href.startsWith("tel:")) track("klik-telefon", "Klik na telefon");
-    else if (href.startsWith("mailto:"))
-      track("klik-email", "Klik na e-mail");
+    if (href.startsWith("tel:")) track("klik_telefon", "Klik na telefon");
+    else if (href.startsWith("mailto:")) track("klik_email", "Klik na e-mail");
   });
   const updateScroll = () =>
     document.body.classList.toggle("is-scrolled", window.scrollY > 500);

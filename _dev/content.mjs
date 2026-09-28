@@ -1,11 +1,18 @@
 // Editorial source of truth. Facts below come from the previous public website.
 // The owner approved all three existing testimonials on 2026-09-24.
 export const showTestimonials = true;
-// Měření návštěvnosti je vypnuté, dokud sem majitel nevloží celý snippet poskytovatele
-// (např. GoatCounter, Plausible, Umami nebo Google Tag Manager) přesně tak, jak ho dostane
-// ze svého účtu. Prázdná hodnota znamená, že web neposílá data žádné třetí straně a stránka
-// Soukromí o měření mlčí. Po vložení snippetu stačí spustit node _dev/build.mjs.
+// Měření návštěvnosti je vypnuté, dokud sem majitel něco nevloží. Prázdné hodnoty znamenají,
+// že web neposílá data žádné třetí straně a stránka Soukromí o měření mlčí.
+//
+// ga4Id: ID měření z Google Analytics 4 (formát "G-XXXXXXXXXX", v účtu je najdete pod
+//   Administrátor → Datové streamy → web → ID měření). Google Analytics používá cookies,
+//   proto se skript načte až po kliknutí na „Přijmout“ v liště se souhlasem; do té doby
+//   nevznikne žádný požadavek na servery Googlu.
+// snippet: alternativa bez cookies a bez lišty se souhlasem (GoatCounter, Plausible, Umami…).
+//   Vloží se do stránek doslova tak, jak ho poskytovatel dává.
+// Při jakékoli změně spustit `node _dev/build.mjs`.
 export const measurement = {
+  ga4Id: "",
   snippet: "",
 };
 export const site = {
