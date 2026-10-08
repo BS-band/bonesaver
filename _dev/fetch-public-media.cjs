@@ -36,6 +36,11 @@ const videos = [
     title: "Špinavý záda — Hudba Praha",
     description: "Živý záznam skladby Hudby Praha v podání kapely BoneSaver.",
   },
+  {
+    id: "wyVl4-MMgPg",
+    title: "BoneSaver v Rosignanu 2025 — Best of Gig",
+    description: "Sestřih živého vystoupení kapely BoneSaver v Rosignanu v roce 2025.",
+  },
 ];
 async function get(url) {
   const response = await fetch(url, {
@@ -95,19 +100,23 @@ async function fonts() {
   }
   console.log(`Self-hosted ${downloaded.size} font subsets.`);
 }
+async function saveVideoThumbnail(video) {
+  await fs.mkdir(path.join(root, "img/videos"), { recursive: true });
+  const bytes = Buffer.from(
+    await (
+      await get(`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`)
+    ).arrayBuffer(),
+  );
+  // Standard hqdefault has 45px letterboxing above/below its 480x270 picture.
+  await sharp(bytes)
+    .extract({ left: 0, top: 45, width: 480, height: 270 })
+    .webp({ quality: 86 })
+    .toFile(path.join(root, `img/videos/video-${video.id}.webp`));
+}
 async function videoMedia() {
   await fs.mkdir(path.join(root, "img/videos"), { recursive: true });
   for (const video of videos) {
-    const bytes = Buffer.from(
-      await (
-        await get(`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`)
-      ).arrayBuffer(),
-    );
-    // Standard hqdefault has 45px letterboxing above/below its 480x270 picture.
-    await sharp(bytes)
-      .extract({ left: 0, top: 45, width: 480, height: 270 })
-      .webp({ quality: 86 })
-      .toFile(path.join(root, `img/videos/video-${video.id}.webp`));
+    await saveVideoThumbnail(video);
     try {
       const html = await (
         await get(`https://www.youtube.com/watch?v=${video.id}`)
@@ -131,7 +140,10 @@ async function videoMedia() {
     JSON.stringify(videos, null, 2) + "\n",
   );
 }
-Promise.all([fonts(), videoMedia()]).catch((error) => {
+const onlyThumbnail = process.argv[2] === "--thumbnail-only";
+const selectedVideo = onlyThumbnail && videos.find((v) => v.id === process.argv[3]);
+if (onlyThumbnail && !selectedVideo) throw new Error("Unknown video ID.");
+(onlyThumbnail ? saveVideoThumbnail(selectedVideo) : Promise.all([fonts(), videoMedia()])).catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });

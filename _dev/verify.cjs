@@ -380,9 +380,19 @@ async function check(name, fn) {
       },
     );
     await check(
-      "Video starts only on click (external playback request stubbed)",
+      "BuďFit Fest and Rosignano lead both pages; videos start only on click",
       async () => {
+        await page.goto(base + "/");
+        assert.deepEqual(
+          await page.locator("#ukazky .featured-video-grid [data-video]").evaluateAll((frames) => frames.map((frame) => frame.dataset.video)),
+          ["_o0jpleViPc", "wyVl4-MMgPg"],
+        );
         await page.goto(base + "/ukazky.html");
+        assert.deepEqual(
+          await page.locator(".featured-video-grid [data-video]").evaluateAll((frames) => frames.map((frame) => frame.dataset.video)),
+          ["_o0jpleViPc", "wyVl4-MMgPg"],
+        );
+        assert.equal(await page.locator("[data-video]").count(), 7);
         assert.equal(await page.locator("iframe").count(), 0);
         await page.route("https://www.youtube-nocookie.com/**", (route) =>
           route.fulfill({
@@ -398,6 +408,12 @@ async function check(name, fn) {
           /^https:\/\/www.youtube-nocookie.com\/embed\/_o0jpleViPc\?/,
         );
         assert(await page.locator("iframe").getAttribute("title"));
+        await page.locator('.featured-video-grid [data-video="wyVl4-MMgPg"] .video-play').click();
+        assert.equal(await page.locator("iframe").count(), 2);
+        assert.match(
+          await page.locator('.featured-video-grid [data-video="wyVl4-MMgPg"] iframe').getAttribute("src"),
+          /^https:\/\/www.youtube-nocookie.com\/embed\/wyVl4-MMgPg\?/,
+        );
       },
     );
     await check(

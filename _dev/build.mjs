@@ -21,6 +21,9 @@ const songs = JSON.parse(
 const videos = JSON.parse(
   await readFile(new URL("data/videos.json", import.meta.url), "utf8"),
 );
+const featuredVideos = [videos[0], videos.find((v) => v.id === "wyVl4-MMgPg")];
+if (featuredVideos.some((video) => !video))
+  throw new Error("Featured video is missing from video data.");
 if (
   songs.length !== 174 ||
   songs.filter((s) => s.genre === "bonesaver").length !== 16
@@ -235,7 +238,7 @@ function home() {
     ["Malá dáma", "Kabát", "Rock"],
   ];
   return `<section class="hero"><div class="container hero-grid"><div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> Živá kapela z Pardubic</p><h1>BoneSaver.<br><span>Naživo pro vás.</span></h1><p class="lead">Pět muzikantů, saxofon a písničky, které znáte.<br class="desktop-break"> Pro svatby, plesy a večery, na které se vzpomíná.</p><div class="button-row">${link("#poptavka", "Ověřit termín", "button")}<a class="button button-quiet" href="#ukazky">${play} Poslechnout kapelu</a></div><p class="hero-region">Pardubice · východní Čechy · celá ČR</p></div><div class="hero-media"><div class="photo-corner"></div>${photo("hero-background3", "Pět členů kapely BoneSaver s nástroji při společném focení", { eager: true })}<span class="photo-stamp">Pět lidí.<br>Jeden zvuk.</span><div class="hero-caption"><span>ROCK / POP / SAXOFON</span><span>100% NAŽIVO ${bolt}</span></div></div></div><div class="container"><div class="hero-proof"><p><strong>174</strong> skladeb v repertoáru</p><p><strong>5</strong> muzikantů v sestavě</p><p><strong>Vlastní</strong> ozvučení a světla</p></div></div></section>
-    <section class="section live-section" id="ukazky"><div class="container live-grid"><div>${sectionTitle("Nejdřív si nás pusťte", "Takhle zní<br>BoneSaver naživo.", "Živý záznam vám řekne víc než dlouhé představování. Poslechněte si zpěv, kytary, rytmiku i náš saxofon.")}<p class="live-side-note">Známé hity.<br>Naše vlastní energie.</p>${link("/ukazky.html", "Všech 6 živých ukázek")}</div>${videoCard(videos[0], true)}</div></section>
+    <section class="section live-section" id="ukazky"><div class="container"><div class="section-heading-row">${sectionTitle("Nejdřív si nás pusťte", "Takhle zní<br>BoneSaver naživo.", "Živé záznamy vám řeknou víc než dlouhé představování. Poslechněte si kapelu při vystoupení.")}${link("/ukazky.html", `Všech ${videos.length} živých ukázek`)}</div><div class="featured-video-grid">${featuredVideos.map((video) => videoCard(video, true)).join("")}</div></div></section>
     ${showTestimonials ? `<section class="section testimonials-section"><div class="container">${sectionTitle("Po dohrání", "Jak na nás vzpomínají pořadatelé")}<div class="testimonials-grid">${testimonials.map((t) => `<figure class="testimonial"><blockquote>„${esc(t.quote)}“</blockquote><figcaption><strong>${esc(t.author)}</strong><span>${esc(t.event)}</span></figcaption></figure>`).join("")}</div></div></section>` : ""}
     <section class="section section-tint" id="akce"><div class="container">${sectionTitle("Každý večer má svůj rytmus", "Co společně chystáme?", "Vyberte si svou akci. Projdeme s vámi program i praktické detaily.")} ${serviceCards()}</div></section>
     <section class="section"><div class="container split-content"><div>${sectionTitle("Hudba a všechno kolem", "Dobrá domluva.<br>Pak už jen muzika.")}<p>Před akcí spolu projdeme časový plán, místo i vaše oblíbené písničky. Máme vlastní zvuk a světla; technické řešení přizpůsobíme konkrétním podmínkám.</p>${link("/kontakt.html#otazky", "Praktické otázky a odpovědi")}</div><ol class="steps"><li><span>01</span><div><h3>Napište nám svou představu</h3><p>Termín, místo a typ akce. To stačí pro první domluvu.</p></div></li><li><span>02</span><div><h3>Doladíme program a nabídku</h3><p>Hudbu, délku hraní, techniku i cenu pro vaši akci.</p></div></li><li><span>03</span><div><h3>Potkáme se před pódiem</h3><p>S domluveným plánem a nástroji připravenými na váš večer.</p></div></li></ol></div></section>
@@ -305,9 +308,9 @@ const pages = [
     label: "Ukázky",
     title: "BoneSaver naživo | Video ukázky kapely z Pardubic",
     description:
-      "Poslechněte si BoneSaver naživo. Šest video ukázek z firemních a veřejných akcí: rock, pop, české hity a saxofon.",
-    body: `${pageHero("Živé ukázky", "Dejte nám<br><span>chvíli poslechu.</span>", "Sestřihy i celé skladby ze živých vystoupení. Poslechněte si kapelu tak, jak hraje před lidmi.")}<section class="section"><div class="container">${videoCard(videos[0], true, 2)}<div class="video-grid">${videos
-      .slice(1)
+      "Poslechněte si BoneSaver naživo. Sedm video ukázek z vystoupení včetně BuďFit Festu a Rosignana: rock, pop, české hity a saxofon.",
+    body: `${pageHero("Živé ukázky", "Dejte nám<br><span>chvíli poslechu.</span>", "Sestřihy i celé skladby ze živých vystoupení. Poslechněte si kapelu tak, jak hraje před lidmi.")}<section class="section"><div class="container"><div class="featured-video-grid">${featuredVideos.map((video) => videoCard(video, true, 2)).join("")}</div><div class="video-grid">${videos
+      .filter((video) => !featuredVideos.includes(video))
       .map((v) => videoCard(v, false, 2))
       .join(
         "",
@@ -378,7 +381,7 @@ await writeFile(
     .filter((p) => p.key !== "404")
     .map(
       (p) =>
-        `  <url><loc>${site.url}${p.file === "index.html" ? "/" : "/" + p.file}</loc><lastmod>2026-09-24</lastmod></url>`,
+        `  <url><loc>${site.url}${p.file === "index.html" ? "/" : "/" + p.file}</loc><lastmod>${["index.html", "ukazky.html"].includes(p.file) ? "2026-10-08" : "2026-09-24"}</lastmod></url>`,
     )
     .join("\n")}\n</urlset>\n`,
 );
