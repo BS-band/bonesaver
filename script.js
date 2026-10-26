@@ -247,7 +247,7 @@
     const requiredFields = [
       [
         "eventDate",
-        "Vyplňte prosím datum akce, nebo zvolte „Termín ještě neznám“.",
+        "Vyplňte prosím datum akce, nebo zvolte \"Termín ještě neznám\".",
         "Datum akce",
       ],
       [
@@ -387,7 +387,7 @@
         : `${day}. ${month}. ${year}`;
       const formData = new FormData();
       formData.set("access_key", value("access_key"));
-      formData.set("subject", `Poptávka BoneSaver — ${eventLabel}, ${eventDate}`);
+      formData.set("subject", `Poptávka BoneSaver - ${eventLabel}, ${eventDate}`);
       formData.set("from_name", "BoneSaver web");
       formData.set("name", value("contactName"));
       formData.set("email", value("contactEmail"));
@@ -395,7 +395,7 @@
       formData.set("event_type", eventLabel);
       formData.set("event_date", eventDate);
       formData.set("event_location", value("eventLocation"));
-      formData.set("message", `Typ akce: ${eventLabel}\nTermín: ${eventDate}\nMísto: ${value("eventLocation")}\nTelefon: ${value("contactPhone") || "Neuveden"}\n\nPoznámka:\n${value("eventNotes") || "Bez další poznámky."}\n\n—\nOdesláno z: ${sentFrom}\nZdroj návštěvy: ${visitSource}`);
+      formData.set("message", `Typ akce: ${eventLabel}\nTermín: ${eventDate}\nMísto: ${value("eventLocation")}\nTelefon: ${value("contactPhone") || "Neuveden"}\n\nPoznámka:\n${value("eventNotes") || "Bez další poznámky."}\n\n-\nOdesláno z: ${sentFrom}\nZdroj návštěvy: ${visitSource}`);
       formData.set("botcheck", value("botcheck"));
       submitButton.disabled = true;
       submitButton.textContent = "Odesílám…";

@@ -47,13 +47,13 @@ export const members = [
     note: "Basové linky a pevný základ společně s bicími.",
   },
   {
-    name: "David „Pasta“ Syrovec",
+    name: "David \"Pasta\" Syrovec",
     role: "Sólová kytara",
     image: "member-dsml",
     note: "Kytarová sóla, rockové riffy a zvuk elektrické kytary.",
   },
   {
-    name: "Petr „Dolfi“ Adam",
+    name: "Petr \"Dolfi\" Adam",
     role: "Bicí · zpěv",
     image: "member-pad",
     note: "Rytmus za bicími a další hlas ve zpěvu.",
@@ -102,7 +102,7 @@ export const faq = [
   ],
   [
     "Můžeme si vybrat písničku na přání?",
-    "Určitě nám svůj nápad napište. Nejdříve se společně podíváme do repertoáru. Pokud v něm vaše skladba není, včas probereme možnosti — zařazení nové písně je vždy věcí domluvy.",
+    "Určitě nám svůj nápad napište. Nejdříve se společně podíváme do repertoáru. Pokud v něm vaše skladba není, včas probereme možnosti - zařazení nové písně je vždy věcí domluvy.",
   ],
   [
     "Co se hraje o přestávkách?",
@@ -110,7 +110,7 @@ export const faq = [
   ],
   [
     "Co když ještě neznáme přesný termín?",
-    "I tak se nám ozvěte. Ve formuláři můžete zvolit „Termín ještě neznám“ a do poznámky napsat například měsíc nebo několik možných dat. Dostupnost následně ověříme společně.",
+    "I tak se nám ozvěte. Ve formuláři můžete zvolit \"Termín ještě neznám\" a do poznámky napsat například měsíc nebo několik možných dat. Dostupnost následně ověříme společně.",
   ],
 ];
 export const services = [
